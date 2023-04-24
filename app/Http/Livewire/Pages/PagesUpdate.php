@@ -20,6 +20,7 @@ class PagesUpdate extends Component
     public ?string $slug = null;
     public ?string $seo_title = null;
     public ?string $seo_description = null;
+    public ?string $tags = null;
     public ?string $excerpt = null;
     public ?string $content = null;
     public ?string $fixed = null;
@@ -47,6 +48,7 @@ class PagesUpdate extends Component
         $this->slug = $item->slug;
         $this->seo_title = $item->seo_title;
         $this->seo_description = $item->seo_description;
+        $this->tags = $item->tags;
         $this->excerpt = $item->excerpt;
         $this->content = $item->content;
         $this->fixed = $item->fixed;
@@ -81,6 +83,7 @@ class PagesUpdate extends Component
             'slug' => Str::of($this->slug)->slug('-'),
             'seo_title' => $this->seo_title,
             'seo_description' => $this->seo_description,
+            'tags' => $this->tags,
             'excerpt' => $this->excerpt,
             'content' => $this->content,
             'fixed' => $this->fixed,

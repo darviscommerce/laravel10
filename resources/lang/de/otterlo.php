@@ -12,4 +12,9 @@ return [
     'Not Found' => 'Diese Seite existiert nicht (mehr)',
     'HOMEPAGE' => 'STARTSEITE',
     'not_Found_text' => '<strong>Diese Seite kann nicht gefunden werden</strong><br>Gehen Sie zur Homepage über die Schaltfläche unten:',
+    'homepage_quote' => 'Entspannen Sie sich in einer grünen Umgebung',
+    'book' => 'buchen',
+    'Holiday in Otterlo' => 'Urlaub in Otterlo',
+    'contact' => 'Kontakt',
+    'surroundings' => 'Otterlo &amp; Bereich',
 ];

@@ -12,4 +12,9 @@ return [
     'Not Found' => 'Deze pagina bestaat niet (meer)',
     'HOMEPAGE' => 'HOOFDPAGINA',
     'not_Found_text' => '<strong>Deze pagina kan niet worden gevonden </strong><br>Ga naar de homepagina via onderstaande knop:',
+    'homepage_quote' => 'Even bijkomen in een groenrijke omgeving',
+    'book' => 'boeken',
+    'Holiday in Otterlo' => 'Vakantie in Otterlo',
+    'contact' => 'Contact',
+    'surroundings' => 'Omgeving &amp; Otterlo',
 ];

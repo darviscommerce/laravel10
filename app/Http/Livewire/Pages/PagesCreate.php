@@ -21,6 +21,7 @@ class PagesCreate extends Component
     public ?string $slug = null;
     public ?string $seo_title = null;
     public ?string $seo_description = null;
+    public ?string $tags = null;
     public ?string $excerpt = null;
     public ?string $content = null;
     public int $fixed = 1;
@@ -79,6 +80,7 @@ class PagesCreate extends Component
             'slug' => Str::of($this->slug)->slug('-'),
             'seo_title' => $this->seo_title,
             'seo_description' => $this->seo_description,
+            'tags' => $this->tags,
             'excerpt' => $this->excerpt,
             'content' => $this->content,
             'fixed' => (int)$this->fixed,

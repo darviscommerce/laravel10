@@ -19,31 +19,31 @@
                 </a>
             </div>
             <div class="nav-language-wrapper">
-                <a href="#" target="_blank" class="language-link w-inline-block"><img
+                <a href="/nl/" class="language-link {{ app()->getLocale() != 'nl' ? 'deactive' : null }} w-inline-block"><img
                         src="/theme/otterlo/images/Nederlandsevlag.png" alt="" class="language-flag-img"></a>
-                <a href="#" target="_blank" class="language-link deactive w-inline-block"><img
+                <a href="/en/" class="language-link {{ app()->getLocale() != 'en' ? 'deactive' : null }} w-inline-block"><img
                         src="/theme/otterlo/images/engelsevlag.png" alt="" class="language-flag-img"></a>
-                <a href="#" target="_blank" class="language-link deactive w-inline-block"><img
+                <a href="/de/"  class="language-link {{ app()->getLocale() != 'de' ? 'deactive' : null }} w-inline-block"><img
                         src="/theme/otterlo/images/duitsevlag.png" alt="" class="language-flag-img"></a>
             </div>
         </div>
         <div class="navigation-bar">
-            <a href="index.html" aria-current="page" class="logo w-nav-brand w--current"><img
+            <a href="/" aria-current="page" class="logo w-nav-brand w--current"><img
                     src="/theme/otterlo/images/theme_logo.jpg" loading="lazy" sizes="(max-width: 479px) 50px, 65px"
                     srcset="/theme/otterlo/images/theme_logo-p-500.jpg 500w, /theme/otterlo/images/theme_logo.jpg 523w"
                     alt="" class="logo-image">
-                <div class="logo-font is--color_text">Vakantie in Otterlo</div>
+                <div class="logo-font is--color_text">{{ __('Holiday in Otterlo') }}</div>
             </a>
             <nav role="navigation" class="nav-menu w-nav-menu">
                 <div class="nav-link-wrapper">
-                    <a href="villa-mariposa.html" class="nav-ink w-nav-link">Villa Mariposa</a>
-                    <a href="villa-vlinder.html" class="nav-ink w-nav-link">Villa Vlinder</a>
-                    <a href="otterlo.html" class="nav-ink w-nav-link">Otterlo &amp; Omgeving</a>
-                    <a href="contact.html" class="nav-ink w-nav-link">Contact</a>
+                    <a href="/{{ app()->getLocale() }}/villa/mariposa" class="nav-ink w-nav-link">Villa Mariposa</a>
+                    <a href="/{{ app()->getLocale() }}/villa/vlinder" class="nav-ink w-nav-link">Villa Vlinder</a>
+                    <a href="{{ LaravelLocalization::transRoute('routes.surroundings') }}" class="nav-ink w-nav-link">{!! __('otterlo.surroundings') !!}</a>
+                    <a href="{{ LaravelLocalization::transRoute('routes.contact') }}" class="nav-ink w-nav-link">{{ __('otterlo.contact') }}</a>
                 </div>
-                <a href="boeken.html" class="button w-inline-block">
+                <a href="{{ LaravelLocalization::transRoute('routes.book') }}" class="button w-inline-block">
                     <div class="flex-align-center">
-                        <div class="margin-right_xs">Boeken</div>
+                        <div class="margin-right_xs">{{ __('otterlo.book') }}</div>
                     </div>
                 </a>
             </nav>

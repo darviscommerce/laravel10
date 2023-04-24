@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
 @endif
   <meta charset="utf-8">
-  <title>@yield('title', __('otterlo.seo_title'))</title>
+  <title>{{ app()->getLocale() }} @yield('title', __('otterlo.seo_title'))</title>
   <meta content="@yield('description', __('otterlo.seo_description'))" name="description">
   <meta content="@yield('title', __('otterlo.seo_title'))" property="og:title">
   <meta content="@yield('description', __('otterlo.seo_description'))" property="og:description">

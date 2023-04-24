@@ -6,7 +6,9 @@ use App\Http\Livewire\Otterlo\OtterloContact;
 use App\Http\Livewire\Otterlo\OtterloHomepage;
 use App\Http\Livewire\Otterlo\OtterloPage;
 use App\Http\Livewire\Otterlo\OtterloVilla;
+use App\Http\Livewire\Pages\PagesView;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +21,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',OtterloHomepage::class)->name('otterlo.homepage');
-Route::get('/boeken',OtterloBooking::class)->name('otterlo.booking');
-Route::get('/contact',OtterloContact::class)->name('otterlo.contact');
-Route::get('/omgeving',OtterloArea::class)->name('otterlo.area');
-Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
-Route::get('/villa/{input}',OtterloVilla::class)->name('otterlo.villa');
+
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localize' ]], function()
+{
+    Route::get('/',OtterloHomepage::class)->name('otterlo.homepage');
+    Route::get(LaravelLocalization::transRoute('routes.book'),OtterloBooking::class)->name('otterlo.booking');
+    Route::get(LaravelLocalization::transRoute('routes.contact'),OtterloContact::class)->name('otterlo.contact');
+    Route::get(LaravelLocalization::transRoute('routes.surroundings'),OtterloArea::class)->name('otterlo.area');
+    // Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
+    Route::get('/villa/{input}',OtterloVilla::class)->name('otterlo.villa');
+
+    Route::get('/{input}',PagesView::class)->name('otterlo.homepage');
+});
 
 Route::middleware([
     'auth:sanctum',

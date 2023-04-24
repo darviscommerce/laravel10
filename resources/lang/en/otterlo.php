@@ -12,4 +12,9 @@ return [
     'Not Found' => 'This page does not exist (anymore)',
     'HOMEPAGE' => 'HOMEPAGE',
     'not_Found_text' => '<strong>This page cannot be found</strong><br>Go to the homepage via the button below:',
+    'homepage_quote' => 'Relax in a green environment',
+    'book' => 'book',
+    'Holiday in Otterlo' => 'Holiday in Otterlo',
+    'contact' => 'Contact',
+    'surroundings' => 'Otterlo &amp; Area',
 ];
