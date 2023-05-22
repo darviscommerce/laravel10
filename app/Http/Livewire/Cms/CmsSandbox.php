@@ -14,7 +14,7 @@ class CmsSandbox extends Component
         // https://cloud.google.com/php/docs/reference/cloud-translate/latest?authuser=1
 
         $translate = new TranslateClient([
-            'key' => 'AIzaSyCQFDt5cgxg4CKziA1fa5UQiA7fof0ezfA'
+            'key' => env('GOOGLE_API')
         ]);
         
         // Translate text from english to french.
