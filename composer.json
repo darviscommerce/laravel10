@@ -7,8 +7,9 @@
     "require": {
         "php": "^8.1",
         "darvis/manta-laravel-cms": "*",
-        "darvis/manta-laravel-pages": "^1.0",
+        "darvis/manta-laravel-pages": "^0.1.5",
         "darvis/manta-laravel-uploads": "*",
+        "google/cloud-translate": "^1.13",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
         "laravel/framework": "^10.0",

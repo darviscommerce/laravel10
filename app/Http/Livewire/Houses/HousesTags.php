@@ -5,9 +5,8 @@ namespace App\Http\Livewire\Houses;
 use App\Models\MantaHouse;
 use Illuminate\Http\Request;
 use Livewire\Component;
-use Illuminate\Support\Str;
 
-class HousesUpdate extends Component
+class HousesTags extends Component
 {
     public MantaHouse $item;
 
@@ -18,16 +17,11 @@ class HousesUpdate extends Component
     public ?string $host = null;
     public ?string $locale = null;
     public ?string $pid = null;
-    public ?string $title = null;
-    public ?string $slogan = null;
-    public ?string $slug = null;
-    public ?string $seo_title = null;
-    public ?string $seo_description = null;
     public array $tags = [];
-    public ?string $excerpt = null;
-    public ?string $content = null;
 
-    public string $view = 'general';
+    public ?string $title = null;
+
+    public string $view = 'tags';
 
     public function mount(Request $request, $input)
     {
@@ -48,47 +42,46 @@ class HousesUpdate extends Component
         $this->company_id = $item->company_id;
         $this->host = $item->host;
         $this->locale = $item->locale;
-        $this->pid = $item->pid;
-        $this->title = $item->title;
-        $this->slogan = $item->slogan;
-        $this->slug = $item->slug;
-        $this->seo_title = $item->seo_title;
-        $this->seo_description = $item->seo_description;
-        $this->tags = (array)$item->tags;
-        $this->excerpt = $item->excerpt;
-        $this->content = $item->content;
+        $this->pid = $item->pid;   
+        $this->tags = (array)$item->tags;  
 
     }
 
     public function render()
     {
-        return view('livewire.houses.houses-update')->layout('layouts.manta-bootstrap');
+        return view('livewire.houses.houses-tags')->layout('layouts.manta-bootstrap');
+    }
+
+    public function addRow()
+    {
+        if(!empty($this->title))
+        {
+            $this->tags[] = $this->title;
+            $this->title = null;
+        } else {
+            toastr()->addError('Het veld is leeg');
+        }
+    }
+
+    public function unset($key)
+    {
+        unset($this->tags[$key]);
     }
 
     public function store($input)
     {
         $this->validate(
             [
-                'title' => 'required|min:1',
-                'slug' => 'required|min:1',
+                'tags' => 'required|array',
             ],
             [
                 'title.required' => 'Titel is verplicht',
-                'slug.required' => 'Slug is verplicht',
             ]
-        );
+        );   
 
         MantaHouse::where('id', $this->item->id)->update([
             'updated_by' => auth()->user()->name,
-            'locale' => $this->locale,
-            'title' => $this->title,
-            'slug' => Str::of($this->slug)->slug('-'),
-            'seo_title' => $this->seo_title,
-            'seo_description' => $this->seo_description,
             'tags' => (array)$this->tags,
-            'excerpt' => $this->excerpt,
-            'content' => $this->content,
-            'slogan' => $this->slogan
         ]);
 
         toastr()->addInfo('Item opgeslagen');

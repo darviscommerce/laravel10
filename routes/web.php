@@ -1,39 +1,15 @@
 <?php
 
+use App\Http\Livewire\Cms\CmsSandbox;
 use App\Http\Livewire\Otterlo\OtterloArea;
 use App\Http\Livewire\Otterlo\OtterloBooking;
 use App\Http\Livewire\Otterlo\OtterloContact;
 use App\Http\Livewire\Otterlo\OtterloHomepage;
-use App\Http\Livewire\Otterlo\OtterloPage;
 use App\Http\Livewire\Otterlo\OtterloVilla;
 use App\Http\Livewire\Pages\PagesView;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-
-Route::group(['prefix' => LaravelLocalization::setLocale(),
-'middleware' => [ 'localize' ]], function()
-{
-    Route::get('/',OtterloHomepage::class)->name('otterlo.homepage');
-    Route::get(LaravelLocalization::transRoute('routes.book'),OtterloBooking::class)->name('otterlo.booking');
-    Route::get(LaravelLocalization::transRoute('routes.contact'),OtterloContact::class)->name('otterlo.contact');
-    Route::get(LaravelLocalization::transRoute('routes.surroundings'),OtterloArea::class)->name('otterlo.area');
-    // Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
-    Route::get('/villa/{input}',OtterloVilla::class)->name('otterlo.villa');
-
-    Route::get('/{input}',PagesView::class)->name('otterlo.homepage');
-});
 
 Route::middleware([
     'auth:sanctum',
@@ -43,8 +19,17 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
+    Route::get('/sandbox', CmsSandbox::class)->name('manta.sandbox');
 
+    Route::get('/woningen', App\Http\Livewire\Houses\HousesList::class)->name('manta.houses.list');
+    Route::get('/woningen/toevoegen', App\Http\Livewire\Houses\HousesCreate::class)->name('manta.houses.create');
+    Route::get('/woningen/aanpassen/{input}', App\Http\Livewire\Houses\HousesUpdate::class)->name('manta.houses.update');
+    Route::get('/woningen/tags/{input}', App\Http\Livewire\Houses\HousesTags::class)->name('manta.houses.tags');
+    Route::get('/woningen/details/{input}', App\Http\Livewire\Houses\HousesDetails::class)->name('manta.houses.details');
+    Route::get('/woningen/headers/{input}', App\Http\Livewire\Houses\HousesHeaders::class)->name('manta.houses.headers');
+    Route::get('/woningen/fotos/{input}', App\Http\Livewire\Houses\HousesPhotos::class)->name('manta.houses.photos');
+
+});
 
 Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {
     Route::get('/dashboard', App\Http\Livewire\Cms\CmsGeneral::class)->name('manta.cms.general');
@@ -74,3 +59,16 @@ Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('ma
  */
 Route::get('/file/download/{uploads}', [App\Http\Controllers\MantaUploadController::class, 'download'])->name('file.download');
 Route::get('/file/serve/{uploads}', [App\Http\Controllers\MantaUploadController::class, 'serve'])->name('file.serve');
+
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localize' ]], function()
+{
+    Route::get('/',OtterloHomepage::class)->name('otterlo.homepage');
+    Route::get(LaravelLocalization::transRoute('routes.book'),OtterloBooking::class)->name('otterlo.booking');
+    Route::get(LaravelLocalization::transRoute('routes.contact'),OtterloContact::class)->name('otterlo.contact');
+    Route::get(LaravelLocalization::transRoute('routes.surroundings'),OtterloArea::class)->name('otterlo.area');
+    // Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
+    Route::get('/villa/{input}',OtterloVilla::class)->name('otterlo.villa');
+
+    Route::get('/{input}',PagesView::class)->name('otterlo.homepage');
+});

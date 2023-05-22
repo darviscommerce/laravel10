@@ -3,7 +3,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('manta.uploads.list') }}">Uploads</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Toevoegen {{ $pid }}</li>
+            <li class="breadcrumb-item active" aria-current="page">Toevoegen</li>
         </ol>
     </nav>
 

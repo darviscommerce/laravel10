@@ -77,7 +77,7 @@ class PagesUpdate extends Component
 
 
         $items = [
-            'created_by' => auth()->user()->name,
+            'updated_by' => auth()->user()->name,
             'locale' => $this->locale,
             'title' => $this->title,
             'slug' => Str::of($this->slug)->slug('-'),

@@ -16,6 +16,9 @@
                         @if (Route::has('manta.users.list'))
                             <li><a class="dropdown-item {{ preg_match('/users/', $currentRouteName) ? 'active' : null }}" href="{{ route('manta.users.list') }}">Gebruikers</a></li>
                         @endif
+                        @if (Route::has('manta.houses.list'))
+                            <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}" href="{{ route('manta.houses.list') }}">Huisjes</a></li>
+                        @endif
                         @if (Route::has('manta.pages.list'))
                             <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}" href="{{ route('manta.pages.list') }}">Tekst pagina's</a></li>
                         @endif

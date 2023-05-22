@@ -77,7 +77,7 @@
             @endforeach
             @if (count($items) == 0)
             <tr>
-                <td colspan="3"> Er zijn geen resultaten</td>
+                <td colspan="4"> Er zijn geen resultaten</td>
             </tr>
             @endif
         </tbody>
