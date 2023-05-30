@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('locale')->nullable();
             $table->integer('pid')->nullable();
             $table->integer('house_id')->nullable();
+            $table->integer('pid')->nullable();
             $table->string('title')->nullable();
             $table->text('details')->nullable();
         });

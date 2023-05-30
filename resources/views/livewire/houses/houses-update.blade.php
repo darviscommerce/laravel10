@@ -81,19 +81,6 @@
                 @endif
             </div>
         </div>
-     
-        <div class="mb-3 row">
-            <label for="tags" class="col-sm-2 col-form-label">Tags</label>
-            <div class="col-sm-5">
-                <textarea class="form-control form-control-sm @error('tags')is-invalid @enderror" id="tags" rows="7"
-                    wire:model="tags" placeholder="Bijvoorbeeld: test,abc,doemaar"></textarea>
-                @error('tags')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="col-sm-5">
-            </div>
-        </div>
         <div class="mb-3 row">
             <label for="excerpt" class="col-sm-2 col-form-label">Excerpt</label>
             <div class="col-sm-5">

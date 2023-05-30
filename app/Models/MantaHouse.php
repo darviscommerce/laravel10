@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use Google\Cloud\Translate\V2\TranslateClient;
 
 class MantaHouse extends Model
 {
@@ -83,5 +84,26 @@ class MantaHouse extends Model
 
         }
         return $return;
+    }
+
+    public function googleTranslateTags($locale)
+    {
+
+        $translate = new TranslateClient([
+            'key' => env('GOOGLE_API')
+        ]);
+       
+        $tags = [];
+        foreach($this->translation('nl')['org']->tags as $key => $value)
+        {
+            $result = $translate->translate($value, [
+                'source' => 'nl',
+                'target' => $locale
+            ]);
+            $tags[] = $result['text']; 
+        }
+        $item = MantaHouse::find($this->id);
+        $item->tags = $tags;
+        $item->save();
     }
 }

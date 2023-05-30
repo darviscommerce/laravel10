@@ -27,7 +27,7 @@ class HousesUpdate extends Component
     public ?string $excerpt = null;
     public ?string $content = null;
 
-    public string $view = 'general';
+    public string $view = 'update';
 
     public function mount(Request $request, $input)
     {
@@ -35,11 +35,11 @@ class HousesUpdate extends Component
         if($request->input('locale')){
             $item = MantaHouse::where('locale', $request->input('locale'))->where('pid', $input)->first();
             if($item == null){
-                return redirect()->to(route('manta.pages.create', ['locale' => $request->input('locale'), 'pid' => $input]));
+                return redirect()->to(route('manta.houses.create', ['locale' => $request->input('locale'), 'pid' => $input]));
             }
         }
         if ($item == null) {
-            return redirect()->to(route('manta.pages.list'));
+            return redirect()->to(route('manta.houses.list'));
         }
         $this->item = $item;     
         $this->created_by = $item->created_by;
@@ -53,8 +53,7 @@ class HousesUpdate extends Component
         $this->slogan = $item->slogan;
         $this->slug = $item->slug;
         $this->seo_title = $item->seo_title;
-        $this->seo_description = $item->seo_description;
-        $this->tags = (array)$item->tags;
+        $this->seo_description = $item->seo_description;   
         $this->excerpt = $item->excerpt;
         $this->content = $item->content;
 
@@ -85,7 +84,6 @@ class HousesUpdate extends Component
             'slug' => Str::of($this->slug)->slug('-'),
             'seo_title' => $this->seo_title,
             'seo_description' => $this->seo_description,
-            'tags' => (array)$this->tags,
             'excerpt' => $this->excerpt,
             'content' => $this->content,
             'slogan' => $this->slogan

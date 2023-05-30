@@ -1,5 +1,17 @@
 <?php
 
+use App\Http\Livewire\Ccs\CcsAbout;
+use App\Http\Livewire\Ccs\CcsCapacity;
+use App\Http\Livewire\Ccs\CcsCertification;
+use App\Http\Livewire\Ccs\CcsCoatingsystems;
+use App\Http\Livewire\Ccs\CcsContact;
+use App\Http\Livewire\Ccs\CcsHomepage;
+use App\Http\Livewire\Ccs\CcsNews;
+use App\Http\Livewire\Ccs\CcsNewsView;
+use App\Http\Livewire\Ccs\CcsService;
+use App\Http\Livewire\Ccs\CcsVacancies;
+use App\Http\Livewire\Ccs\CcsView;
+use App\Http\Livewire\Ccs\CcsWhy;
 use App\Http\Livewire\Cms\CmsSandbox;
 use App\Http\Livewire\Otterlo\OtterloArea;
 use App\Http\Livewire\Otterlo\OtterloBooking;
@@ -28,7 +40,6 @@ Route::middleware([
     Route::get('/woningen/details/{input}', App\Http\Livewire\Houses\HousesDetails::class)->name('manta.houses.details');
     Route::get('/woningen/headers/{input}', App\Http\Livewire\Houses\HousesHeaders::class)->name('manta.houses.headers');
     Route::get('/woningen/fotos/{input}', App\Http\Livewire\Houses\HousesPhotos::class)->name('manta.houses.photos');
-
 });
 
 Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {
@@ -41,7 +52,7 @@ Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('ma
 });
 
 Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {
-   Route::get('/pagina', App\Http\Livewire\Pages\PagesList::class)->name('manta.pages.list');
+    Route::get('/pagina', App\Http\Livewire\Pages\PagesList::class)->name('manta.pages.list');
     Route::get('/pagina/toevoegen', App\Http\Livewire\Pages\PagesCreate::class)->name('manta.pages.create');
     Route::get('/pagina/aanpassen/{input}', App\Http\Livewire\Pages\PagesUpdate::class)->name('manta.pages.update');
     Route::get('/pagina/uploads/{input}', App\Http\Livewire\Pages\PagesUploads::class)->name('manta.pages.uploads');
@@ -60,15 +71,38 @@ Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('ma
 Route::get('/file/download/{uploads}', [App\Http\Controllers\MantaUploadController::class, 'download'])->name('file.download');
 Route::get('/file/serve/{uploads}', [App\Http\Controllers\MantaUploadController::class, 'serve'])->name('file.serve');
 
-Route::group(['prefix' => LaravelLocalization::setLocale(),
-'middleware' => [ 'localize' ]], function()
-{
-    Route::get('/',OtterloHomepage::class)->name('otterlo.homepage');
-    Route::get(LaravelLocalization::transRoute('routes.book'),OtterloBooking::class)->name('otterlo.booking');
-    Route::get(LaravelLocalization::transRoute('routes.contact'),OtterloContact::class)->name('otterlo.contact');
-    Route::get(LaravelLocalization::transRoute('routes.surroundings'),OtterloArea::class)->name('otterlo.area');
-    // Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
-    Route::get('/villa/{input}',OtterloVilla::class)->name('otterlo.villa');
 
-    Route::get('/{input}',PagesView::class)->name('otterlo.homepage');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localize']
+], function () {
+
+    if (env("THEME") == "CCS") {
+        Route::get('/', CcsHomepage::class)->name('ccs.homepage');
+
+        Route::get('/over-compri-coating', CcsAbout::class)->name('ccs.about');
+        Route::get('/waarom-compri-coating', CcsWhy::class)->name('ccs.why');
+        Route::get('/service', CcsService::class)->name('ccs.service');
+        Route::get('/coatingsytemen-kleuren', CcsCoatingsystems::class)->name('ccs.coatingsystems');
+        Route::get('/capaciteit', CcsCapacity::class)->name('ccs.capacity');
+        Route::get('/certificering-qualicoat', CcsCertification::class)->name('ccs.certification');
+
+        Route::get('/nieuws', CcsNews::class)->name('ccs.news');
+        Route::get('/nieuws/{input}', CcsNewsView::class)->name('ccs.news.view');
+
+        Route::get('/vacatures', CcsVacancies::class)->name('ccs.vacancies');
+        Route::get('/contact', CcsContact::class)->name('ccs.contact');
+        Route::get('/{input}', CcsView::class)->name('ccs.view');
+    }
+
+    if (env("THEME") == "OTTERLO") {
+        Route::get('/', OtterloHomepage::class)->name('otterlo.homepage');
+        Route::get(LaravelLocalization::transRoute('routes.book'), OtterloBooking::class)->name('otterlo.booking');
+        Route::get(LaravelLocalization::transRoute('routes.contact'), OtterloContact::class)->name('otterlo.contact');
+        Route::get(LaravelLocalization::transRoute('routes.surroundings'), OtterloArea::class)->name('otterlo.area');
+        // Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
+        Route::get('/villa/{input}', OtterloVilla::class)->name('otterlo.villa');
+
+        Route::get('/{input}', PagesView::class)->name('otterlo.view');
+    }
 });

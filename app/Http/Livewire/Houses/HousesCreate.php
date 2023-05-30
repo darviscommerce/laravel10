@@ -69,8 +69,8 @@ class HousesCreate extends Component
             'pid' => $this->pid,
             'locale' => $this->locale,
             'title' => $this->title,
-            'slug' => Str::of($this->slug)->slug('-'),
-            'seo_title' => $this->seo_title,
+            'slug' => Str::of($this->title)->slug('-'),
+            'seo_title' => $this->title,
         ]);
 
         toastr()->addInfo('Item opgeslagen');
