@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.1",
         "darvis/manta-laravel-cms": "*",
+        "darvis/manta-laravel-contact": "*",
         "darvis/manta-laravel-pages": "^0.1.5",
         "darvis/manta-laravel-uploads": "*",
         "google/cloud-translate": "^1.13",

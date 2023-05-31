@@ -75,7 +75,7 @@
                             <div class="nav-compri_item-wrapper_left">
                                 <div class="nav-compri_item-content">
                                     <div class="nav-compri_item">
-                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.about') }}"
+                                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.about') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_183-bewerkt.jpg"
@@ -85,7 +85,7 @@
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.why') }}"
+                                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.why') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_175.jpg"
@@ -95,7 +95,7 @@
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.service') }}"
+                                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.service') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_225.jpg"
@@ -105,7 +105,7 @@
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.coating-systems-colours') }}"
+                                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.coating-systems-colours') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/content-image-home4.jpg"
@@ -115,7 +115,7 @@
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.capacity') }}"
+                                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.capacity') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_210.jpg"
@@ -125,7 +125,7 @@
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.certification-qualicoat') }}"
+                                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.certification-qualicoat') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_361.jpg"
@@ -138,7 +138,7 @@
                             </div>
                         </nav>
                     </div>
-                    <a href="{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
+                    <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
                         class="nav-link w-inline-block">
                         <div>
                             <div>{!! __('ccs.vacancies') !!}</div>
@@ -146,7 +146,7 @@
                         </div>
                     </a>
                     <div class="nav-contact-wrapper">
-                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.contact') }}"
+                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.contact') }}"
                             class="button w-inline-block">
                             <div class="flex_align-center">
                                 <div class="margin-right_xs">{!! __('ccs.contact') !!}</div>

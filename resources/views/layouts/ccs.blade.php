@@ -19,6 +19,7 @@
     <meta content="/theme/ccs/images/ccs/og-image.jpg" property="twitter:image">
     <meta content="summary_large_image" name="twitter:card">
     <meta property="og:type" content="website">
+    <meta name="author" content="Darvis | Arvid de Jong | arvid@darvis.nl">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="/theme/ccs/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/theme/ccs/css/components.css" rel="stylesheet" type="text/css">

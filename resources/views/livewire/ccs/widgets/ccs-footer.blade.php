@@ -11,7 +11,7 @@
                             <strong>{!! __('ccs.address') !!}</strong><br>
                             Everdongenlaan 5<br>
                             2300 Turnhout<br>
-                            België
+                            {!! __('ccs.belgie') !!}
                         </div>
                         <div class="social-media">
                             <a href="{!! __('ccs.linkedin') !!}" target="_blank"
@@ -40,9 +40,9 @@
                     </div>
                     <div class="footer-in-column_right w-col w-col-6">
                         <div><strong>{!! __('ccs.opening-hours') !!}</strong><br>
-                            {!! __('ccs.monday-to-thursday') !!}: 08.00 - 16.30<br>
+                            {!! __('ccs.monday-to-thursday') !!}: <br>08.00 - 16.30<br>
                             {!! __('ccs.friday') !!}: 08.00 - 15.30<br>
-                            {!! __('ccs.saturday-sunday') !!}: {!! __('ccs.gesloten') !!}
+                            {!! __('ccs.saturday-sunday') !!}: {!! __('ccs.closed') !!}
                         </div>
                     </div>
                 </div>
