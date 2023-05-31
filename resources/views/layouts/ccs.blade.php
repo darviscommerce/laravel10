@@ -1,5 +1,6 @@
 <!DOCTYPE html><!--  Last Published: Tue May 30 2023 17:25:36 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="@yield('data-wf-page', '63490731a37b6a780741ac61')" data-wf-site="63490731a37b6a55ee41ac5e" lang="nl">
+<html data-wf-page="@yield('data-wf-page', '63490731a37b6a780741ac61')" data-wf-site="63490731a37b6a55ee41ac5e"
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     @if (env('APP_ENV') == 'production')
@@ -8,7 +9,7 @@
         <meta name="robots" content="noindex, nofollow">
     @endif
     <meta charset="utf-8">
-    <title>{{ app()->getLocale() }} @yield('title', __('ccs.seo_title'))</title>
+    <title>@yield('title', __('ccs.seo_title'))</title>
     <meta content="@yield('description', __('ccs.seo_description'))" name="description">
     <meta content="@yield('title', __('ccs.seo_title'))" property="og:title">
     <meta content="@yield('description', __('ccs.seo_description'))" property="og:description">

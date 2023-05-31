@@ -14,7 +14,7 @@
                     <div>
                         <div data-w-id="7d4716a5-7536-4852-0c67-d79ef76bd415"
                             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                            class="margin-bottom_xs">compri aluminium</div>
+                            class="margin-bottom_xs">Compri Coating Service</div>
                         <h1 data-w-id="7d4716a5-7536-4852-0c67-d79ef76bd417"
                             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
                             Neem contact met <br>ons op</h1>
@@ -52,8 +52,7 @@
                             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                             href="https://goo.gl/maps/D61E2y9hmptiiXay9" target="_blank"
                             class="contactpage-link-block w-inline-block">
-                            <div class="icon-wrapper-large margin-right_s"><img
-                                    src="/theme/ccs/images/Zonder-titel-65-x-64-px-2_1Zonder-titel-65-x-64-px-2.png"
+                            <div class="icon-wrapper-large margin-right_s"><img src="/images/ccs/maps_marker.png"
                                     loading="eager" alt="" class="image-cover"></div>
                             <div class="contact-link-content">
                                 <div class="text-weight_semi-bold"> Bezoek ons</div>
@@ -113,8 +112,7 @@
             <div data-w-id="4fb77eda-5b9a-ae36-c299-f3b742eee47e"
                 style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                 class="location-card">
-                <div class="icon-wrapper-large margin-bottom_s"><img
-                        src="/theme/ccs/images/Zonder-titel-65-x-64-px-2_1Zonder-titel-65-x-64-px-2.png"
+                <div class="icon-wrapper-large margin-bottom_s"><img src="/images/ccs/maps_marker.png"
                         loading="eager" alt="" class="image-cover"></div>
                 <h2 class="title h4-size card-location">Compri Coating Service</h2>
                 <p>Everdongenlaan 5<br>2300 Turnhout<br>België</p>

@@ -19,11 +19,14 @@
                 </a>
             </div>
             <div class="nav-language-wrapper">
-                <a href="/nl/" class="language-link {{ app()->getLocale() != 'nl' ? 'deactive' : null }} w-inline-block"><img
+                <a href="/nl/"
+                    class="language-link {{ app()->getLocale() != 'nl' ? 'deactive' : null }} w-inline-block"><img
                         src="/theme/otterlo/images/Nederlandsevlag.png" alt="" class="language-flag-img"></a>
-                <a href="/en/" class="language-link {{ app()->getLocale() != 'en' ? 'deactive' : null }} w-inline-block"><img
+                <a href="/en/"
+                    class="language-link {{ app()->getLocale() != 'en' ? 'deactive' : null }} w-inline-block"><img
                         src="/theme/otterlo/images/engelsevlag.png" alt="" class="language-flag-img"></a>
-                <a href="/de/"  class="language-link {{ app()->getLocale() != 'de' ? 'deactive' : null }} w-inline-block"><img
+                <a href="/de/"
+                    class="language-link {{ app()->getLocale() != 'de' ? 'deactive' : null }} w-inline-block"><img
                         src="/theme/otterlo/images/duitsevlag.png" alt="" class="language-flag-img"></a>
             </div>
         </div>
@@ -38,10 +41,12 @@
                 <div class="nav-link-wrapper">
                     <a href="/{{ app()->getLocale() }}/villa/mariposa" class="nav-ink w-nav-link">Villa Mariposa</a>
                     <a href="/{{ app()->getLocale() }}/villa/vlinder" class="nav-ink w-nav-link">Villa Vlinder</a>
-                    <a href="{{ LaravelLocalization::transRoute('routes.surroundings') }}" class="nav-ink w-nav-link">{!! __('otterlo.surroundings') !!}</a>
-                    <a href="{{ LaravelLocalization::transRoute('routes.contact') }}" class="nav-ink w-nav-link">{{ __('otterlo.contact') }}</a>
+                    <a href="{{ LaravelLocalization::transRoute('routes_otterlo.surroundings') }}"
+                        class="nav-ink w-nav-link">{!! __('otterlo.surroundings') !!}</a>
+                    <a href="{{ LaravelLocalization::transRoute('routes_otterlo.contact') }}"
+                        class="nav-ink w-nav-link">{{ __('otterlo.contact') }}</a>
                 </div>
-                <a href="{{ LaravelLocalization::transRoute('routes.book') }}" class="button w-inline-block">
+                <a href="{{ LaravelLocalization::transRoute('routes_otterlo.book') }}" class="button w-inline-block">
                     <div class="flex-align-center">
                         <div class="margin-right_xs">{{ __('otterlo.book') }}</div>
                     </div>

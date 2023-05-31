@@ -20,44 +20,46 @@
                         class="nav-top_link phone_hide w-inline-block">
                         <div class="flex_align-center">
                             <div class="fontawesome is-solid margin-right_xs"></div>
-                            <div><strong>‍</strong>Everdongenlaan 5, 2300 Turnhout, BE</div>
+                            <div><strong></strong>Everdongenlaan 5, 2300 Turnhout, BE</div>
                         </div>
                     </a>
                 </div>
                 <div class="nav-top_right">
                     <div class="language-wrapper">
-                        <a href="https://elasticthemes.com" target="_blank" class="language-link w-inline-block"><img
+                        <a href="/nl/"
+                            class="language-link {{ app()->getLocale() != 'nl' ? 'deactive' : null }} w-inline-block"><img
                                 src="/theme/ccs/images/Nederlandsevlag.png" alt=""
                                 class="language-flag-img"></a>
-                        <a href="https://elasticthemes.com" target="_blank"
-                            class="language-link deactive w-inline-block"><img src="/theme/ccs/images/engelsevlag.png"
-                                alt="" class="language-flag-img"></a>
-                        <a href="https://elasticthemes.com" target="_blank"
-                            class="language-link deactive w-inline-block"><img src="/theme/ccs/images/duitsevlag.png"
-                                alt="" class="language-flag-img"></a>
-                        <a href="https://elasticthemes.com" target="_blank"
-                            class="language-link deactive w-inline-block"><img src="/theme/ccs/images/vlagspanje.png"
+                        <a href="/en/"
+                            class="language-link {{ app()->getLocale() != 'en' ? 'deactive' : null }} w-inline-block"><img
+                                src="/theme/ccs/images/engelsevlag.png" alt="" class="language-flag-img"></a>
+                        <a href="/de/"
+                            class="language-link {{ app()->getLocale() != 'de' ? 'deactive' : null }} w-inline-block"><img
+                                src="/theme/ccs/images/duitsevlag.png" alt="" class="language-flag-img"></a>
+                        <a href="/es/"
+                            class="language-link {{ app()->getLocale() != 'es' ? 'deactive' : null }} w-inline-block"><img
+                                src="/theme/ccs/images/vlagspanje.png"
                                 sizes="(max-width: 479px) 20px, (max-width: 991px) 30px, 25px"
                                 srcset="/theme/ccs/images/vlagspanje-p-500.png 500w, /theme/ccs/images/vlagspanje-p-800.png 800w, /theme/ccs/images/vlagspanje-p-1080.png 1080w, /theme/ccs/images/vlagspanje.png 1200w"
                                 alt="" class="language-flag-img"></a>
-                        <a href="https://elasticthemes.com" target="_blank"
-                            class="language-link deactive w-inline-block"><img src="/theme/ccs/images/zweden.png"
-                                alt="" class="language-flag-img"></a>
+                        <a href="/se/"
+                            class="language-link {{ app()->getLocale() != 'se' ? 'deactive' : null }} w-inline-block"><img
+                                src="/theme/ccs/images/zweden.png" alt="" class="language-flag-img"></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="navbar-wrapper">
             <div class="nav-content">
-                <a href="index.html" aria-current="page" class="logo w-nav-brand w--current"><img
+                <a href="/{{ app()->getLocale() }}/" aria-current="page" class="logo w-nav-brand w--current"><img
                         src="/theme/ccs/images/logo_acs.png" alt="Logo Compri Coating Service"
                         sizes="(max-width: 991px) 196.640625px, 252.3671875px"
                         srcset="/theme/ccs/images/logo_acs-p-500.png 500w, /theme/ccs/images/logo_acs.png 651w"
                         class="logo-img"></a>
                 <nav role="navigation" class="navbar-menu w-nav-menu">
-                    <a href="index.html" aria-current="page" class="nav-link w-inline-block w--current">
+                    <a href="/{{ app()->getLocale() }}/" aria-current="page" class="nav-link w-inline-block w--current">
                         <div>
-                            <div>Home</div>
+                            <div>{!! __('ccs.home') !!}</div>
                             <div class="nav-stripe"></div>
                         </div>
                     </a>
@@ -65,7 +67,7 @@
                         <div class="nav-dropdown_toggle w-dropdown-toggle">
                             <div>
                                 <div class="nav-dropdown_icon w-icon-dropdown-toggle"></div>
-                                <div>Over</div>
+                                <div>{!! __('ccs.about') !!}</div>
                             </div>
                             <div class="nav-stripe"></div>
                         </div>
@@ -73,75 +75,81 @@
                             <div class="nav-compri_item-wrapper_left">
                                 <div class="nav-compri_item-content">
                                     <div class="nav-compri_item">
-                                        <a href="over.html" class="nav-compri_link-wrapper w-inline-block">
+                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.about') }}"
+                                            class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_183-bewerkt.jpg"
                                                     srcset="/theme/ccs/images/20221107_CompriCoating_183-bewerkt-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_183-bewerkt-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_183-bewerkt-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_183-bewerkt.jpg 1500w"
                                                     sizes="100vw" alt="" class="image-cover"></div>
-                                            <div class="link-styled">Over Compri Coating</div>
+                                            <div class="link-styled">{!! __('ccs.about-compri-coating') !!}</div>
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="waarom.html" class="nav-compri_link-wrapper w-inline-block">
+                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.why') }}"
+                                            class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_175.jpg"
                                                     srcset="/theme/ccs/images/20221107_CompriCoating_175-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_175-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_175-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_175.jpg 1500w"
                                                     sizes="100vw" alt="" class="image-cover"></div>
-                                            <div class="link-styled">Waarom Compri Coating</div>
+                                            <div class="link-styled">{!! __('ccs.why-compri-coating') !!}</div>
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="service.html" class="nav-compri_link-wrapper w-inline-block">
+                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.service') }}"
+                                            class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_225.jpg"
                                                     srcset="/theme/ccs/images/20221107_CompriCoating_225-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_225-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_225-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_225.jpg 1500w"
                                                     sizes="100vw" alt="" class="image-cover"></div>
-                                            <div class="link-styled">Service</div>
+                                            <div class="link-styled">{!! __('ccs.service') !!}</div>
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="coatingsystemen-kleuren.html"
+                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.coating-systems-colours') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/content-image-home4.jpg"
                                                     srcset="/theme/ccs/images/content-image-home4-p-500.jpg 500w, /theme/ccs/images/content-image-home4-p-800.jpg 800w, /theme/ccs/images/content-image-home4-p-1080.jpg 1080w, /theme/ccs/images/content-image-home4.jpg 1500w"
                                                     sizes="100vw" alt="" class="image-cover"></div>
-                                            <div class="link-styled">Coatingsystemen &amp; kleuren</div>
+                                            <div class="link-styled">{!! __('ccs.coating-systems-to-colour') !!}</div>
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="capaciteit.html" class="nav-compri_link-wrapper w-inline-block">
+                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.capacity') }}"
+                                            class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_210.jpg"
                                                     srcset="/theme/ccs/images/20221107_CompriCoating_210-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_210-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_210-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_210.jpg 1500w"
                                                     sizes="100vw" alt="" class="image-cover"></div>
-                                            <div class="link-styled">Capaciteit</div>
+                                            <div class="link-styled">{!! __('ccs.capacity') !!}</div>
                                         </a>
                                     </div>
                                     <div class="nav-compri_item">
-                                        <a href="certificering-qualicoat.html"
+                                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.certification-qualicoat') }}"
                                             class="nav-compri_link-wrapper w-inline-block">
                                             <div class="nav-compri_image"><img
                                                     src="/theme/ccs/images/20221107_CompriCoating_361.jpg"
                                                     srcset="/theme/ccs/images/20221107_CompriCoating_361-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_361-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_361-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_361.jpg 1500w"
                                                     sizes="100vw" alt="" class="image-cover"></div>
-                                            <div class="link-styled">Certificering Qualicoat</div>
+                                            <div class="link-styled">{!! __('ccs.qualicoat-certification') !!}</div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </nav>
                     </div>
-                    <a href="vacatures.html" class="nav-link w-inline-block">
+                    <a href="{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
+                        class="nav-link w-inline-block">
                         <div>
-                            <div>Vacatures</div>
+                            <div>{!! __('ccs.vacancies') !!}</div>
                             <div class="nav-stripe"></div>
                         </div>
                     </a>
                     <div class="nav-contact-wrapper">
-                        <a href="contact.html" class="button w-inline-block">
+                        <a href="{{ LaravelLocalization::transRoute('routes_ccs.contact') }}"
+                            class="button w-inline-block">
                             <div class="flex_align-center">
-                                <div class="margin-right_xs">Contact</div>
+                                <div class="margin-right_xs">{!! __('ccs.contact') !!}</div>
                                 <div class="fontawesome"></div>
                             </div>
                         </a>

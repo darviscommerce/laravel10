@@ -91,15 +91,15 @@ Route::group([
         Route::get('/nieuws/{input}', CcsNewsView::class)->name('ccs.news.view');
 
         Route::get('/vacatures', CcsVacancies::class)->name('ccs.vacancies');
-        Route::get('/contact', CcsContact::class)->name('ccs.contact');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.contact'), CcsContact::class)->name('ccs.contact');
         Route::get('/{input}', CcsView::class)->name('ccs.view');
     }
 
     if (env("THEME") == "OTTERLO") {
         Route::get('/', OtterloHomepage::class)->name('otterlo.homepage');
-        Route::get(LaravelLocalization::transRoute('routes.book'), OtterloBooking::class)->name('otterlo.booking');
-        Route::get(LaravelLocalization::transRoute('routes.contact'), OtterloContact::class)->name('otterlo.contact');
-        Route::get(LaravelLocalization::transRoute('routes.surroundings'), OtterloArea::class)->name('otterlo.area');
+        Route::get(LaravelLocalization::transRoute('routes_otterlo.book'), OtterloBooking::class)->name('otterlo.booking');
+        Route::get(LaravelLocalization::transRoute('routes_otterlo.contact'), OtterloContact::class)->name('otterlo.contact');
+        Route::get(LaravelLocalization::transRoute('routes_otterlo.surroundings'), OtterloArea::class)->name('otterlo.area');
         // Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
         Route::get('/villa/{input}', OtterloVilla::class)->name('otterlo.villa');
 
