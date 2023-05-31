@@ -141,7 +141,7 @@
                     <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
                         class="nav-link w-inline-block">
                         <div>
-                            <div>{!! __('ccs.vacancies') !!}</div>
+                            <div>{!! __('ccs.vacancies.list') !!}</div>
                             <div class="nav-stripe"></div>
                         </div>
                     </a>

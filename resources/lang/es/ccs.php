@@ -45,4 +45,5 @@ return [
     'email-us' => 'Envíanos un correo electrónico',
     'visit-us' => 'Visítanos',
     'vat' => 'IVA',
+    'working at Compri Coating Service' => 'Trabaja en Compri Coating Service',
 ];

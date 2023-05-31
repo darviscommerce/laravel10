@@ -88,7 +88,7 @@
                 </a>
                 <a href="{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
                     class="footer-link w-inline-block">
-                    <div>{!! __('ccs.vacancies') !!}</div>
+                    <div>{!! __('ccs.vacancies.list') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
                 <a href="https://compri.eu/" target="_blank" class="footer-link w-inline-block">

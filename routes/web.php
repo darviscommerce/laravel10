@@ -19,6 +19,10 @@ use App\Http\Livewire\Otterlo\OtterloContact;
 use App\Http\Livewire\Otterlo\OtterloHomepage;
 use App\Http\Livewire\Otterlo\OtterloVilla;
 use App\Http\Livewire\Pages\PagesView;
+use App\Http\Livewire\Vacancy\VacancyCreate;
+use App\Http\Livewire\Vacancy\VacancyList;
+use App\Http\Livewire\Vacancy\VacancyRead;
+use App\Http\Livewire\Vacancy\VacancyUpdate;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -72,6 +76,13 @@ Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('ma
     Route::get('/contact/bekijken/{input}', App\Http\Livewire\Contact\ContactRead::class)->name('manta.contact.read');
 });
 
+Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {
+    Route::get('/vacature', App\Http\Livewire\Vacancy\VacancyList::class)->name('manta.vacancies.list');
+    Route::get('/vacature/toevoegen', App\Http\Livewire\Vacancy\VacancyCreate::class)->name('manta.vacancies.create');
+    Route::get('/vacature/aanpassen/{input}', App\Http\Livewire\Vacancy\VacancyUpdate::class)->name('manta.vacancies.update');
+    Route::get('/vacature/bekijken/{input}', App\Http\Livewire\Vacancy\VacancyRead::class)->name('manta.vacancies.read');
+});
+
 /**
  * * Downloads
  */
@@ -97,7 +108,8 @@ Route::group([
         Route::get('/nieuws', CcsNews::class)->name('ccs.news');
         Route::get('/nieuws/{input}', CcsNewsView::class)->name('ccs.news.view');
 
-        Route::get('/vacatures', CcsVacancies::class)->name('ccs.vacancies');
+        Route::get('/vacatures', CcsVacancies::class)->name('ccs.vacancies.list');
+        Route::get('/vacature/{input}', CcsVacancies::class)->name('ccs.vacancies.view');
         Route::get(LaravelLocalization::transRoute('routes_ccs.contact'), CcsContact::class)->name('ccs.contact');
         Route::get('/{input}', CcsView::class)->name('ccs.view');
     }

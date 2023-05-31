@@ -45,4 +45,5 @@ return [
     'email-us' => 'Mejla oss',
     'visit-us' => 'Besök oss',
     'vat' => 'MOMS',
+    'working at Compri Coating Service' => 'Jobbar på Compri Coating Service',
 ];
