@@ -29,9 +29,9 @@ class PagesUpdate extends Component
     public function mount(Request $request, $input)
     {
         $item = MantaPage::find($input);
-        if($request->input('locale')){
+        if ($request->input('locale')) {
             $item = MantaPage::where('locale', $request->input('locale'))->where('pid', $input)->first();
-            if($item == null){
+            if ($item == null) {
                 return redirect()->to(route('manta.pages.create', ['locale' => $request->input('locale'), 'pid' => $input]));
             }
         }
@@ -53,7 +53,6 @@ class PagesUpdate extends Component
         $this->content = $item->content;
         $this->fixed = $item->fixed;
         $this->fullpage = $item->fullpage;
-
     }
 
     public function render()
@@ -73,8 +72,6 @@ class PagesUpdate extends Component
                 'slug.required' => 'Slug is verplicht',
             ]
         );
-
-
 
         $items = [
             'updated_by' => auth()->user()->name,

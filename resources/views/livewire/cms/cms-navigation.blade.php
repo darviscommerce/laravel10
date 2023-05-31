@@ -39,6 +39,10 @@
                             <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('cms.openinghours.update') }}">Openingstijden</a></li>
                         @endif
+                        @if (Route::has('manta.vacancies.list'))
+                            <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
+                                    href="{{ route('manta.vacancies.list') }}">Vacatures</a></li>
+                        @endif
                         @if (Route::has('cms.rentalrates.update'))
                             <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('cms.rentalrates.update') }}">Verhuurtarieven</a></li>

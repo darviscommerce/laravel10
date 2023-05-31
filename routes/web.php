@@ -18,11 +18,6 @@ use App\Http\Livewire\Otterlo\OtterloBooking;
 use App\Http\Livewire\Otterlo\OtterloContact;
 use App\Http\Livewire\Otterlo\OtterloHomepage;
 use App\Http\Livewire\Otterlo\OtterloVilla;
-use App\Http\Livewire\Pages\PagesView;
-use App\Http\Livewire\Vacancy\VacancyCreate;
-use App\Http\Livewire\Vacancy\VacancyList;
-use App\Http\Livewire\Vacancy\VacancyRead;
-use App\Http\Livewire\Vacancy\VacancyUpdate;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -81,6 +76,7 @@ Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('ma
     Route::get('/vacature/toevoegen', App\Http\Livewire\Vacancy\VacancyCreate::class)->name('manta.vacancies.create');
     Route::get('/vacature/aanpassen/{input}', App\Http\Livewire\Vacancy\VacancyUpdate::class)->name('manta.vacancies.update');
     Route::get('/vacature/bekijken/{input}', App\Http\Livewire\Vacancy\VacancyRead::class)->name('manta.vacancies.read');
+    Route::get('/vacature/uploads/{input}', App\Http\Livewire\Vacancy\VacancyUploads::class)->name('manta.vacancies.uploads');
 });
 
 /**
@@ -122,6 +118,6 @@ Route::group([
         // Route::get('/pagina',OtterloPage::class)->name('otterlo.page');
         Route::get('/villa/{input}', OtterloVilla::class)->name('otterlo.villa');
 
-        Route::get('/{input}', PagesView::class)->name('otterlo.view');
+        Route::get('/{input}', App\Http\Livewire\Pages\PagesView::class)->name('otterlo.view');
     }
 });

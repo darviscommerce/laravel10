@@ -17,7 +17,7 @@ class UploadsUpload extends Component
     public function mount()
     {
         $upload = new MantaUpload();
-        $this->max_upload_size = $upload->file_upload_max_size()/1024;
+        $this->max_upload_size = $upload->file_upload_max_size() / 1024;
     }
 
     public function render()
@@ -29,18 +29,23 @@ class UploadsUpload extends Component
     public function updatedDocuments()
     {
         $this->validate([
-            'documents.*' => 'image|max:'.$this->max_upload_size,
+            'documents.*' => 'image|max:' . $this->max_upload_size,
         ]);
     }
 
     public function store($input)
     {
         $this->validate([
-            'documents.*' => 'image|max:'.$this->max_upload_size, // 1MB Max
+            'documents.*' => 'image|max:' . $this->max_upload_size, // 1MB Max
         ]);
 
+        $upload = new MantaUpload();
         foreach ($this->documents as $photo) {
-            $photo->store('photos');
+            // $photo->storeAs('uploads/2305', 'avatar', 'azure');
+            // dd($photo);
+            $upload->upload($photo);
+            // $test = $photo->store('photos', 'azure');
+            // dd($test, $photo);
         }
     }
 }

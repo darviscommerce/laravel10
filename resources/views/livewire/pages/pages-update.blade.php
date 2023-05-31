@@ -9,11 +9,11 @@
 
 
     @if (count(config('manta-cms.locales')) > 1)
-        <ul class="nav nav-tabs mb-4">
+        <ul class="mb-4 nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link {{ config('manta-cms.locale') == $locale ? 'active' : null }}" aria-current="page"
-                    href="{{ route('manta.pages.update', ['input' => $item->translation()['org']->id]) }}">{{ config('manta-cms.locales')[config('manta-cms.locale')]['language'] }} <span
-                        class="{{ config('manta-cms.locales')[config('manta-cms.locale')]['css'] }}"></span></a>
+                    href="{{ route('manta.pages.update', ['input' => $item->translation()['org']->id]) }}">{{ config('manta-cms.locales')[config('manta-cms.locale')]['language'] }}
+                    <span class="{{ config('manta-cms.locales')[config('manta-cms.locale')]['css'] }}"></span></a>
             </li>
             @foreach (config('manta-cms.locales') as $key => $value)
                 @if ($key != config('manta-cms.locale'))
@@ -30,25 +30,26 @@
             </li> --}}
         </ul>
     @endif
-        <div class="mb-3 row">
-            <label for="title" class="col-sm-2 col-form-label">Titel</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm @error('title')is-invalid @enderror"
-                    id="title" wire:model="title">
-                @error('title')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-            <label for="initials" class="col-sm-1 col-form-label"></label>
-            <div class="col-sm-5">
-                @if ($item->locale != config('manta-cms.locale'))
-                <em>{!! $item->translation()['get']->title !!}</em>
-                @endif
-            </div>
+    <div class="mb-3 row">
+        <label for="title" class="col-sm-2 col-form-label">Titel</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control form-control-sm @error('title')is-invalid @enderror"
+                id="title" wire:model="title">
+            @error('title')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        @if($fullpage)
+        <label for="initials" class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-5">
+            @if ($item->locale != config('manta-cms.locale'))
+                <em>{!! $item->translation()['get']->title !!}</em>
+            @endif
+        </div>
+    </div>
+    @if ($fullpage)
         <div class="mb-3 row">
-            <label for="slug" class="col-sm-2 col-form-label">Slug <a href="{{ url($item->slug) }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></label>
+            <label for="slug" class="col-sm-2 col-form-label">Slug <a href="{{ url($item->slug) }}"
+                    target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('slug')is-invalid @enderror"
                     id="slug" wire:model.defer="slug">
@@ -86,55 +87,58 @@
             <div class="col-sm-4">
             </div>
         </div>
-        @endif
-        <div class="mb-3 row">
-            <label for="tags" class="col-sm-2 col-form-label">Tags</label>
-            <div class="col-sm-5">
-                <textarea class="form-control form-control-sm @error('tags')is-invalid @enderror" id="tags" rows="7"
-                    wire:model="tags" placeholder="Bijvoorbeeld: test,abc,doemaar"></textarea>
-                @error('tags')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="col-sm-5">
-            </div>
+    @endif
+    <div class="mb-3 row">
+        <label for="tags" class="col-sm-2 col-form-label">Tags</label>
+        <div class="col-sm-5">
+            <textarea class="form-control form-control-sm @error('tags')is-invalid @enderror" id="tags" rows="7"
+                wire:model="tags" placeholder="Bijvoorbeeld: test,abc,doemaar"></textarea>
+            @error('tags')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        <div class="mb-3 row">
-            <label for="excerpt" class="col-sm-2 col-form-label">Excerpt</label>
-            <div class="col-sm-5">
-                <textarea class="form-control form-control-sm @error('excerpt')is-invalid @enderror" id="excerpt" rows="7"
-                    wire:model="excerpt" placeholder="Bijvoorbeeld: test,abc,doemaar"></textarea>
-                @error('excerpt')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="col-sm-5">
-            </div>
+        <div class="col-sm-5">
         </div>
-        <div class="mb-3 row">
-            <label for="content" class="col-sm-2 col-form-label">Bericht</label>
-            <div class="col-sm-5" wire:ignore>
-                <textarea class="form-control form-control-sm @error('content')is-invalid @enderror" id="content" rows="7"
-                    wire:model="content" id="content"></textarea>
-                @error('content')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="col-sm-5">
-                @if ($item->locale != config('manta-cms.locale'))
+    </div>
+    <div class="mb-3 row">
+        <label for="excerpt" class="col-sm-2 col-form-label">Excerpt</label>
+        <div class="col-sm-5">
+            <textarea class="form-control form-control-sm @error('excerpt')is-invalid @enderror" id="excerpt" rows="7"
+                wire:model="excerpt" placeholder="Schrijf hier een inleidende tekst"></textarea>
+            @error('excerpt')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="col-sm-5">
+            @if ($item && $locale != config('manta-cms.locale'))
+                <em>{!! $item->translation()['get']->excerpt !!}</em>
+            @endif
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="content" class="col-sm-2 col-form-label">Bericht</label>
+        <div class="col-sm-5" wire:ignore>
+            <textarea class="form-control form-control-sm @error('content')is-invalid @enderror" id="content" rows="7"
+                wire:model="content" id="content"></textarea>
+            @error('content')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="col-sm-5">
+            @if ($item->locale != config('manta-cms.locale'))
                 <em>{!! $item->translation()['get']->content !!}</em>
-                @endif
-            </div>
+            @endif
         </div>
-        <x-manta.component-tinymce name="content" />
+    </div>
+    <x-manta.component-tinymce name="content" />
 
 
     <form wire:submit.prevent="store(Object.fromEntries(new FormData($event.target)))">
         <div class="mb-3 row">
             <div class="col-sm-12">
                 {{-- @include('includes.form_error') --}}
-                <input class="btn btn-sm btn-primary" type="submit" value="Opslaan" wire:loading.class="btn-secondary"
-                    wire:loading.attr="disabled" />
+                <input class="btn btn-sm btn-primary" type="submit" value="Opslaan"
+                    wire:loading.class="btn-secondary" wire:loading.attr="disabled" />
             </div>
         </div>
     </form>

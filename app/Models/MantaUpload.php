@@ -127,24 +127,26 @@ class MantaUpload extends Model
     public function upload(mixed $file, array $config = [], ?MantaUpload $upload = null): ?object
     {
         $disk = isset($config['disk']) ? $config['disk'] : 'azure';
-        $location = isset($config['location']) ? $config['location'] : date('y') . '/' . date('m') . '/' . date('d') . '/';
+        $location = isset($config['location']) ? $config['location'] : 'uploads/' . date('y') . '/' . date('m') . '/' . date('d') . '/';
 
-        if (is_string($file)) {
-            if(isset($config['replace']) && !$upload){
+
+
+        if (is_string($file) && !is_object($file)) {
+            if (isset($config['replace']) && !$upload) {
                 return false;
             }
-            if($upload) $config['locale'] = $upload->locale;
-            if($upload) $config['seo_title'] = $upload->seo_title;
-            if($upload) $config['model'] = $upload->model;
-            if($upload) $config['pid'] = $upload->pid;
-            if($upload) $config['identifier'] = $upload->identifier;
-            if($upload) $config['comments'] = $upload->comments;
+            if ($upload) $config['locale'] = $upload->locale;
+            if ($upload) $config['seo_title'] = $upload->seo_title;
+            if ($upload) $config['model'] = $upload->model;
+            if ($upload) $config['pid'] = $upload->pid;
+            if ($upload) $config['identifier'] = $upload->identifier;
+            if ($upload) $config['comments'] = $upload->comments;
             //
             $originalName = $config['filename'];
             $extension = $upload ? $upload->extension : pathinfo($config['filename'], PATHINFO_EXTENSION);
             $mime = $upload ? $upload->mime : null;
             $size = $upload ? $upload->size : null;
-            if(isset($config['replace']) && $config['replace'] == 1){
+            if (isset($config['replace']) && $config['replace'] == 1) {
                 $disk = $upload->disk;
                 $location = $upload->location;
                 $filename = $upload->filename;
@@ -152,22 +154,31 @@ class MantaUpload extends Model
                 $filename = $this->uniqueFileName($originalName, $disk, $location, false);
             }
             $data = $file;
-
-        } elseif($file) {
+            if (Storage::disk($disk)->putFileAs($location, $filename, $data)) {
+            } else {
+                return false;
+            }
+        } elseif (is_object($file)) {
+            // dd($file->getRealPath());
             $originalName = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
             $mime = $file->getMimeType();
             $size = $file->getSize();
             $filename = $this->uniqueFileName($originalName, $disk, $location, true);
-            $data = Storage::disk($disk)->get($file->getRealPath());
+            Storage::disk($disk)->makeDirectory($location);
+            if (Storage::disk($disk)->putFileAs($location, $file, $filename)) {
+                $infoPath = pathinfo(app()->path() . '/storage/app/' . $disk . '' . $location . $filename);
+                // dd($infoPath);
+            } else {
+                // dd($location, $filename, $file);
+                return false;
+            }
         } else {
             return false;
         }
 
-        if (Storage::disk($disk)->put($location . $filename, $data)) {
-        } else {
-            return false;
-        }
+
+
 
         $item = [
             'sort' => isset($config['sort']) ? $config['sort'] : 0,
@@ -182,7 +193,7 @@ class MantaUpload extends Model
             'size' => $size,
             'comments' => isset($config['comments']) ? $config['comments'] : null,
         ];
-        if(isset($config['replace']) && $config['replace'] == 1 && $upload){
+        if (isset($config['replace']) && $config['replace'] == 1 && $upload) {
             $item['updated_by'] = auth()->user()->name;
             MantaUpload::where('id', $upload->id)->update($item);
         } else {
@@ -221,6 +232,7 @@ class MantaUpload extends Model
         try {
             $basename   = pathinfo($filename, PATHINFO_FILENAME);
             $basename   = Str::slug($basename, '-');
+            $basename   = substr($basename, 0, 20);
             $extension  = pathinfo($filename, PATHINFO_EXTENSION);
 
             if ($timename) $basename = time();
@@ -361,13 +373,13 @@ class MantaUpload extends Model
         $stream->destroy();
     }
 
-    public function pdfToPages() : void
+    public function pdfToPages(): void
     {
         if ($this->pdfLock == 0 && $this->extension == 'pdf' && Storage::disk($this->disk)->exists($this->location . $this->filename)) {
             $this->pdfLock = 1;
             $this->save();
-            Storage::disk('local')->put("/pdf_temp/" . $this->id. "/".$this->filename, Storage::disk($this->disk)->get($this->location . $this->filename));
-            $temp_location = Storage::disk('local')->path("/pdf_temp/" . $this->id. "/".$this->filename);
+            Storage::disk('local')->put("/pdf_temp/" . $this->id . "/" . $this->filename, Storage::disk($this->disk)->get($this->location . $this->filename));
+            $temp_location = Storage::disk('local')->path("/pdf_temp/" . $this->id . "/" . $this->filename);
             /**
              * * Try to read PDF
              */
