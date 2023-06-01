@@ -46,4 +46,5 @@ return [
     'visit-us' => 'Besuchen Sie uns',
     'vat' => 'MwSt',
     'working at Compri Coating Service' => 'Arbeiten bei Compri Coating Service',
+    'view vacancy' => 'Stellenangebot ansehen',
 ];

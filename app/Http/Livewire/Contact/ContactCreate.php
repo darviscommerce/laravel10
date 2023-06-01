@@ -40,21 +40,23 @@ class ContactCreate extends Component
         $this->host = request()->getHost();
         $this->locale = config('manta-cms.locale');
         //
-        $this->title = fake('nl_NL')->randomElement(['Dhr.', 'Mevr.']);
-        $this->sex = fake('nl_NL')->randomElement(['man', 'vrouw', 'het']);
-        $this->company = fake('nl_NL')->company();
-        $this->firstname = fake('nl_NL')->firstName();
-        $this->lastname = fake('nl_NL')->lastName();
-        $this->email = fake('nl_NL')->unique()->safeEmail();
-        $this->phone = fake('nl_NL')->phoneNumber();
-        $this->address = fake('nl_NL')->streetAddress();
-        $this->zipcode = fake('nl_NL')->postcode();
-        $this->city = fake('nl_NL')->city();
-        $this->country = strtolower(fake('nl_NL')->countryCode());
-        $this->birthdate = fake('nl_NL')->date('Y-m-d', '-15 years');
-        $this->subject = fake('nl_NL')->sentence('5');
-        $this->comments = fake('nl_NL')->paragraph('3');
-        $this->internal_contact = fake('nl_NL')->name();
+        if (env('APP_ENV') != 'production') {
+            $this->title = fake('nl_NL')->randomElement(['Dhr.', 'Mevr.']);
+            $this->sex = fake('nl_NL')->randomElement(['man', 'vrouw', 'het']);
+            $this->company = fake('nl_NL')->company();
+            $this->firstname = fake('nl_NL')->firstName();
+            $this->lastname = fake('nl_NL')->lastName();
+            $this->email = fake('nl_NL')->unique()->safeEmail();
+            $this->phone = fake('nl_NL')->phoneNumber();
+            $this->address = fake('nl_NL')->streetAddress();
+            $this->zipcode = fake('nl_NL')->postcode();
+            $this->city = fake('nl_NL')->city();
+            $this->country = strtolower(fake('nl_NL')->countryCode());
+            $this->birthdate = fake('nl_NL')->date('Y-m-d', '-15 years');
+            $this->subject = fake('nl_NL')->sentence('5');
+            $this->comments = fake('nl_NL')->paragraph('3');
+            $this->internal_contact = fake('nl_NL')->name();
+        }
     }
 
     public function render()

@@ -83,14 +83,14 @@
                     <div class="icon-wrapper-medium margin-right_s"><img
                             src="/theme/ccs/images/5D70A87F-A9E8-4BAE-A531-0DFD64D33DCE_15D70A87F-A9E8-4BAE-A531-0DFD64D33DCE.png"
                             loading="eager" alt="" class="image-cover"></div>
-                    <div class="text-color_gray-light">000000000000</div>
+                    <div class="text-color_gray-light">BE 0681 845 662</div>
                 </div>
-                <div class="contactpage-link">
+                {{-- <div class="contactpage-link">
                     <div class="icon-wrapper-medium margin-right_s"><img
                             src="/theme/ccs/images/CF7F5148-8C7F-4057-A1F3-659149DFE937_1CF7F5148-8C7F-4057-A1F3-659149DFE937.png"
                             loading="eager" alt="" class="image-cover"></div>
-                    <div class="text-color_gray-light">{!! __('ccs.vat') !!}: 37132188</div>
-                </div>
+                    <div class="text-color_gray-light">{!! __('ccs.vat') !!}: BE 0681 845 662</div>
+                </div> --}}
             </div>
         </div>
     </section>

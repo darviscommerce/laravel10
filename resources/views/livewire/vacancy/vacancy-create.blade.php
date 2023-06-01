@@ -7,6 +7,12 @@
         </ol>
     </nav>
 
+    @if ($locale != 'nl')
+        <button wire:click="googleTranslateTags('{{ $locale }}')" class="btn btn-sm btn-primary"><i
+                class="fa-solid fa-earth-europe"></i>
+            Vertaal</button>
+    @endif
+
     @if (count(config('manta-cms.locales')) > 1 && $item)
         <ul class="mb-4 nav nav-tabs">
             <li class="nav-item">

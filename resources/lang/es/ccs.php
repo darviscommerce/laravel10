@@ -46,4 +46,5 @@ return [
     'visit-us' => 'Visítanos',
     'vat' => 'IVA',
     'working at Compri Coating Service' => 'Trabaja en Compri Coating Service',
+    'view vacancy' => 'Ver vacante',
 ];

@@ -11,40 +11,40 @@
                 style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                 class="heading-large">{!! __('ccs.vacancies') !!}</h1>
             <div class="thumnails-parent">
-                <article data-w-id="0cabd131-e9ab-a18a-2ebd-1d4848e84e1b"
-                    style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                    class="thumbnail-wrapper">
-                    <div class="news">
-                        <div class="thumbnail"><img src="/theme/ccs/images/20221107_CompriCoating_023.jpg"
-                                srcset="/theme/ccs/images/20221107_CompriCoating_023-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_023-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_023-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_023.jpg 1500w"
-                                sizes="(max-width: 479px) 100vw, (max-width: 767px) 95vw, (max-width: 991px) 29vw, 30vw"
-                                alt="" class="thumbnail-image"></div>
-                        <div class="thumbnial_text-wrapper">
-                            <h2 class="heading-small margin-bottom_s">Vrachtwagenchauffeur</h2>
-                            <div class="tags-parent">
-                                <div class="tag is--no-link">
-                                    <div class="flex_align-center">
-                                        <div class="margin-right_xs">40 uur</div>
-                                    </div>
+                @foreach ($items as $item)
+                    <article data-w-id="0cabd131-e9ab-a18a-2ebd-1d4848e84e1b"
+                        style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        class="thumbnail-wrapper">
+                        <div class="news">
+                            <div class="thumbnail"><img src="/theme/ccs/images/20221107_CompriCoating_023.jpg"
+                                    srcset="/theme/ccs/images/20221107_CompriCoating_023-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_023-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_023-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_023.jpg 1500w"
+                                    sizes="(max-width: 479px) 100vw, (max-width: 767px) 95vw, (max-width: 991px) 29vw, 30vw"
+                                    alt="" class="thumbnail-image"></div>
+                            <div class="thumbnial_text-wrapper">
+                                <h2 class="heading-small margin-bottom_s">{!! $item->translation()['get']->title !!}</h2>
+                                <div class="tags-parent">
+                                    @foreach (explode(',', $item->translation()['get']->tags) as $tag)
+                                        <div class="tag is--no-link">
+                                            <div class="flex_align-center">
+                                                <div class="margin-right_xs">{{ $tag }}</div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
                                 </div>
-                                <div class="tag is--no-link">
+                                <p class="text-color_gray-light">{!! $item->translation()['get']->excerpt !!}</p>
+                                <a href="{{ route('ccs.vacancies.view', ['input' => $item->translation()['get']->slug]) }}"
+                                    class="button w-inline-block">
                                     <div class="flex_align-center">
-                                        <div class="margin-right_xs">Schengen</div>
+                                        <div class="margin-right_xs">{{ __('ccs.view vacancy') }}</div>
+                                        <div class="fontawesome"></div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                            <p class="text-color_gray-light">Een aantal maanden terug zijn wij gestopt met het
-                                meeleveren van papieren pakbonnen. Een enorme besparing voor het milieu.</p>
-                            <a href="{{ route('ccs.vacancies.view', ['input' => 'vacature-1']) }}"
-                                class="button w-inline-block">
-                                <div class="flex_align-center">
-                                    <div class="margin-right_xs">Vacature bekijken</div>
-                                    <div class="fontawesome"></div>
-                                </div>
-                            </a>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                @endforeach
+
             </div>
         </div>
     </section>

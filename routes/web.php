@@ -10,6 +10,7 @@ use App\Http\Livewire\Ccs\CcsNews;
 use App\Http\Livewire\Ccs\CcsNewsView;
 use App\Http\Livewire\Ccs\CcsService;
 use App\Http\Livewire\Ccs\CcsVacancies;
+use App\Http\Livewire\Ccs\CcsVacancy;
 use App\Http\Livewire\Ccs\CcsView;
 use App\Http\Livewire\Ccs\CcsWhy;
 use App\Http\Livewire\Cms\CmsSandbox;
@@ -105,7 +106,7 @@ Route::group([
         Route::get('/nieuws/{input}', CcsNewsView::class)->name('ccs.news.view');
 
         Route::get('/vacatures', CcsVacancies::class)->name('ccs.vacancies.list');
-        Route::get('/vacature/{input}', CcsVacancies::class)->name('ccs.vacancies.view');
+        Route::get('/vacature/{input}', CcsVacancy::class)->name('ccs.vacancies.view');
         Route::get(LaravelLocalization::transRoute('routes_ccs.contact'), CcsContact::class)->name('ccs.contact');
         Route::get('/{input}', CcsView::class)->name('ccs.view');
     }

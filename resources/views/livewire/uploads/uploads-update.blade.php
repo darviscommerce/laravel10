@@ -6,6 +6,12 @@
             <li class="breadcrumb-item active" aria-current="page">Aanpassen</li>
         </ol>
     </nav>
+
+    @if ($redirect)
+        <a href="{{ url($redirect) }}" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-left"></i> Ga
+            terug</a>
+    @endif
+
     <form wire:submit.prevent="store(Object.fromEntries(new FormData($event.target)))">
         <div class="mb-3 row">
             <label for="title" class="col-sm-2 col-form-label"></label>

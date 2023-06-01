@@ -6,6 +6,7 @@ use App\Models\MantaVacancy;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Google\Cloud\Translate\V2\TranslateClient;
 
 class VacancyCreate extends Component
 {
@@ -38,6 +39,18 @@ class VacancyCreate extends Component
                 $this->locale = $request->input('locale');
                 $this->title = $this->item->title;
             }
+        }
+        //
+        if (env('APP_ENV') != 'production') {
+            $this->title = fake('nl_NL')->sentence(6);
+            $this->slug = fake('nl_NL')->sentence(6);
+            $this->seo_title = fake('nl_NL')->sentence(6);
+            $this->seo_description = fake('nl_NL')->sentence(16);
+            $this->tags = implode(',', fake('nl_NL')->words(6));
+            $this->excerpt = fake('nl_NL')->paragraph('3');
+            $this->content = fake('nl_NL')->paragraph('3');
+            $this->characteristics = fake('nl_NL')->paragraph('3');
+            $this->to_offer = fake('nl_NL')->paragraph('3');
         }
     }
 
@@ -89,5 +102,62 @@ class VacancyCreate extends Component
         toastr()->addInfo('Item opgeslagen');
 
         return redirect()->to(route('manta.vacancies.list'));
+    }
+
+    public function googleTranslateTags($locale)
+    {
+
+        $translate = new TranslateClient([
+            'key' => env('GOOGLE_API')
+        ]);
+
+
+        $translateArr = [
+            'created_by' => auth()->user()->name,
+            'company_id' => (int)$this->company_id,
+            'host' => $this->host,
+            'pid' => $this->pid,
+            'locale' => $locale,
+            'title' => $this->item->title,
+            'slug' => (string)Str::of($this->item->slug)->slug('-'),
+            'seo_title' => $this->item->seo_title,
+            'seo_description' => $this->item->seo_description,
+            'tags' => $this->item->tags,
+            'excerpt' => $this->item->excerpt,
+            'content' => $this->item->content,
+            'characteristics' => $this->item->characteristics,
+            'to_offer' => $this->item->to_offer,
+        ];
+
+        $item = [];
+        foreach ($translateArr as $key => $value) {
+            if (
+                $key == 'created_by' ||
+                $key == 'company_id' ||
+                $key == 'host' ||
+                $key == 'pid' ||
+                $key == 'locale' |
+                $value == null
+            ) {
+                $item[$key] = $value;
+            } else {
+                // $item[$key] = $value;
+                $result = $translate->translate((string)$value, [
+                    'source' => 'nl',
+                    'target' => $locale
+                ]);
+                $item[$key] = $result['text'];
+            }
+        }
+        if (isset($item['slug'])) {
+            $item['slug'] = (string)Str::of($item['slug'])->slug('-');
+        }
+
+        MantaVacancy::create($item);
+
+
+        toastr()->addInfo('Item opgeslagen');
+
+        return redirect()->to(route('manta.vacancies.update', ['locale' => $locale, 'input' => $this->item->id]));
     }
 }

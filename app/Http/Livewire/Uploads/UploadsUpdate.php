@@ -34,11 +34,16 @@ class UploadsUpdate extends Component
     public ?string $originalName = null;
     public ?string $comments = null;
 
+    public ?string $redirect = null;
+
     public function mount(Request $request, $input)
     {
         $item = MantaUpload::find($input);
         if ($item == null) {
             return redirect()->to(route('manta.uploads.list'));
+        }
+        if ($request->input('redirect')) {
+            $this->redirect = $request->input('redirect');
         }
         $this->item = $item;
         $this->sort = $item->sort;
@@ -75,24 +80,16 @@ class UploadsUpdate extends Component
         $this->validate(
             [
                 'title' => 'required|min:1',
-                'slug' => 'required|min:1',
             ],
             [
                 'title.required' => 'Titel is verplicht',
-                'slug.required' => 'Slug is verplicht',
             ]
         );
 
         $items = [
             'updated_by' => auth()->user()->name,
-            'locale' => $this->locale,
             'title' => $this->title,
-            'slug' => Str::of($this->slug)->slug('-'),
             'seo_title' => $this->seo_title,
-            'private' => $this->private,
-            'model' => $this->model,
-            'pid' => $this->pid,
-            'identifier' => $this->identifier,
             'comments' => $this->comments,
         ];
         MantaUpload::where('id', $this->item->id)->update($items);

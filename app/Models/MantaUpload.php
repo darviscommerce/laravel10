@@ -47,6 +47,7 @@ class MantaUpload extends Model
         'seo_title',
         'private',
         'disk',
+        'url',
         'location',
         'filename',
         'extension',
@@ -106,6 +107,11 @@ class MantaUpload extends Model
         return $return;
     }
 
+    function full_path(): string
+    {
+        return $this->url . $this->location . $this->filename;
+    }
+
     /**
      * @return bool
      * @throws LogicException
@@ -128,6 +134,12 @@ class MantaUpload extends Model
     {
         $disk = isset($config['disk']) ? $config['disk'] : 'azure';
         $location = isset($config['location']) ? $config['location'] : 'uploads/' . date('y') . '/' . date('m') . '/' . date('d') . '/';
+
+        if (preg_match('#azure#', $disk)) {
+            $url = env('AZURE_STORAGE_URL') . env('AZURE_STORAGE_CONTAINER') . '/';
+        } else {
+            $url = env('APP_URL') . '/';
+        }
 
 
 
@@ -178,14 +190,13 @@ class MantaUpload extends Model
         }
 
 
-
-
         $item = [
             'sort' => isset($config['sort']) ? $config['sort'] : 0,
             'main' => isset($config['main']) ? $config['main'] : 0,
             'title' => isset($config['title']) ? $config['title'] : $originalName,
             'seo_title' => isset($config['seo_title']) ? $config['seo_title'] : $originalName,
             'disk' => $disk,
+            'url' => $url,
             'location' => $location,
             'filename' => $filename,
             'extension' => $extension,

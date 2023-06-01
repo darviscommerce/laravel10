@@ -23,10 +23,10 @@
                             <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.contact.list') }}">Contact</a></li>
                         @endif
-                        @if (Route::has('manta.houses.list'))
+                        {{-- @if (Route::has('manta.houses.list'))
                             <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.houses.list') }}">Huisjes</a></li>
-                        @endif
+                        @endif --}}
                         @if (Route::has('manta.pages.list'))
                             <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.pages.list') }}">Tekst pagina's</a></li>
@@ -35,18 +35,18 @@
                             <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.uploads.list') }}">Uploads</a></li>
                         @endif
-                        @if (Route::has('cms.openinghours.update'))
+                        {{-- @if (Route::has('cms.openinghours.update'))
                             <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('cms.openinghours.update') }}">Openingstijden</a></li>
-                        @endif
+                        @endif --}}
                         @if (Route::has('manta.vacancies.list'))
                             <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.vacancies.list') }}">Vacatures</a></li>
                         @endif
-                        @if (Route::has('cms.rentalrates.update'))
+                        {{-- @if (Route::has('cms.rentalrates.update'))
                             <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('cms.rentalrates.update') }}">Verhuurtarieven</a></li>
-                        @endif
+                        @endif --}}
                     </ul>
                 </li>
             </ul>

@@ -46,4 +46,5 @@ return [
     'visit-us' => 'Bezoek ons',
     'vat' => 'BTW',
     'working at Compri Coating Service' => 'Werken bij Compri Coating Service',
+    'view vacancy' => 'Vacature bekijken',
 ];

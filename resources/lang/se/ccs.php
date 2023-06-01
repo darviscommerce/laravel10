@@ -46,4 +46,5 @@ return [
     'visit-us' => 'Besök oss',
     'vat' => 'MOMS',
     'working at Compri Coating Service' => 'Jobbar på Compri Coating Service',
+    'view vacancy' => 'Se lediga tjänster',
 ];

@@ -2,22 +2,24 @@
 
 namespace App\Http\Livewire\Ccs\Widgets;
 
-use App\Mail\MailContact;
-use App\Models\MantaContact;
+use App\Models\MantaVacancy;
+use App\Models\MantaVacancyReaction;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
-class CcsContact extends Component
+class CcsVacancyForm extends Component
 {
-    public ?MantaContact $item = null;
+    public MantaVacancy $item;
+    public MantaVacancyReaction $reaction;
 
     public ?string $created_by = null;
     public ?string $updated_by = null;
     public ?string $deleted_by = null;
     public ?string $company_id = null;
     public ?string $host = null;
+    public ?string $locale = null;
     public ?string $pid = null;
-    public ?string $locale = 'nl';
+    public ?string $manta_vacancy_id = null;
     public ?string $company = null;
     public ?string $title = null;
     public ?string $sex = null;
@@ -26,14 +28,13 @@ class CcsContact extends Component
     public ?string $email = null;
     public ?string $phone = null;
     public ?string $address = null;
+    public ?string $house_nr = null;
     public ?string $zipcode = null;
     public ?string $city = null;
     public ?string $country = null;
     public ?string $birthdate = null;
-    public ?string $newsletters = '1';
     public ?string $subject = null;
     public ?string $comments = null;
-    public ?string $internal_contact = null;
 
     public int $send = 0;
 
@@ -51,19 +52,19 @@ class CcsContact extends Component
             $this->email = fake('nl_NL')->unique()->safeEmail();
             $this->phone = fake('nl_NL')->phoneNumber();
             $this->address = fake('nl_NL')->streetAddress();
+            $this->house_nr = fake('nl_NL')->randomDigit();
             $this->zipcode = fake('nl_NL')->postcode();
             $this->city = fake('nl_NL')->city();
             $this->country = strtolower(fake('nl_NL')->countryCode());
             $this->birthdate = fake('nl_NL')->date('Y-m-d', '-15 years');
             $this->subject = fake('nl_NL')->sentence('5');
             $this->comments = fake('nl_NL')->paragraph('3');
-            $this->internal_contact = fake('nl_NL')->name();
         }
     }
 
     public function render()
     {
-        return view('livewire.ccs.widgets.ccs-contact');
+        return view('livewire.ccs.widgets.ccs-vacancy-form');
     }
 
     public function store($input)
@@ -85,7 +86,7 @@ class CcsContact extends Component
             'host' => request()->getHost(),
             'pid' => $this->pid,
             'locale' => $this->locale,
-
+            'manta_vacancy_id' => $this->item->id,
             'company' => $this->company,
             'title' => $this->title,
             'sex' => $this->sex,
@@ -94,17 +95,17 @@ class CcsContact extends Component
             'email' => $this->email,
             'phone' => $this->phone,
             'address' => $this->address,
+            'house_nr' => $this->house_nr,
             'zipcode' => $this->zipcode,
             'city' => $this->city,
             'country' => $this->country,
             'birthdate' => $this->birthdate,
-            'newsletters' => $this->newsletters,
             'subject' => $this->subject,
             'comments' => $this->comments,
-            'internal_contact' => $this->internal_contact,
         ];
-        $this->item = MantaContact::create($item);
-        Mail::to(env('MAIL_TO_ADDRESS'))->send(new MailContact($this->item));
+
+        $this->reaction = MantaVacancyReaction::create($item);
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new MailContact($this->reaction));
         Mail::to($this->email)->send(new MailContact($this->item));
 
         toastr()->addInfo(__('manta_contact.form_ok'));

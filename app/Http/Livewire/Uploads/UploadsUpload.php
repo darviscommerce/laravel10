@@ -11,8 +11,11 @@ class UploadsUpload extends Component
 
     use WithFileUploads;
 
-    public $documents = [];
-    public $max_upload_size = 1024;
+    public mixed $documents = [];
+    public int $max_upload_size = 1024;
+
+    public mixed $pid;
+    public string $model;
 
     public function mount()
     {
@@ -39,13 +42,13 @@ class UploadsUpload extends Component
             'documents.*' => 'image|max:' . $this->max_upload_size, // 1MB Max
         ]);
 
+        $this->emit('uploadsCreated');
+
         $upload = new MantaUpload();
         foreach ($this->documents as $photo) {
-            // $photo->storeAs('uploads/2305', 'avatar', 'azure');
-            // dd($photo);
-            $upload->upload($photo);
-            // $test = $photo->store('photos', 'azure');
-            // dd($test, $photo);
+            $upload->upload($photo, ['pid' => $this->pid, 'model' => $this->model]);
         }
+
+        $this->documents = [];
     }
 }

@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Ccs;
 
+use App\Models\MantaVacancy;
 use Livewire\Component;
 
 class CcsVacancies extends Component
 {
     public function render()
     {
-        return view('livewire.ccs.ccs-vacancies')->layout('layouts.ccs');
+        $items = MantaVacancy::where('locale', 'nl')->get();
+        return view('livewire.ccs.ccs-vacancies', ['items' => $items])->layout('layouts.ccs');
     }
 }

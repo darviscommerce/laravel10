@@ -46,4 +46,5 @@ return [
     'visit-us' => 'Visit us',
     'vat' => 'VAT',
     'working at Compri Coating Service' => 'Working at Compri Coating Service',
+    'view vacancy' => 'View vacancy',
 ];

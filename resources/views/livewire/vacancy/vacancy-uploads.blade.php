@@ -6,28 +6,22 @@
             <li class="breadcrumb-item active" aria-current="page"><em>{!! $item->translation()['get']->title !!}</em> uploads</li>
         </ol>
     </nav>
-    @if (count(config('manta-cms.locales')) > 1)
-        <ul class="mb-4 nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link {{ !isset($plugin) && config('manta-cms.locale') == $locale ? 'active' : null }}"
-                    aria-current="page"
-                    href="{{ route('manta.vacancies.update', ['input' => $item->translation()['org']->id]) }}">{{ config('manta-cms.locales')[config('manta-cms.locale')]['language'] }}
-                    <span class="{{ config('manta-cms.locales')[config('manta-cms.locale')]['css'] }}"></span></a>
-            </li>
-            @foreach (config('manta-cms.locales') as $key => $value)
-                @if ($key != config('manta-cms.locale'))
-                    <li class="nav-item">
-                        <a class="nav-link {{ $key == $locale ? 'active' : null }}"
-                            href="{{ route('manta.vacancies.update', ['locale' => $key, 'input' => $item->id]) }}">{{ $value['language'] }}
-                            <span class="{{ $value['css'] }}"></span></a>
-                    </li>
-                @endif
-            @endforeach
-            <li class="nav-item">
-                <a class="nav-link {{ isset($plugin) && $plugin == 'uploads' ? 'active' : null }}"
-                    href="{{ route('manta.vacancies.uploads', ['locale' => $key, 'input' => $item->id]) }}">Uploads</a>
-            </li>
-        </ul>
+
+    @include('livewire.vacancy.includes.vacancy-nav')
+
+    <ul class="mb-4 nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link {{ $view == 'list' ? 'active' : null }}" wire:click="view('list')"
+                href="javascript:;">Uploads</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ $view == 'create' ? 'active' : null }}" wire:click="view('create')"
+                href="javascript:;">Toevoegen</a>
+        </li>
+    </ul>
+    @if ($view == 'list')
+        @livewire('uploads.uploads-uploads', ['pid' => $item->id, 'model' => App\Models\MantaVacancy::class], key('uploads' . time()))
+    @else
+        @livewire('uploads.uploads-upload', ['pid' => $item->id, 'model' => App\Models\MantaVacancy::class], key('upload' . time()))
     @endif
-    @livewire('uploads.uploads-upload')
 </div>

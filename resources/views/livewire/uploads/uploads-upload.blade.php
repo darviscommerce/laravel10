@@ -3,6 +3,9 @@
         <div class="row">
             <div class="col">
                 <input type="file" wire:model="documents" multiple>
+                <span wire:loading>
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                </span>
                 @error('documents.*')
                     <span class="error">{{ $message }}</span>
                 @enderror
@@ -26,9 +29,6 @@
                 @if ($documents)
 
                     @foreach ($documents as $photo)
-                        <p>
-                            {{-- <img src="{{ env('AZURE_STORAGE_URL') }}">{!! dd($photo) !!} --}}
-                        </p>
                         <div class="mantaUploadsDiv ui-sortable-handle" data-id="d4493e00-a81f-11eb-96a3-6f0d8db49bb5">
                             <a href="javascript:;" {{-- onclick="$('#uploadsModal').modal('show'); Livewire.emit('uploadPopupEdit', 'd4493e00-a81f-11eb-96a3-6f0d8db49bb5')" --}}>
 
