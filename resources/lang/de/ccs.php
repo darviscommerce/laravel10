@@ -47,4 +47,7 @@ return [
     'vat' => 'MwSt',
     'working at Compri Coating Service' => 'Arbeiten bei Compri Coating Service',
     'view vacancy' => 'Stellenangebot ansehen',
+    'service_quote' => 'Compri Coating Service arbeitet in der Kommunikation mit dem Kunden eigentlich wie ein kleines KMU, verfügt aber auch über die Kapazitäten und das Know-how eines großen multinationalen Konzerns!',
+    'qualicoat_download' => 'Laden Sie das Qualicoat Compri Coating Service-Zertifikat herunter',
+    'read_more' => 'Weiterlesen',
 ];

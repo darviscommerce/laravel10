@@ -29,6 +29,7 @@ class MantaPage extends Model
         'pid',
         'locale',
         'title',
+        'subtitle',
         'slug',
         'seo_title',
         'seo_description',

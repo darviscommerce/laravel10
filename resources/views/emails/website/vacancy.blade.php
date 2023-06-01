@@ -1,12 +1,16 @@
 <x-mail::message>
-# Introduction
+    {{ __('manta_vacancy.name') }} {{ $item->firstname }},
 
-The body of your message.
+    <p>{{ __('manta_vacancy.mail_received') }}</p>
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+    <x-mail::table>
+        | | |
+        | ------------- | ------------- |
+        | {{ __('manta_vacancy.name') }} | {{ $item->firstname }} {{ $item->lastname }} |
+        | {{ __('manta_vacancy.email') }} | {{ $item->email }} |
+        | {{ __('manta_vacancy.comments') }} | {{ $item->comments }} |
+    </x-mail::table>
 
-Thanks,<br>
-{{ config('app.name') }}
+    {{ __('manta_vacancy.regards') }},<br>
+    {{ __('manta_vacancy.sender_name') }}
 </x-mail::message>

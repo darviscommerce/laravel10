@@ -35,6 +35,7 @@ class MantaVacancyReaction extends Model
         'title',
         'sex',
         'firstname',
+        'insertion',
         'lastname',
         'email',
         'phone',

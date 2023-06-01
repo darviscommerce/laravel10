@@ -95,19 +95,21 @@ Route::group([
     if (env("THEME") == "CCS") {
         Route::get('/', CcsHomepage::class)->name('ccs.homepage');
 
-        Route::get('/over-compri-coating', CcsAbout::class)->name('ccs.about');
-        Route::get('/waarom-compri-coating', CcsWhy::class)->name('ccs.why');
-        Route::get('/service', CcsService::class)->name('ccs.service');
-        Route::get('/coatingsytemen-kleuren', CcsCoatingsystems::class)->name('ccs.coatingsystems');
-        Route::get('/capaciteit', CcsCapacity::class)->name('ccs.capacity');
-        Route::get('/certificering-qualicoat', CcsCertification::class)->name('ccs.certification');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.about'), CcsAbout::class)->name('ccs.about');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.why'), CcsWhy::class)->name('ccs.why');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.service'), CcsService::class)->name('ccs.service');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.coating-systems-colours'), CcsCoatingsystems::class)->name('ccs.coatingsystems');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.capacity'), CcsCapacity::class)->name('ccs.capacity');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.certification-qualicoat'), CcsCertification::class)->name('ccs.certification');
 
-        Route::get('/nieuws', CcsNews::class)->name('ccs.news');
-        Route::get('/nieuws/{input}', CcsNewsView::class)->name('ccs.news.view');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.news'), CcsNews::class)->name('ccs.news');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.news') . '/{input}', CcsNewsView::class)->name('ccs.news.view');
 
-        Route::get('/vacatures', CcsVacancies::class)->name('ccs.vacancies.list');
-        Route::get('/vacature/{input}', CcsVacancy::class)->name('ccs.vacancies.view');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.vacancies'), CcsVacancies::class)->name('ccs.vacancies.list');
+        Route::get(LaravelLocalization::transRoute('routes_ccs.vacancies') . '/{input}', CcsVacancy::class)->name('ccs.vacancies.view');
+
         Route::get(LaravelLocalization::transRoute('routes_ccs.contact'), CcsContact::class)->name('ccs.contact');
+
         Route::get('/{input}', CcsView::class)->name('ccs.view');
     }
 

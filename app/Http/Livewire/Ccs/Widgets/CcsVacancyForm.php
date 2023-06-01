@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Ccs\Widgets;
 
+use App\Mail\MailVacancy;
 use App\Models\MantaVacancy;
 use App\Models\MantaVacancyReaction;
 use Illuminate\Support\Facades\Mail;
@@ -24,6 +25,7 @@ class CcsVacancyForm extends Component
     public ?string $title = null;
     public ?string $sex = null;
     public ?string $firstname = null;
+    public ?string $insertion = null;
     public ?string $lastname = null;
     public ?string $email = null;
     public ?string $phone = null;
@@ -48,6 +50,7 @@ class CcsVacancyForm extends Component
             $this->title = fake('nl_NL')->randomElement(['Dhr.', 'Mevr.']);
             $this->sex = fake('nl_NL')->randomElement(['man', 'vrouw', 'het']);
             $this->firstname = fake('nl_NL')->firstName();
+            $this->insertion = fake('nl_NL')->randomElement(['de', 'van de', 'van der']);;
             $this->lastname = fake('nl_NL')->lastName();
             $this->email = fake('nl_NL')->unique()->safeEmail();
             $this->phone = fake('nl_NL')->phoneNumber();
@@ -91,6 +94,7 @@ class CcsVacancyForm extends Component
             'title' => $this->title,
             'sex' => $this->sex,
             'firstname' => $this->firstname,
+            'insertion' => $this->insertion,
             'lastname' => $this->lastname,
             'email' => $this->email,
             'phone' => $this->phone,
@@ -105,9 +109,9 @@ class CcsVacancyForm extends Component
         ];
 
         $this->reaction = MantaVacancyReaction::create($item);
-        Mail::to(env('MAIL_TO_ADDRESS'))->send(new MailContact($this->reaction));
-        Mail::to($this->email)->send(new MailContact($this->item));
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new MailVacancy($this->reaction));
+        Mail::to($this->email)->send(new MailVacancy($this->reaction));
 
-        toastr()->addInfo(__('manta_contact.form_ok'));
+        toastr()->addInfo(__('manta_vacancy.form_ok'));
     }
 }

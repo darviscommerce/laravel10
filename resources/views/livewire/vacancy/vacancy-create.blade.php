@@ -90,8 +90,8 @@
         <div class="mb-3 row">
             <label for="seo_description" class="col-sm-2 col-form-label">SEO Omschrijving</label>
             <div class="col-sm-5">
-                <textarea class="form-control form-control-sm @error('seo_description')is-invalid @enderror" id="seo_description"
-                    wire:model="seo_description"></textarea>
+                <textarea class="form-control form-control-sm @error('seo_description')is-invalid @enderror" rows="4"
+                    id="seo_description" wire:model="seo_description"></textarea>
                 @error('seo_description')
                     <span class="error">{{ $message }}</span>
                 @enderror

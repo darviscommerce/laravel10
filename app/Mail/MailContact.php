@@ -30,7 +30,7 @@ class MailContact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: __('website.contact by') . ' ' . request()->getHost(),
+            subject: __('manta_contact.contact by') . ' ' . request()->getHost(),
         );
     }
 

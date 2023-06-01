@@ -47,4 +47,7 @@ return [
     'vat' => 'VAT',
     'working at Compri Coating Service' => 'Working at Compri Coating Service',
     'view vacancy' => 'View vacancy',
+    'service_quote' => 'Compri Coating Service actually works like a small SME with regard to communication with the customer, but also with the capacities and know-how of a large multinational!',
+    'qualicoat_download' => 'Download Qualicoat Compri Coating Service certificate',
+    'read_more' => 'Read more',
 ];

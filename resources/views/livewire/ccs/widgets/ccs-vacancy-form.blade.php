@@ -1,52 +1,97 @@
 <div>
-    <form id="wf-form-Sollicitatieformulier" name="wf-form-Sollicitatieformulier" data-name="Sollicitatieformulier"
-        method="get">
-        <div class="form-field_double">
-            <div class="field-parent margin-form"><label for="field-2" class="field-label">Voornaam</label><input
-                    type="text" spellcheck="false" class="input-field w-input" maxlength="256" name="Voornaam"
-                    data-name="Voornaam" placeholder="" id="field" voornaam="Voornaam"></div>
-            <div class="field-parent margin-form"><label for="field-2" class="field-label">Tussenv.</label><input
-                    type="text" spellcheck="false" class="input-field small w-input" maxlength="256" name="Voornaam"
-                    data-name="Voornaam" placeholder="" tussenvoegsel="Tussenvoegsel" id="field">
+    @if ($send == 1)
+        <div class="success-message w-form-done" style="display: block; color: black; ">
+            <div>{!! __('ccs.contact-done') !!}</div>
+        </div>
+    @else
+        <form id="wf-form-Sollicitatieformulier" wire:model.defer="wf-form-Sollicitatieformulier"
+            data-wire:model.defer="Sollicitatieformulier"
+            wire:submit.prevent="store(Object.fromEntries(new FormData($event.target)))">
+            <div class="form-field_double">
+                <div class="field-parent margin-form">
+                    <label for="firstname" class="field-label">Voornaam</label>
+                    <input type="text" class="input-field w-input" wire:model.defer="firstname" id="firstname">
+                    @error('firstname')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="field-parent margin-form">
+                    <label for="insertion" class="field-label">Tussenv.</label>
+                    <input type="text" class="input-field small w-input" wire:model.defer="insertion" id="insertion">
+                    @error('insertion')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="field-parent">
+                    <label for="lastname" class="field-label">Achternaam</label>
+                    <input type="text" class="input-field w-input" wire:model.defer="lastname" id="lastname">
+                    @error('lastname')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
-            <div class="field-parent"><label for="field-2" class="field-label">Achternaam</label><input type="text"
-                    spellcheck="false" class="input-field w-input" maxlength="256" name="Achternaam"
-                    data-name="Achternaam" placeholder="" achternaam="Achternaam" id="field"></div>
-        </div>
-        <div class="form-field_double">
-            <div class="field-parent margin-form"><label for="field-2" class="field-label">E-mail
-                    adres</label><input type="email" spellcheck="false" class="input-field w-input" maxlength="256"
-                    name="E-mail-adres" data-name="E-mail adres" e-mail-adres="E-mail-adres" placeholder=""
-                    id="field"></div>
-            <div class="field-parent"><label for="field-2" class="field-label">Telefoonnummer
-                </label><input type="tel" spellcheck="false" class="input-field w-input"
-                    telefoonnummer="Telefoonnummer" maxlength="256" name="Telefoonnummer" data-name="Telefoonnummer"
-                    placeholder="" id="field"></div>
-        </div>
-        <div class="form-field_double">
-            <div class="field-parent margin-form"><label for="field-2" class="field-label">Postcode</label><input
-                    type="tel" spellcheck="false" class="input-field w-input" maxlength="256" name="Postcode"
-                    postcode="Postcode" data-name="Postcode" placeholder="" id="field"></div>
-            <div class="field-parent"><label for="field-2" class="field-label">Plaats</label><input type="tel"
-                    spellcheck="false" class="input-field w-input" maxlength="256" name="Plaats" data-name="Plaats"
-                    placeholder="" id="field" plaats="Plaats"></div>
-        </div>
-        <div class="form-field_double">
-            <div class="field-parent margin-form"><label for="field-2" class="field-label">Straatnaam</label><input
-                    type="tel" spellcheck="false" class="input-field w-input" maxlength="256" name="Postcode"
-                    postcode="Postcode" data-name="Postcode" placeholder="" id="field"></div>
-            <div class="field-parent"><label for="field-2" class="field-label">Huisnummer</label><input
-                    type="tel" spellcheck="false" class="input-field small w-input" maxlength="256"
-                    name="Plaats" data-name="Plaats" placeholder="" id="field" plaats="Plaats"></div>
-        </div>
-        <div class="form-field_single"><label for="field-2" class="field-label">Motivatie</label>
-            <textarea id="field" name="field-2" maxlength="5000" data-name="field" placeholder=""
-                class="input-field large w-input"></textarea>
-        </div>
-    </form>
-    <div class="form_success-message w-form-done">
-        <p><strong>Bedankt! </strong><br>Jouw sollicitatie is in goede orde ontvangen.</p>
-    </div>
-    <div class="w-form-fail"></div>
-    <a href="#" class="button w-button">Solliciteren</a>
+            <div class="form-field_double">
+                <div class="field-parent margin-form">
+                    <label for="email" class="field-label">E-mail adres</label>
+                    <input type="email" class="input-field w-input" wire:model.defer="email" id="email">
+                    @error('email')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="field-parent">
+                    <label for="phone" class="field-label">Telefoonnummer
+                    </label>
+                    <input type="text" class="input-field w-input" wire:model.defer="phone" id="phone">
+                    @error('phone')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-field_double">
+                <div class="field-parent margin-form">
+                    <label for="zipcode" class="field-label">Postcode</label>
+                    <input type="text" class="input-field w-input" wire:model.defer="zipcode" id="zipcode">
+                    @error('zipcode')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="field-parent">
+                    <label for="city" class="field-label">Plaats</label>
+                    <input type="text" class="input-field w-input" wire:model.defer="city" id="city">
+                    @error('city')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-field_double">
+                <div class="field-parent margin-form">
+                    <label for="address" class="field-label">Straatnaam</label>
+                    <input type="text" class="input-field w-input" wire:model.defer="address" id="address">
+                    @error('address')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="field-parent">
+                    <label for="house_nr" class="field-label">Huisnummer</label>
+                    <input type="text" class="input-field small w-input" wire:model.defer="house_nr" id="house_nr">
+                    @error('house_nr')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-field_single">
+                <label for="comments" class="field-label">Motivatie</label>
+                <textarea id="comments" wire:model.defer="comments" class="input-field large w-input"></textarea>
+                @error('comments')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form_success-message w-form-done">
+                <p>{!! __('manta_vacancy.mail_received') !!}</p>
+            </div>
+            <div class="w-form-fail">{!! __('manta_vacancy.form_oops') !!}</div>
+            <input value="{!! __('manta_vacancy.send') !!}" class="button w-button" type="submit"
+                wire:loading.class="button w-button" wire:loading.attr="disabled" />
+        </form>
+    @endif
 </div>

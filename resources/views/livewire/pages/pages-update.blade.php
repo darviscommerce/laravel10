@@ -46,45 +46,70 @@
             @endif
         </div>
     </div>
+    <div class="mb-3 row">
+        <label for="subtitle" class="col-sm-2 col-form-label">Subtitel</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control form-control-sm @error('subtitle')is-invalid @enderror"
+                id="subtitle" wire:model="subtitle">
+            @error('subtitle')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+        <label for="initials" class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-5">
+            @if ($item->locale != config('manta-cms.locale'))
+                <em>{!! $item->translation()['get']->subtitle !!}</em>
+            @endif
+        </div>
+    </div>
     @if ($fullpage)
         <div class="mb-3 row">
-            <label for="slug" class="col-sm-2 col-form-label">Slug <a href="{{ url($item->slug) }}"
-                    target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></label>
-            <div class="col-sm-4">
+            <label for="slug" class="col-sm-2 col-form-label">Slug @if ($slug)
+                    <a href="{{ url($slug) }}" target="_blank"><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                @endif
+            </label>
+            <div class="col-sm-5">
                 <input type="text" class="form-control form-control-sm @error('slug')is-invalid @enderror"
                     id="slug" wire:model.defer="slug">
                 @error('slug')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
-            <label for="initials" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
+                @if ($item && $locale != config('manta-cms.locale'))
+                    <em>{!! $item->translation()['get']->seo_title !!}</em>
+                @endif
             </div>
         </div>
         <div class="mb-3 row">
             <label for="seo_title" class="col-sm-2 col-form-label">SEO Titel</label>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <input type="text" class="form-control form-control-sm @error('seo_title')is-invalid @enderror"
                     id="seo_title" wire:model="seo_title">
                 @error('seo_title')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
-            <label for="initials" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
+                @if ($item && $locale != config('manta-cms.locale'))
+                    <em>{!! $item->translation()['get']->seo_title !!}</em>
+                @endif
             </div>
         </div>
         <div class="mb-3 row">
             <label for="seo_description" class="col-sm-2 col-form-label">SEO Omschrijving</label>
-            <div class="col-sm-4">
-                <textarea class="form-control form-control-sm @error('seo_description')is-invalid @enderror" id="seo_description"
-                    wire:model="seo_description"></textarea>
+            <div class="col-sm-5">
+                <textarea class="form-control form-control-sm @error('seo_description')is-invalid @enderror" rows="4"
+                    id="seo_description" wire:model="seo_description"></textarea>
                 @error('seo_description')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
-            <label for="initials" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
+                @if ($item && $locale != config('manta-cms.locale'))
+                    <em>{!! $item->translation()['get']->seo_description !!}</em>
+                @endif
             </div>
         </div>
     @endif
@@ -98,6 +123,9 @@
             @enderror
         </div>
         <div class="col-sm-5">
+            @if ($item && $locale != config('manta-cms.locale'))
+                <em>{!! $item->translation()['get']->tags !!}</em>
+            @endif
         </div>
     </div>
     <div class="mb-3 row">

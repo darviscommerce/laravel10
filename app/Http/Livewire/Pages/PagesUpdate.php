@@ -17,6 +17,7 @@ class PagesUpdate extends Component
     public ?string $host = null;
     public ?string $locale = null;
     public ?string $title = null;
+    public ?string $subtitle = null;
     public ?string $slug = null;
     public ?string $seo_title = null;
     public ?string $seo_description = null;
@@ -45,6 +46,7 @@ class PagesUpdate extends Component
         $this->host = $item->host;
         $this->locale = $item->locale;
         $this->title = $item->title;
+        $this->subtitle = $item->subtitle;
         $this->slug = $item->slug;
         $this->seo_title = $item->seo_title;
         $this->seo_description = $item->seo_description;
@@ -77,6 +79,7 @@ class PagesUpdate extends Component
             'updated_by' => auth()->user()->name,
             'locale' => $this->locale,
             'title' => $this->title,
+            'subtitle' => $this->subtitle,
             'slug' => Str::of($this->slug)->slug('-'),
             'seo_title' => $this->seo_title,
             'seo_description' => $this->seo_description,

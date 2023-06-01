@@ -7,6 +7,12 @@
         </ol>
     </nav>
 
+    @if ($locale != 'nl')
+        <button wire:click="googleTranslateTags('{{ $locale }}')" class="btn btn-sm btn-primary"><i
+                class="fa-solid fa-earth-europe"></i>
+            Vertaal</button>
+    @endif
+
     @if (count(config('manta-cms.locales')) > 1 && $item)
         <ul class="mb-4 nav nav-tabs">
             <li class="nav-item">
@@ -46,6 +52,23 @@
                 @endif
             </div>
         </div>
+        <div class="mb-3 row">
+            <label for="subtitle" class="col-sm-2 col-form-label">Subtitel</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm @error('subtitle')is-invalid @enderror"
+                    id="subtitle" wire:model="subtitle">
+                @error('subtitle')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+            <label for="initials" class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+                @if ($item && $locale != config('manta-cms.locale'))
+                    <em>{!! $item->translation()['get']->subtitle !!}</em>
+                @endif
+            </div>
+        </div>
+
         @if ($fullpage)
             <div class="mb-3 row">
                 <label for="slug" class="col-sm-2 col-form-label">Slug @if ($slug)
@@ -84,8 +107,8 @@
             <div class="mb-3 row">
                 <label for="seo_description" class="col-sm-2 col-form-label">SEO Omschrijving</label>
                 <div class="col-sm-5">
-                    <textarea class="form-control form-control-sm @error('seo_description')is-invalid @enderror" id="seo_description"
-                        wire:model="seo_description"></textarea>
+                    <textarea class="form-control form-control-sm @error('seo_description')is-invalid @enderror" rows="4"
+                        id="seo_description" wire:model="seo_description"></textarea>
                     @error('seo_description')
                         <span class="error">{{ $message }}</span>
                     @enderror

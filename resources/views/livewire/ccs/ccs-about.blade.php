@@ -14,16 +14,15 @@
             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
             class="text-page_wrapper">
             <article>
-                <h1>Een nieuw poedercoatbedrijf met ruim 30 jaar ervaring</h1>
+                <h1>{!! $item->translation()['get']->title !!}</h1>
                 <div class="divider margin-bottom_m"></div>
-                <p>In het voorjaar van 2018 werd een nieuwe poederlakkerij voor aluminium opgericht in Turnhout.  Het
-                    managementteam samen met de productiemedewerkers vertegenwoordigen reeds meer dan 30 jaar ervaring
-                    in de sector van de oppervlaktebehandeling van aluminium. De doelstelling van dit team is het
-                    overtreffen van de verwachtingen van de klant, kortom: </p><img
-                    src="/theme/ccs/images/passie-voor-het-vak.png" loading="lazy"
-                    sizes="(max-width: 479px) 90vw, 300px"
-                    srcset="/theme/ccs/images/passie-voor-het-vak-p-500.png 500w, /theme/ccs/images/passie-voor-het-vak-p-800.png 800w, /theme/ccs/images/passie-voor-het-vak.png 903w"
-                    alt="" class="passie-voor-het-vak">
+                <p>{!! $item->translation()['get']->content !!} </p>
+                @if (app()->getLocale() == 'nl')
+                    <img src="/theme/ccs/images/passie-voor-het-vak.png" loading="lazy"
+                        sizes="(max-width: 479px) 90vw, 300px"
+                        srcset="/theme/ccs/images/passie-voor-het-vak-p-500.png 500w, /theme/ccs/images/passie-voor-het-vak-p-800.png 800w, /theme/ccs/images/passie-voor-het-vak.png 903w"
+                        alt="" class="passie-voor-het-vak">
+                @endif
                 <div class="about-content">
                     <a href="#" class="lightbox-link w-inline-block w-lightbox">
                         <div class="lightbox-wrapper"><img src="/theme/ccs/images/20221107_CompriCoating_394.jpg"
@@ -259,7 +258,7 @@
                 </div>
             </article>
         </main>
-        <main data-w-id="e963ab43-a757-6438-8cd7-a898827483b6"
+        {{-- <main data-w-id="e963ab43-a757-6438-8cd7-a898827483b6"
             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
             class="text-page_wrapper-second">
             <article>
@@ -273,7 +272,7 @@
                     </div>
                 </a>
             </article>
-        </main>
+        </main> --}}
     </section>
     <a href="#" class="lightbox_over-compri w-inline-block w-lightbox">
         <div class="lightbox_over-compri_image-wrapper"><img src="/theme/ccs/images/ND_93858.jpg" loading="lazy"

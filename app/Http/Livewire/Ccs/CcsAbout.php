@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Ccs;
 
+use App\Models\MantaPage;
 use Livewire\Component;
 
 class CcsAbout extends Component
 {
     public function render()
     {
-        return view('livewire.ccs.ccs-about')->layout('layouts.ccs');
+        $item = MantaPage::find(1);
+        return view('livewire.ccs.ccs-about', ['item' => $item])->layout('layouts.ccs');
     }
 }

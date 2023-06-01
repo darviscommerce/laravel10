@@ -136,7 +136,7 @@ class VacancyCreate extends Component
                 $key == 'company_id' ||
                 $key == 'host' ||
                 $key == 'pid' ||
-                $key == 'locale' |
+                $key == 'locale' ||
                 $value == null
             ) {
                 $item[$key] = $value;
@@ -144,7 +144,7 @@ class VacancyCreate extends Component
                 // $item[$key] = $value;
                 $result = $translate->translate((string)$value, [
                     'source' => 'nl',
-                    'target' => $locale
+                    'target' => config('manta-cms.locales')[$locale]['google_code']
                 ]);
                 $item[$key] = $result['text'];
             }

@@ -43,8 +43,7 @@ class MantaHouse extends Model
      *
      * @var array
      */
-    protected $hidden = [
-    ];
+    protected $hidden = [];
 
     /**
      * The attributes that should be cast.
@@ -60,28 +59,24 @@ class MantaHouse extends Model
      *
      * @var array
      */
-    protected $appends = [
-    ];
+    protected $appends = [];
 
     public function translation(?string $getLocale = null): array
     {
-        $return = ['get','org'];
-        if($getLocale == null) $getLocale = app()->getLocale();
+        $return = ['get', 'org'];
+        if ($getLocale == null) $getLocale = app()->getLocale();
 
-        if($this->pid)
-        {
+        if ($this->pid) {
             $return['org'] = MantaHouse::find($this->pid);
         } else {
             $return['org'] = $this;
         }
         $return['get'] = $return['org'];
-        if($getLocale != config('manta-users.locale'))
-        {
+        if ($getLocale != config('manta-users.locale')) {
             $item = MantaHouse::where(['pid' => $return['org']->id, 'locale' => $getLocale])->first();
-            if($item){
+            if ($item) {
                 $return['get'] = $item;
             }
-
         }
         return $return;
     }
@@ -92,15 +87,14 @@ class MantaHouse extends Model
         $translate = new TranslateClient([
             'key' => env('GOOGLE_API')
         ]);
-       
+
         $tags = [];
-        foreach($this->translation('nl')['org']->tags as $key => $value)
-        {
+        foreach ($this->translation('nl')['org']->tags as $key => $value) {
             $result = $translate->translate($value, [
                 'source' => 'nl',
-                'target' => $locale
+                'target' => config('manta-cms.locales')[$locale]['google_code']
             ]);
-            $tags[] = $result['text']; 
+            $tags[] = $result['text'];
         }
         $item = MantaHouse::find($this->id);
         $item->tags = $tags;

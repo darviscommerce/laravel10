@@ -47,4 +47,7 @@ return [
     'vat' => 'BTW',
     'working at Compri Coating Service' => 'Werken bij Compri Coating Service',
     'view vacancy' => 'Vacature bekijken',
+    'service_quote' => 'Compri Coating Service werkt in feite als een kleine KMO m.b.t. de communicatie met de klant maar tevens met de capaciteiten en know-how van een grote multinational!',
+    'qualicoat_download' => 'Certificaat Qualicoat Compri Coating Service downloaden',
+    'read_more' => 'Lees meer',
 ];
