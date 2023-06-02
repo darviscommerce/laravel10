@@ -2,41 +2,14 @@
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('manta.vacancies.list') }}">Vacatures</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Toevoegen</li>
+            <li class="breadcrumb-item"><a href="{{ route('manta.blog.list') }}">Nieuws</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><em>{!! $item->translation()['get']->title !!}</em> aanpassen</li>
         </ol>
     </nav>
 
-    @if ($locale != 'nl')
-        <div class="alert alert-warning" role="alert">
-            <i class="fa-solid fa-earth-europe"></i>
-            <a href="javascript:;" class="text-black" wire:click="googleTranslateTags('{{ $locale }}')">Vertaal
-                deze pagina</a>
-        </div>
-    @endif
+    @include('livewire.blog.includes.blog-nav')
 
-    @if (count(config('manta-cms.locales')) > 1 && $item)
-        <ul class="mb-4 nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link {{ $pid == null ? 'active' : null }}" aria-current="page"
-                    href="{{ route('manta.vacancies.update', ['input' => $pid]) }}">{{ config('manta-cms.locales')[config('manta-cms.locale')]['language'] }}
-                    <span class="{{ config('manta-cms.locales')[config('manta-cms.locale')]['css'] }}"></span></a>
-            </li>
-            @foreach (config('manta-cms.locales') as $key => $value)
-                @if ($key != config('manta-cms.locale'))
-                    <li class="nav-item">
-                        <a class="nav-link {{ $pid && $key == $locale ? 'active' : null }}"
-                            href="{{ route('manta.vacancies.update', ['locale' => $key, 'input' => $item->id]) }}">{{ $value['language'] }}
-                            <span class="{{ $value['css'] }}"></span></a>
-                    </li>
-                @endif
-            @endforeach
-            {{-- <li class="nav-item">
-            <a class="nav-link {{ isset($plugin) && $plugin == 'uploads' ? 'active' : null }}"
-                href="{{ route('manta.vacancies.uploads', ['input' => $item->id]) }}">Uploads</a>
-        </li> --}}
-        </ul>
-    @endif
+
     <form wire:submit.prevent="store(Object.fromEntries(new FormData($event.target)))">
         @if ($locale == 'nl')
             <div class="mb-3 row">
@@ -60,6 +33,7 @@
                 </div>
             </div>
         @endif
+
         <div class="mb-3 row">
             <label for="title" class="col-sm-2 col-form-label">Titel</label>
             <div class="col-sm-4">
@@ -71,8 +45,24 @@
             </div>
             <label for="initials" class="col-sm-1 col-form-label"></label>
             <div class="col-sm-5">
-                @if ($item && $locale != config('manta-cms.locale'))
+                @if ($item->locale != config('manta-cms.locale'))
                     <em>{!! $item->translation()['get']->title !!}</em>
+                @endif
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="subtitle" class="col-sm-2 col-form-label">Subtitel</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm @error('subtitle')is-invalid @enderror"
+                    id="subtitle" wire:model="subtitle">
+                @error('subtitle')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+            <label for="initials" class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+                @if ($item && $locale != config('manta-cms.locale'))
+                    <em>{!! $item->translation()['get']->subtitle !!}</em>
                 @endif
             </div>
         </div>
@@ -143,49 +133,6 @@
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="characteristics" class="col-sm-2 col-form-label">Competenties</label>
-            <div class="col-sm-5">
-                <textarea class="form-control form-control-sm @error('characteristics')is-invalid @enderror" id="characteristics"
-                    rows="7" wire:model="characteristics"
-                    placeholder="Bijvoorbeeld:
-Fysieke paraatheid
-Kwaliteitsbewustzijn
-Zowel zelfstandig als in team goed kunnen functioneren
-Voldoende kennis van de Nederlandse taal"></textarea>
-                @error('characteristics')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="col-sm-5">
-                @if ($item && $locale != config('manta-cms.locale'))
-                    <em>{!! $item->translation()['get']->characteristics !!}</em>
-                @endif
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="to_offer" class="col-sm-2 col-form-label">Wij bieden</label>
-            <div class="col-sm-5">
-                <textarea class="form-control form-control-sm @error('to_offer')is-invalid @enderror" id="to_offer" rows="7"
-                    wire:model="to_offer"
-                    placeholder="Bijvoorbeeld:
-Een zeer aangename werksfeer met ruime flexibiliteit en vlakke managementstructuur
-Een marktconform loon
-Een moderne aangename werkomgeving
-Mogelijkheid tot interne opleiding in het poederspuiten"></textarea>
-                @error('to_offer')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="col-sm-5">
-                @if ($item && $locale != config('manta-cms.locale'))
-                    <em>{!! $item->translation()['get']->to_offer !!}</em>
-                @endif
-            </div>
-        </div>
-
-
-
-        <div class="mb-3 row">
             <label for="excerpt" class="col-sm-2 col-form-label">Excerpt</label>
             <div class="col-sm-5">
                 <textarea class="form-control form-control-sm @error('excerpt')is-invalid @enderror" id="excerpt" rows="7"
@@ -210,7 +157,7 @@ Mogelijkheid tot interne opleiding in het poederspuiten"></textarea>
                 @enderror
             </div>
             <div class="col-sm-5">
-                @if ($item && $locale != config('manta-cms.locale'))
+                @if ($item->locale != config('manta-cms.locale'))
                     <em>{!! $item->translation()['get']->content !!}</em>
                 @endif
             </div>
@@ -218,12 +165,13 @@ Mogelijkheid tot interne opleiding in het poederspuiten"></textarea>
         <x-manta.component-tinymce name="content" />
 
 
-        <div class="mb-3 row">
-            <div class="col-sm-12">
-                {{-- @include('includes.form_error') --}}
-                <input class="btn btn-sm btn-primary" type="submit" value="Opslaan"
-                    wire:loading.class="btn-secondary" wire:loading.attr="disabled" />
+        <form wire:submit.prevent="store(Object.fromEntries(new FormData($event.target)))">
+            <div class="mb-3 row">
+                <div class="col-sm-12">
+                    {{-- @include('includes.form_error') --}}
+                    <input class="btn btn-sm btn-primary" type="submit" value="Opslaan"
+                        wire:loading.class="btn-secondary" wire:loading.attr="disabled" />
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 </div>

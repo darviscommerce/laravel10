@@ -8,9 +8,11 @@
     </nav>
 
     @if ($locale != 'nl')
-        <button wire:click="googleTranslateTags('{{ $locale }}')" class="btn btn-sm btn-primary"><i
-                class="fa-solid fa-earth-europe"></i>
-            Vertaal</button>
+        <div class="alert alert-warning" role="alert">
+            <i class="fa-solid fa-earth-europe"></i>
+            <a href="javascript:;" class="text-black" wire:click="googleTranslateTags('{{ $locale }}')">Vertaal
+                deze pagina</a>
+        </div>
     @endif
 
     @if (count(config('manta-cms.locales')) > 1 && $item)

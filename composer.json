@@ -21,7 +21,8 @@
         "matthewbdaly/laravel-azure-storage": "^2.0",
         "mcamara/laravel-localization": "^1.8",
         "setasign/fpdf": "^1.8",
-        "setasign/fpdi": "^2.3"
+        "setasign/fpdi": "^2.3",
+        "unisharp/laravel-filemanager": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

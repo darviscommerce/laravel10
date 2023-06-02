@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Livewire\Vacancy;
+namespace App\Http\Livewire\Blog;
 
-use App\Models\MantaVacancy;
+use App\Models\MantaBlog;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
-class VacancyUpdate extends Component
+class BlogUpdate extends Component
 {
-    public MantaVacancy $item;
+    public MantaBlog $item;
 
     public ?string $created_by = null;
     public ?string $updated_by = null;
@@ -17,28 +17,27 @@ class VacancyUpdate extends Component
     public ?string $host = null;
     public ?string $locale = null;
     public ?string $title = null;
+    public ?string $subtitle = null;
     public ?string $slug = null;
     public ?string $seo_title = null;
     public ?string $seo_description = null;
     public ?string $tags = null;
     public ?string $excerpt = null;
     public ?string $content = null;
-    public ?string $characteristics = null;
-    public ?string $to_offer = null;
     public ?string $show_from = null;
     public ?string $show_till = null;
 
     public function mount(Request $request, $input)
     {
-        $item = MantaVacancy::find($input);
+        $item = MantaBlog::find($input);
         if ($request->input('locale')) {
-            $item = MantaVacancy::where('locale', $request->input('locale'))->where('pid', $input)->first();
+            $item = MantaBlog::where('locale', $request->input('locale'))->where('pid', $input)->first();
             if ($item == null) {
-                return redirect()->to(route('manta.vacancies.create', ['locale' => $request->input('locale'), 'pid' => $input]));
+                return redirect()->to(route('manta.blog.create', ['locale' => $request->input('locale'), 'pid' => $input]));
             }
         }
         if ($item == null) {
-            return redirect()->to(route('manta.vacancies.list'));
+            return redirect()->to(route('manta.blog.list'));
         }
         $this->item = $item;
         $this->created_by = $item->created_by;
@@ -47,21 +46,20 @@ class VacancyUpdate extends Component
         $this->host = $item->host;
         $this->locale = $item->locale;
         $this->title = $item->title;
+        $this->subtitle = $item->subtitle;
         $this->slug = $item->slug;
         $this->seo_title = $item->seo_title;
         $this->seo_description = $item->seo_description;
         $this->tags = $item->tags;
         $this->excerpt = $item->excerpt;
         $this->content = $item->content;
-        $this->characteristics = $item->characteristics;
-        $this->to_offer = $item->to_offer;
         $this->show_from = $item->show_from;
         $this->show_till = $item->show_till;
     }
 
     public function render()
     {
-        return view('livewire.vacancy.vacancy-update')->layout('layouts.manta-bootstrap');
+        return view('livewire.blog.blog-update')->layout('layouts.manta-bootstrap');
     }
 
     public function store($input)
@@ -81,18 +79,17 @@ class VacancyUpdate extends Component
             'updated_by' => auth()->user()->name,
             'locale' => $this->locale,
             'title' => $this->title,
+            'subtitle' => $this->subtitle,
             'slug' => Str::of($this->slug)->slug('-'),
             'seo_title' => $this->seo_title,
             'seo_description' => $this->seo_description,
             'tags' => $this->tags,
             'excerpt' => $this->excerpt,
             'content' => $this->content,
-            'characteristics' => $this->characteristics,
-            'to_offer' => $this->to_offer,
             'show_from' => $this->show_from,
             'show_till' => $this->show_till,
         ];
-        MantaVacancy::where('id', $this->item->id)->update($items);
+        MantaBlog::where('id', $this->item->id)->update($items);
 
         toastr()->addInfo('Item opgeslagen');
     }

@@ -2,12 +2,12 @@
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tekstpagina's</li>
+            <li class="breadcrumb-item active" aria-current="page">Nieuws</li>
         </ol>
     </nav>
     <div class="mt-3 row">
         <div class="col-4">
-            <a href="{{ route('manta.pages.create') }}" class="btn btn-sm btn-success"><i
+            <a href="{{ route('manta.blog.create') }}" class="btn btn-sm btn-success"><i
                     class="fa-solid fa-circle-plus"></i> Toevoegen</a>
         </div>
         <div class="col-4">
@@ -33,29 +33,34 @@
         <thead>
             <tr>
                 <th>Titel</th>
-                <th width="350">Tools</th>
+                <th>Tonen van</th>
+                <th>Tonen tot</th>
+                <th width="300">Tools</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($items as $item)
                 <tr>
                     <td>{{ $item->title }}</td>
+                    <td>{{ $item->show_from ? Carbon\Carbon::parse($item->show_from)->format('d-m-Y') : null }}</td>
+                    <td>{{ $item->show_till ? Carbon\Carbon::parse($item->show_till)->format('d-m-Y') : null }}</td>
                     <td>
                         @if ($item->trashed())
-                            <button wire:click="restore('{{ $item->id }}')" class="btn btn-sm btn-warning"><i
+                            <button wire:click="restore('{{ $item->id }}')" class="btn btn-sm btn-warning"
+                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="et terug"><i
                                     class="fa-solid fa-rotate-left"></i></button>
                         @elseif ($deleteId == null || $deleteId != $item->id)
-                            <a href="{{ route('manta.pages.update', ['input' => $item->id]) }}"
+                            <a href="{{ route('manta.blog.update', ['input' => $item->id]) }}"
                                 class="btn btn-sm btn-warning" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Aanpassen"><i class="fa-solid fa-pen-to-square"></i></a>
 
                             @foreach (config('manta-cms.locales') as $key => $value)
                                 @if ($key != config('manta-cms.locale'))
                                     @php
-                                        $lang = App\Models\MantaPage::where(['locale' => $key, 'pid' => $item->id])->first();
+                                        $lang = App\Models\MantaBlog::where(['locale' => $key, 'pid' => $item->id])->first();
                                     @endphp
                                     <a class="btn btn-sm {{ $lang ? 'btn-warning' : 'btn-success' }}"
-                                        href="{{ route('manta.pages.update', ['locale' => $key, 'input' => $item->id]) }}"
+                                        href="{{ route('manta.blog.update', ['locale' => $key, 'input' => $item->id]) }}"
                                         data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Aanpassen"><span
                                             class="{{ $value['css'] }}"></span></a>
                                 @endif

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('manta_vacancies', function (Blueprint $table) {
+        Schema::create('manta_blogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
@@ -22,15 +22,15 @@ return new class extends Migration
             $table->string('host')->nullable();
             $table->string('locale')->nullable();
             $table->integer('pid')->nullable();
+            $table->integer('manta_blog_category_id')->nullable();
             $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
             $table->string('slug')->nullable();
             $table->string('seo_title')->nullable();
             $table->text('seo_description')->nullable();
             $table->text('tags')->nullable();
             $table->longText('excerpt')->nullable();
             $table->longText('content')->nullable();
-            $table->text('characteristics')->nullable();
-            $table->text('to_offer')->nullable();
             $table->dateTime('show_from')->nullable();
             $table->dateTime('show_till')->nullable();
         });
@@ -41,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manta_vacancies');
+        Schema::dropIfExists('manta_blogs');
     }
 };

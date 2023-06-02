@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
-class MantaVacancy extends Model
+class MantaBlog extends Model
 {
     use Notifiable;
     use SoftDeletes;
 
-    protected $table = 'manta_vacancies';
+    protected $table = 'manta_blogs';
 
     // Disable Laravel's mass assignment protection
     // protected $guarded = [];
@@ -31,14 +31,13 @@ class MantaVacancy extends Model
         'locale',
         'pid',
         'title',
+        'subtitle',
         'slug',
         'seo_title',
         'seo_description',
         'tags',
         'excerpt',
         'content',
-        'characteristics',
-        'to_offer',
         'show_from',
         'show_till',
     ];
@@ -70,13 +69,13 @@ class MantaVacancy extends Model
         if ($getLocale == null) $getLocale = app()->getLocale();
 
         if ($this->pid) {
-            $return['org'] = MantaVacancy::find($this->pid);
+            $return['org'] = MantaBlog::find($this->pid);
         } else {
             $return['org'] = $this;
         }
         $return['get'] = $return['org'];
         if ($getLocale != config('manta-users.locale')) {
-            $item = MantaVacancy::where(['pid' => $return['org']->id, 'locale' => $getLocale])->first();
+            $item = MantaBlog::where(['pid' => $return['org']->id, 'locale' => $getLocale])->first();
             if ($item) {
                 $return['get'] = $item;
             }

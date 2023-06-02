@@ -42,6 +42,10 @@ Route::middleware([
     Route::get('/woningen/fotos/{input}', App\Http\Livewire\Houses\HousesPhotos::class)->name('manta.houses.photos');
 });
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
 Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {
     Route::get('/dashboard', App\Http\Livewire\Cms\CmsGeneral::class)->name('manta.cms.general');
     Route::get('/algemene-instellingen', App\Http\Livewire\Cms\CmsGeneral::class)->name('manta.cms.general');
@@ -78,6 +82,14 @@ Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('ma
     Route::get('/vacature/aanpassen/{input}', App\Http\Livewire\Vacancy\VacancyUpdate::class)->name('manta.vacancies.update');
     Route::get('/vacature/bekijken/{input}', App\Http\Livewire\Vacancy\VacancyRead::class)->name('manta.vacancies.read');
     Route::get('/vacature/uploads/{input}', App\Http\Livewire\Vacancy\VacancyUploads::class)->name('manta.vacancies.uploads');
+});
+
+Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {
+    Route::get('/blog', App\Http\Livewire\Blog\BlogList::class)->name('manta.blog.list');
+    Route::get('/blog/toevoegen', App\Http\Livewire\Blog\BlogCreate::class)->name('manta.blog.create');
+    Route::get('/blog/aanpassen/{input}', App\Http\Livewire\Blog\BlogUpdate::class)->name('manta.blog.update');
+    Route::get('/blog/bekijken/{input}', App\Http\Livewire\Blog\BlogRead::class)->name('manta.blog.read');
+    Route::get('/blog/uploads/{input}', App\Http\Livewire\Blog\BlogUploads::class)->name('manta.blog.uploads');
 });
 
 /**

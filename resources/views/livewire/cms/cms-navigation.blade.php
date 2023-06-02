@@ -27,8 +27,12 @@
                             <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.houses.list') }}">Huisjes</a></li>
                         @endif --}}
+                        @if (Route::has('manta.blog.list'))
+                            <li><a class="dropdown-item {{ preg_match('/blog/', $currentRouteName) ? 'active' : null }}"
+                                    href="{{ route('manta.blog.list') }}">Nieuws</a></li>
+                        @endif
                         @if (Route::has('manta.pages.list'))
-                            <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ preg_match('/pagina/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.pages.list') }}">Tekst pagina's</a></li>
                         @endif
                         @if (Route::has('manta.uploads.list'))
@@ -40,7 +44,7 @@
                                     href="{{ route('cms.openinghours.update') }}">Openingstijden</a></li>
                         @endif --}}
                         @if (Route::has('manta.vacancies.list'))
-                            <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ preg_match('/vacature/', $currentRouteName) ? 'active' : null }}"
                                     href="{{ route('manta.vacancies.list') }}">Vacatures</a></li>
                         @endif
                         {{-- @if (Route::has('cms.rentalrates.update'))
