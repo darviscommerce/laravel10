@@ -50,4 +50,7 @@ return [
     'service_quote' => 'Compri Coating Service werkt in feite als een kleine KMO m.b.t. de communicatie met de klant maar tevens met de capaciteiten en know-how van een grote multinational!',
     'qualicoat_download' => 'Certificaat Qualicoat Compri Coating Service downloaden',
     'read_more' => 'Lees meer',
+    'view all news items' => 'Bekijk alle nieuwsberichten',
+    'last news' => 'Laatste nieuws',
+    'news' => 'nieuws',
 ];

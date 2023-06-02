@@ -16,39 +16,39 @@
                         aria-expanded="false">Modules</a>
                     <ul class="dropdown-menu">
                         @if (Route::has('manta.users.list'))
-                            <li><a class="dropdown-item {{ preg_match('/users/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.users.') ? 'active' : null }}"
                                     href="{{ route('manta.users.list') }}">Gebruikers</a></li>
                         @endif
                         @if (Route::has('manta.contact.list'))
-                            <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.contact.') ? 'active' : null }}"
                                     href="{{ route('manta.contact.list') }}">Contact</a></li>
                         @endif
                         {{-- @if (Route::has('manta.houses.list'))
-                            <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.houses.') ? 'active' : null }}"
                                     href="{{ route('manta.houses.list') }}">Huisjes</a></li>
                         @endif --}}
                         @if (Route::has('manta.blog.list'))
-                            <li><a class="dropdown-item {{ preg_match('/blog/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.blog.') ? 'active' : null }}"
                                     href="{{ route('manta.blog.list') }}">Nieuws</a></li>
                         @endif
                         @if (Route::has('manta.pages.list'))
-                            <li><a class="dropdown-item {{ preg_match('/pagina/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.pages.') ? 'active' : null }}"
                                     href="{{ route('manta.pages.list') }}">Tekst pagina's</a></li>
                         @endif
                         @if (Route::has('manta.uploads.list'))
-                            <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.uploads.') ? 'active' : null }}"
                                     href="{{ route('manta.uploads.list') }}">Uploads</a></li>
                         @endif
                         {{-- @if (Route::has('cms.openinghours.update'))
-                            <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.openinghours.') ? 'active' : null }}"
                                     href="{{ route('cms.openinghours.update') }}">Openingstijden</a></li>
                         @endif --}}
                         @if (Route::has('manta.vacancies.list'))
-                            <li><a class="dropdown-item {{ preg_match('/vacature/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.vacancies.') ? 'active' : null }}"
                                     href="{{ route('manta.vacancies.list') }}">Vacatures</a></li>
                         @endif
                         {{-- @if (Route::has('cms.rentalrates.update'))
-                            <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}"
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.rentalrates.') ? 'active' : null }}"
                                     href="{{ route('cms.rentalrates.update') }}">Verhuurtarieven</a></li>
                         @endif --}}
                     </ul>

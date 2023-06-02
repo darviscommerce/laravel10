@@ -23,8 +23,8 @@ class BlogList extends Component
 
     public function mount()
     {
-        $this->sortBy = 'title';
-        $this->sortDirection = 'ASC';
+        $this->sortBy = 'show_till';
+        $this->sortDirection = 'DESC';
     }
 
     public function render()

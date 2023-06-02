@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use InvalidArgumentException;
 
 class MantaBlog extends Model
 {
@@ -63,6 +65,30 @@ class MantaBlog extends Model
      */
     protected $appends = [];
 
+
+    /**
+     * @return object
+     * @throws InvalidArgumentException
+     */
+    public function uploads(): object
+    {
+        return $this->hasMany(MantaUpload::class, 'pid', 'id')->where('model', MantaBlog::class)->orderBy('sort', 'ASC')->orderBy('title', 'ASC');
+    }
+
+    /**
+     * @return object
+     * @throws InvalidArgumentException
+     */
+    public function images(): object
+    {
+        return $this->hasMany(MantaUpload::class, 'pid', 'id')->whereIn('extension', ['jpg', 'jpeg', 'png'])->where('model', MantaBlog::class)->orderBy('sort', 'ASC')->orderBy('title', 'ASC');
+    }
+
+    /**
+     * @param null|string $getLocale
+     * @return array
+     * @throws BindingResolutionException
+     */
     public function translation(?string $getLocale = null): array
     {
         $return = ['get', 'org'];

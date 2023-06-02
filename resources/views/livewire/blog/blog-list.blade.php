@@ -32,6 +32,7 @@
     <table class="table table-sm table-hover table-striped">
         <thead>
             <tr>
+                <th></th>
                 <th>Titel</th>
                 <th>Tonen van</th>
                 <th>Tonen tot</th>
@@ -41,6 +42,11 @@
         <tbody>
             @foreach ($items as $item)
                 <tr>
+                    <td>
+                        @if (count($item->images) > 0)
+                            <img src="{{ $item->images[0]->full_path(config('manta-uploads.thumbnails')[0], true) }}">
+                        @endif
+                    </td>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->show_from ? Carbon\Carbon::parse($item->show_from)->format('d-m-Y') : null }}</td>
                     <td>{{ $item->show_till ? Carbon\Carbon::parse($item->show_till)->format('d-m-Y') : null }}</td>

@@ -22,6 +22,9 @@ use App\Http\Livewire\Otterlo\OtterloVilla;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
+Route::get('/register', function () {
+    return abort(404);
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -44,6 +47,18 @@ Route::middleware([
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+Route::get('/logout', function () {
+    Illuminate\Support\Facades\Auth::logout();
+    return redirect('login');
+})->name('logout');
+
+Route::get('/clearDgP', function () {
+    Illuminate\Support\Facades\Artisan::call('cache:clear');
+    Illuminate\Support\Facades\Artisan::call('route:clear');
+    Illuminate\Support\Facades\Artisan::call('config:clear');
+    Illuminate\Support\Facades\Artisan::call('storage:link', []);
 });
 
 Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {

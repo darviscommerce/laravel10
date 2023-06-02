@@ -12,12 +12,21 @@
                 class="heading-large">{!! __('ccs.vacancies') !!}</h1>
             <div class="thumnails-parent">
                 @foreach ($items as $item)
+                    @php
+                        if (count($item->images) > 0) {
+                            $image_500 = $item->images[0]->full_path(500, false);
+                            $image_800 = $item->images[0]->full_path(800, false);
+                            $image_1080 = $item->images[0]->full_path(1080, false);
+                            $image_1500 = $item->images[0]->full_path(1500, false);
+                        }
+                    @endphp
+
                     <article data-w-id="0cabd131-e9ab-a18a-2ebd-1d4848e84e1b"
                         style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                         class="thumbnail-wrapper">
                         <div class="news">
-                            <div class="thumbnail"><img src="/theme/ccs/images/20221107_CompriCoating_023.jpg"
-                                    srcset="/theme/ccs/images/20221107_CompriCoating_023-p-500.jpg 500w, /theme/ccs/images/20221107_CompriCoating_023-p-800.jpg 800w, /theme/ccs/images/20221107_CompriCoating_023-p-1080.jpg 1080w, /theme/ccs/images/20221107_CompriCoating_023.jpg 1500w"
+                            <div class="thumbnail"><img src="{{ $image_500 }}"
+                                    srcset="{{ $image_500 }} 500w, {{ $image_800 }} 800w, {{ $image_1080 }} 1080w, {{ $image_1500 }} 1500w"
                                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 95vw, (max-width: 991px) 29vw, 30vw"
                                     alt="" class="thumbnail-image"></div>
                             <div class="thumbnial_text-wrapper">

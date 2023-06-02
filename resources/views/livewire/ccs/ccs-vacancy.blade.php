@@ -2,12 +2,24 @@
 @section('title', 'Vacatures')
 @section('description', 'Vacatures')
 <div>
+    @php
+        $image_500 = false;
+        if (count($item->translation()['org']->images) > 0) {
+            $image_500 = $item->translation()['org']->images[0]->full_path(500, false);
+            $image_800 = $item->translation()['org']->images[0]->full_path(800, false);
+            $image_1080 = $item->translation()['org']->images[0]->full_path(1080, false);
+            $image_1500 = $item->translation()['org']->images[0]->full_path(1500, false);
+        }
+    @endphp
     <header class="header wf-section">
         <div class="container_1240px">
             <div class="container_heading"></div>
-        </div><img src="/theme/ccs/images/header-org.jpg" loading="lazy"
-            srcset="/theme/ccs/images/header-org-p-500.jpeg 500w, /theme/ccs/images/header-org-p-800.jpeg 800w, /theme/ccs/images/header-org-p-1080.jpeg 1080w, /theme/ccs/images/header-org.jpg 1176w"
-            sizes="100vw" alt="" class="header-image">
+        </div>
+        @if ($image_500)
+            <img src="{{ $image_1500 }}" loading="lazy"
+                srcset="{{ $image_500 }} 500w, {{ $image_800 }} 800w, {{ $image_1080 }} 1080w, {{ $image_1500 }} 1176w"
+                sizes="100vw" alt="" class="header-image">
+        @endif
     </header>
     <section class="section bg-gray wf-section">
         <main data-w-id="e364947c-4ca1-748f-cefe-3e8924438383"

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 
 
-class PagesView extends Component
+class PagesRead extends Component
 {
 
     public MantaPage $item;

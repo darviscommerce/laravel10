@@ -50,4 +50,7 @@ return [
     'service_quote' => 'Compri Coating Service en realidad funciona como una pequeña PYME en lo que respecta a la comunicación con el cliente, ¡pero también con las capacidades y el saber hacer de una gran multinacional!',
     'qualicoat_download' => 'Descargar certificado Qualicoat Compri Coating Service',
     'read_more' => 'Leer más',
+    'view all news items' => 'Ver todas las noticias',
+    'last news' => 'Últimas noticias',
+    'news' => 'Noticias',
 ];

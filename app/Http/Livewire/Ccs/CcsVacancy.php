@@ -13,7 +13,7 @@ class CcsVacancy extends Component
 
     public function mount($input)
     {
-        $item = MantaVacancy::where('slug', $input)->first();
+        $item = MantaVacancy::where('slug', $input)->where('show_from', '<', now())->where('show_till', '>', now())->first();
         if (!$item) {
             return redirect()->to(route('ccs.vacancies.list'));
         }

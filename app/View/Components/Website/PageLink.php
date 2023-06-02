@@ -1,11 +1,11 @@
 <?php
 
-namespace Manta\LaravelPages\View\Components\Website;
+namespace App\View\Components\Website;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Manta\LaravelPages\Models\MantaPage;
+use App\Models\MantaPage;
 
 class PageLink extends Component
 {
@@ -17,7 +17,8 @@ class PageLink extends Component
         public ?string $title = null,
         public ?string $link = null,
         public ?string $target = null,
-    ) {}
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.
@@ -28,6 +29,6 @@ class PageLink extends Component
         $this->link = $item->slug;
         $this->title = $this->title ? $this->title : $item->title;
         $this->target = $this->target ? 'target="_blank"' : null;
-        return view('manta-laravel-pages::components.website.link');
+        return view('components.website.page-link');
     }
 }

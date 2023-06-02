@@ -50,4 +50,7 @@ return [
     'service_quote' => 'Compri Coating Service fungerar faktiskt som ett litet SME vad gäller kommunikation med kunden, men också med kapaciteten och kunnandet hos ett stort multinationellt företag!',
     'qualicoat_download' => 'Ladda ner Qualicoat Compri Coating Service-certifikat',
     'read_more' => 'Läs mer',
+    'view all news items' => 'Se alla nyheter',
+    'last news' => 'Senaste nytt',
+    'news' => 'Nyheter',
 ];

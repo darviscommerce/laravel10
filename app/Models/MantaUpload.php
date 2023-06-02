@@ -107,9 +107,34 @@ class MantaUpload extends Model
         return $return;
     }
 
-    function full_path(): string
+    /**
+     * @param int|null $size
+     * @param bool $check_exist
+     * @return string
+     * @throws BindingResolutionException
+     * @throws NotReadableException
+     * @throws ExceptionInvalidArgumentException
+     * @throws NotSupportedException
+     */
+    function full_path(int $size = null, bool $check_exist = false): string
     {
-        return $this->url . $this->location . $this->filename;
+        if ($check_exist) {
+            $file_exist = @fopen($this->url . $this->location . 'cache/thumbnails/' . $size . '/' . $this->filename, 'r');
+        }
+        if (isset($file_exist) && !$file_exist) {
+            foreach (config('manta-uploads.thumbnails') as $resize) {
+                $this->resize($resize);
+            }
+            if (!in_array($size, config('manta-uploads.thumbnails'))) {
+                $this->resize($size);
+            }
+        }
+        if ($size != null) {
+            $file = $this->url . $this->location . 'cache/thumbnails/' . $size . '/' . $this->filename;
+        } else {
+            $file = $this->url . $this->location . $this->filename;
+        }
+        return $file;
     }
 
     /**
@@ -220,8 +245,9 @@ class MantaUpload extends Model
             $upload = MantaUpload::create($item);
         }
         if (in_array($upload->extension, ['jpg', 'jpeg', 'png'])) {
-            $upload->resize(400);
-            $upload->resize(800);
+            foreach (config('manta-uploads.thumbnails') as $size) {
+                $upload->resize($size);
+            }
         }
         if (in_array($upload->extension, ['pdf'])) {
             $upload->pdfToPages();
@@ -374,11 +400,12 @@ class MantaUpload extends Model
         if ($width == null) {
             $folderSize = $height;
         }
+
         $stream = Image::make(Storage::disk($this->disk)->get($this->location . $this->filename))->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         });
-
+        // dd($this->disk, (string)$stream->encode($this->extension));
         // $test = Storage::disk($this->disk)->makeDirectory($this->location . '/../cache/thumbnails/' . $folderSize . '/', 0777);
         Storage::disk($this->disk)->put($this->location . '/cache/thumbnails/' . $folderSize . '/' . $this->filename,  (string)$stream->encode($this->extension));
         $stream->destroy();

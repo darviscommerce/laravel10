@@ -9,7 +9,7 @@ class CcsVacancies extends Component
 {
     public function render()
     {
-        $items = MantaVacancy::where('locale', 'nl')->get();
+        $items = MantaVacancy::where('locale', 'nl')->where('show_from', '<', now())->where('show_till', '>', now())->get();
         return view('livewire.ccs.ccs-vacancies', ['items' => $items])->layout('layouts.ccs');
     }
 }

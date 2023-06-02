@@ -25,12 +25,12 @@ class VacancyUploads extends Component
     public function mount(Request $request, $input)
     {
         $item = MantaVacancy::find($input);
-        if ($request->input('locale') && $request->input('locale') != 'nl') {
-            $item = MantaVacancy::where('locale', $request->input('locale'))->where('pid', $input)->first();
-            if ($item == null) {
-                return redirect()->to(route('manta.vacancies.create', ['locale' => $request->input('locale'), 'pid' => $input]));
-            }
-        }
+        // if ($request->input('locale') && $request->input('locale') != 'nl') {
+        //     $item = MantaVacancy::where('locale', $request->input('locale'))->where('pid', $input)->first();
+        //     if ($item == null) {
+        //         return redirect()->to(route('manta.vacancies.create', ['locale' => $request->input('locale'), 'pid' => $input]));
+        //     }
+        // }
         if ($item == null) {
             return redirect()->to(route('manta.vacancies.list'));
         }
