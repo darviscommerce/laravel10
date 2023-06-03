@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Users;
 
 use Carbon\Carbon;
-use App\Models\MantaUser;
+use Manta\LaravelCms\Models\MantaUser;
 use Livewire\Component;
 
 class UsersUpdate extends Component
@@ -94,7 +94,7 @@ class UsersUpdate extends Component
         $this->validate(
             [
                 'name' => 'required|min:1',
-                'email' => 'required|email|unique:users,email,'.$this->item->id
+                'email' => 'required|email|unique:users,email,' . $this->item->id
             ],
             [
                 'name.required' => 'Achternaam is verplicht',

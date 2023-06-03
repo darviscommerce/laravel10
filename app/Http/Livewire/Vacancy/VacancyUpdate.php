@@ -89,10 +89,14 @@ class VacancyUpdate extends Component
             'content' => $this->content,
             'characteristics' => $this->characteristics,
             'to_offer' => $this->to_offer,
+        ];
+        MantaVacancy::where('id', $this->item->id)->update($items);
+
+        $items = [
             'show_from' => $this->show_from,
             'show_till' => $this->show_till,
         ];
-        MantaVacancy::where('id', $this->item->id)->update($items);
+        MantaVacancy::where('id', $this->item->id)->orWhere('pid', $this->item->id)->update($items);
 
         toastr()->addInfo('Item opgeslagen');
     }

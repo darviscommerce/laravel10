@@ -30,11 +30,13 @@
                 <h1 class="margin-bottom_m">{!! $item->translation()['get']->title !!}</h1>
                 <div class="tags-parent margin-top_s">
                     @foreach (explode(',', $item->translation()['get']->tags) as $tag)
-                        <div class="tag is--no-link">
-                            <div class="flex_align-center">
-                                <div class="margin-right_xs">{{ $tag }}</div>
+                        @if (!empty($tag))
+                            <div class="tag is--no-link">
+                                <div class="flex_align-center">
+                                    <div class="margin-right_xs">{{ $tag }}</div>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>

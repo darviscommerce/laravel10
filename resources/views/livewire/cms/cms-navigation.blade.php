@@ -35,10 +35,10 @@
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.pages.') ? 'active' : null }}"
                                     href="{{ route('manta.pages.list') }}">Tekst pagina's</a></li>
                         @endif
-                        @if (Route::has('manta.uploads.list'))
+                        {{-- @if (Route::has('manta.uploads.list'))
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.uploads.') ? 'active' : null }}"
                                     href="{{ route('manta.uploads.list') }}">Uploads</a></li>
-                        @endif
+                        @endif --}}
                         {{-- @if (Route::has('cms.openinghours.update'))
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.openinghours.') ? 'active' : null }}"
                                     href="{{ route('cms.openinghours.update') }}">Openingstijden</a></li>

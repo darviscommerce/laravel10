@@ -52,7 +52,7 @@
                             @foreach (config('manta-cms.locales') as $key => $value)
                                 @if ($key != config('manta-cms.locale'))
                                     @php
-                                        $lang = App\Models\MantaPage::where(['locale' => $key, 'pid' => $item->id])->first();
+                                        $lang = Manta\LaravelPages\Models\MantaPage::where(['locale' => $key, 'pid' => $item->id])->first();
                                     @endphp
                                     <a class="btn btn-sm {{ $lang ? 'btn-warning' : 'btn-success' }}"
                                         href="{{ route('manta.pages.update', ['locale' => $key, 'input' => $item->id]) }}"
@@ -78,7 +78,7 @@
                                     class="fa-solid fa-xmark"></i></button>
                         @endif
                         @if ($item->slug)
-                            <a class="btn btn-sm btn-primary" href="{{ url($item->slug) }}" target="_blank"
+                            <a class="btn btn-sm btn-primary" href="{{ url('/nl/' . $item->slug) }}" target="_blank"
                                 data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Bekijk in website"><i
                                     class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         @endif
@@ -87,7 +87,7 @@
             @endforeach
             @if (count($items) == 0)
                 <tr>
-                    <td colspan="4"> Er zijn geen resultaten</td>
+                    <td colspan="5"> Er zijn geen resultaten</td>
                 </tr>
             @endif
         </tbody>

@@ -5,6 +5,18 @@
 <head>
     @if (env('APP_ENV') == 'production')
         <meta name="robots" content="index, follow">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P11Z609REF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-P11Z609REF');
+        </script>
     @else
         <meta name="robots" content="noindex, nofollow">
     @endif
@@ -20,6 +32,8 @@
     <meta content="summary_large_image" name="twitter:card">
     <meta property="og:type" content="website">
     <meta name="author" content="Darvis | Arvid de Jong | arvid@darvis.nl">
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest/manifest.webmanifest" />
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="/theme/ccs/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/theme/ccs/css/components.css" rel="stylesheet" type="text/css">
@@ -62,9 +76,13 @@
         }
     </style>
     @livewireStyles
+    {{-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="73793b19-3799-4b27-b87d-9e354ad77b25"
+        data-blockingmode="auto" type="text/javascript"></script> --}}
 </head>
 
 <body>
+    {{-- <script id="CookieDeclaration" src="https://consent.cookiebot.com/73793b19-3799-4b27-b87d-9e354ad77b25/cd.js"
+        type="text/javascript" async></script> --}}
     @livewire('ccs.widgets.ccs-navigation')
     {{ $slot }}
     @livewire('ccs.widgets.ccs-footer')
@@ -137,6 +155,7 @@
             $('.card-slider').slick('slickPrev');
         });
     </script>
+
 </body>
 
 </html>

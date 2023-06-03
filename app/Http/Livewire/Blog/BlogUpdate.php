@@ -86,10 +86,13 @@ class BlogUpdate extends Component
             'tags' => $this->tags,
             'excerpt' => $this->excerpt,
             'content' => $this->content,
+        ];
+        MantaBlog::where('id', $this->item->id)->update($items);
+        $items = [
             'show_from' => $this->show_from,
             'show_till' => $this->show_till,
         ];
-        MantaBlog::where('id', $this->item->id)->update($items);
+        MantaBlog::where('id', $this->item->id)->orWhere('pid', $this->item->id)->update($items);
 
         toastr()->addInfo('Item opgeslagen');
     }

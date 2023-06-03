@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Pages;
 
-use App\Models\MantaPage;
+use Manta\LaravelPages\Models\MantaPage;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Illuminate\Support\Str;

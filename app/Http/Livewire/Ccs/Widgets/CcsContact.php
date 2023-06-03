@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Ccs\Widgets;
 
 use App\Mail\MailContact;
-use App\Models\MantaContact;
+use Manta\LaravelContact\Models\MantaContact;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 

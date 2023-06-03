@@ -5,18 +5,23 @@ namespace App\View\Components\Website;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\MantaPage;
+use Manta\LaravelPages\Models\MantaPage;
 
 class PageLink extends Component
 {
+
+    // <x-website.page-link itemid="31" class="footer-bottom_link" />
+
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public string $itemid,
+        public ?string $itemid = null,
         public ?string $title = null,
         public ?string $link = null,
         public ?string $target = null,
+        public ?string $class = null,
+        public ?string $rel = null,
     ) {
     }
 
@@ -26,9 +31,11 @@ class PageLink extends Component
     public function render(): View|Closure|string
     {
         $item = MantaPage::find($this->itemid);
-        $this->link = $item->slug;
-        $this->title = $this->title ? $this->title : $item->title;
-        $this->target = $this->target ? 'target="_blank"' : null;
-        return view('components.website.page-link');
+        if ($item) {
+            $this->link = url("/" . app()->getLocale() . "/" . $item->translation()['get']->slug);
+            $this->title = $item->translation()['get']->title;
+        }
+
+        return view('components.website.page-link', ['item' => $item]);
     }
 }

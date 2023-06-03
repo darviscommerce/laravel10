@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Uploads;
 
-use App\Models\MantaUpload;
+use Manta\LaravelUploads\Models;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Illuminate\Support\Str;

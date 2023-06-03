@@ -27,24 +27,27 @@
                 <div class="nav-top_right">
                     <div class="language-wrapper">
                         <a href="/nl/"
-                            class="language-link {{ app()->getLocale() != 'nl' ? 'deactive' : null }} w-inline-block"><img
-                                src="/theme/ccs/images/Nederlandsevlag.png" alt=""
+                            class="language-link {{ app()->getLocale() != 'nl' ? 'deactive' : null }} w-inline-block"
+                            aria-label="Nederlands"><img src="/theme/ccs/images/Nederlandsevlag.png" alt=""
                                 class="language-flag-img"></a>
                         <a href="/en/"
-                            class="language-link {{ app()->getLocale() != 'en' ? 'deactive' : null }} w-inline-block"><img
-                                src="/theme/ccs/images/engelsevlag.png" alt="" class="language-flag-img"></a>
+                            class="language-link {{ app()->getLocale() != 'en' ? 'deactive' : null }} w-inline-block"
+                            aria-label="English"><img src="/theme/ccs/images/engelsevlag.png" alt=""
+                                class="language-flag-img"></a>
                         <a href="/de/"
-                            class="language-link {{ app()->getLocale() != 'de' ? 'deactive' : null }} w-inline-block"><img
-                                src="/theme/ccs/images/duitsevlag.png" alt="" class="language-flag-img"></a>
+                            class="language-link {{ app()->getLocale() != 'de' ? 'deactive' : null }} w-inline-block"
+                            aria-label="Deutsch"><img src="/theme/ccs/images/duitsevlag.png" alt=""
+                                class="language-flag-img"></a>
                         <a href="/es/"
-                            class="language-link {{ app()->getLocale() != 'es' ? 'deactive' : null }} w-inline-block"><img
-                                src="/theme/ccs/images/vlagspanje.png"
+                            class="language-link {{ app()->getLocale() != 'es' ? 'deactive' : null }} w-inline-block"
+                            aria-label="Español"><img src="/theme/ccs/images/vlagspanje.png"
                                 sizes="(max-width: 479px) 20px, (max-width: 991px) 30px, 25px"
                                 srcset="/theme/ccs/images/vlagspanje-p-500.png 500w, /theme/ccs/images/vlagspanje-p-800.png 800w, /theme/ccs/images/vlagspanje-p-1080.png 1080w, /theme/ccs/images/vlagspanje.png 1200w"
                                 alt="" class="language-flag-img"></a>
                         <a href="/se/"
-                            class="language-link {{ app()->getLocale() != 'se' ? 'deactive' : null }} w-inline-block"><img
-                                src="/theme/ccs/images/zweden.png" alt="" class="language-flag-img"></a>
+                            class="language-link {{ app()->getLocale() != 'se' ? 'deactive' : null }} w-inline-block"
+                            aria-label="Svenska"><img src="/theme/ccs/images/zweden.png" alt=""
+                                class="language-flag-img"></a>
                     </div>
                 </div>
             </div>
@@ -138,13 +141,15 @@
                             </div>
                         </nav>
                     </div>
-                    <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
-                        class="nav-link w-inline-block">
-                        <div>
-                            <div>{!! __('ccs.vacancies') !!}</div>
-                            <div class="nav-stripe"></div>
-                        </div>
-                    </a>
+                    @if ($vacancies > 0)
+                        <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
+                            class="nav-link w-inline-block">
+                            <div>
+                                <div>{!! __('ccs.vacancies') !!}</div>
+                                <div class="nav-stripe"></div>
+                            </div>
+                        </a>
+                    @endif
                     <div class="nav-contact-wrapper">
                         <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.contact') }}"
                             class="button w-inline-block">

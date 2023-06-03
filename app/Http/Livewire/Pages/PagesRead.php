@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Pages;
 
-use App\Models\MantaPage;
+use Manta\LaravelPages\Models\MantaPage;
 use Livewire\Component;
 
 

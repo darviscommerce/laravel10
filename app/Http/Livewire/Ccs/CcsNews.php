@@ -9,7 +9,7 @@ class CcsNews extends Component
 {
     public function render()
     {
-        $items = MantaBlog::where('locale', 'nl')->where('show_from', '<', now())->where('show_till', '>', now())->get();
+        $items = MantaBlog::where('locale', app()->getLocale())->where('show_from', '<', now())->where('show_till', '>', now())->get();
         return view('livewire.ccs.ccs-news', ['items' => $items])->layout('layouts.ccs');
     }
 }

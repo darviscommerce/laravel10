@@ -44,18 +44,18 @@ class VacancyCreate extends Component
             }
         }
         //
+        $this->show_from = (string)Carbon::parse(now())->format('Y-m-d H:i');
+        $this->show_till = (string)Carbon::parse(now())->addYears(2)->format('Y-m-d H:i');
         if (env('APP_ENV') != 'production') {
-            $this->title = fake('nl_NL')->sentence(6);
-            $this->slug = fake('nl_NL')->sentence(6);
-            $this->seo_title = fake('nl_NL')->sentence(6);
-            $this->seo_description = fake('nl_NL')->sentence(16);
-            $this->tags = implode(',', fake('nl_NL')->words(6));
-            $this->excerpt = fake('nl_NL')->paragraph('3');
-            $this->content = fake('nl_NL')->paragraph('3');
-            $this->characteristics = fake('nl_NL')->paragraph('3');
-            $this->to_offer = fake('nl_NL')->paragraph('3');
-            $this->show_from = (string)Carbon::parse(fake('nl_NL')->dateTimeBetween('-1 years', '+1 month'))->format('Y-m-d H:i:s');
-            $this->show_till = (string)Carbon::parse(fake('nl_NL')->dateTimeBetween('-1 month', '+1 years'))->format('Y-m-d H:i:s');
+            // $this->title = fake('nl_NL')->sentence(6);
+            // $this->slug = fake('nl_NL')->sentence(6);
+            // $this->seo_title = fake('nl_NL')->sentence(6);
+            // $this->seo_description = fake('nl_NL')->sentence(16);
+            // $this->tags = implode(',', fake('nl_NL')->words(6));
+            // $this->excerpt = fake('nl_NL')->paragraph('3');
+            // $this->content = fake('nl_NL')->paragraph('3');
+            // $this->characteristics = fake('nl_NL')->paragraph('3');
+            // $this->to_offer = fake('nl_NL')->paragraph('3');
         }
     }
 

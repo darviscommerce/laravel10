@@ -5,7 +5,7 @@ namespace App\View\Components\Website;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\MantaPage;
+use Manta\LaravelPages\Models\MantaPage;
 
 class PageText extends Component
 {

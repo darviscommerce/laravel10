@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Uploads;
 
-use App\Models\MantaUpload;
+use Manta\LaravelUploads\Models;
 use Livewire\Component;
 
 class UploadsUploads extends Component

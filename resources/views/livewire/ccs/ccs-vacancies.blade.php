@@ -25,21 +25,24 @@
                         style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                         class="thumbnail-wrapper">
                         <div class="news">
-                            <div class="thumbnail"><img src="{{ $image_500 }}"
-                                    srcset="{{ $image_500 }} 500w, {{ $image_800 }} 800w, {{ $image_1080 }} 1080w, {{ $image_1500 }} 1500w"
-                                    sizes="(max-width: 479px) 100vw, (max-width: 767px) 95vw, (max-width: 991px) 29vw, 30vw"
-                                    alt="" class="thumbnail-image"></div>
+                            @if (count($item->images) > 0)
+                                <div class="thumbnail"><img src="{{ $image_500 }}"
+                                        srcset="{{ $image_500 }} 500w, {{ $image_800 }} 800w, {{ $image_1080 }} 1080w, {{ $image_1500 }} 1500w"
+                                        sizes="(max-width: 479px) 100vw, (max-width: 767px) 95vw, (max-width: 991px) 29vw, 30vw"
+                                        alt="" class="thumbnail-image"></div>
+                            @endif
                             <div class="thumbnial_text-wrapper">
                                 <h2 class="heading-small margin-bottom_s">{!! $item->translation()['get']->title !!}</h2>
                                 <div class="tags-parent">
                                     @foreach (explode(',', $item->translation()['get']->tags) as $tag)
-                                        <div class="tag is--no-link">
-                                            <div class="flex_align-center">
-                                                <div class="margin-right_xs">{{ $tag }}</div>
+                                        @if (!empty($tag))
+                                            <div class="tag is--no-link">
+                                                <div class="flex_align-center">
+                                                    <div class="margin-right_xs">{{ $tag }}</div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     @endforeach
-
                                 </div>
                                 <p class="text-color_gray-light">{!! $item->translation()['get']->excerpt !!}</p>
                                 <a href="{{ route('ccs.vacancies.view', ['input' => $item->translation()['get']->slug]) }}"

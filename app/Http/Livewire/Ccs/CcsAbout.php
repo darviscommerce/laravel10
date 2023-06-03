@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Ccs;
 
-use App\Models\MantaPage;
+use Manta\LaravelPages\Models\MantaPage;
 use Livewire\Component;
 
 class CcsAbout extends Component

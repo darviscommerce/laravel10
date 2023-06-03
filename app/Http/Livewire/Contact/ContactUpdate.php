@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Contact;
 
-use App\Models\MantaContact;
+use Manta\LaravelContact\Models\MantaContact;
 use Illuminate\Http\Request;
 use Livewire\Component;
 

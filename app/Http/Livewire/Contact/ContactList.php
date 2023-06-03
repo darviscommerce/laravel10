@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Contact;
 
-use App\Models\MantaContact;
+
 use App\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Manta\LaravelContact\Models\MantaContact;
 
 class ContactList extends Component
 {

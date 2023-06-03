@@ -15,7 +15,7 @@
                         <div class="slider-nav-wrapper">
                             <a data-w-id="2a631418-a1d0-cad6-8694-7ab0e706b368"
                                 style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                                href="{{ route('ccs.news') }}"
+                                href="/{{ app()->getLocale() }}/{{ route('ccs.news') }}"
                                 class="link-styled margin-bottom_s">{{ __('ccs.view all news items') }}</a>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MantaUpload;
+use Manta\LaravelUploads\Models;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;

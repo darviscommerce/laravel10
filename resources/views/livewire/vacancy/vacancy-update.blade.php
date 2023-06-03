@@ -157,7 +157,7 @@ Mogelijkheid tot interne opleiding in het poederspuiten"></textarea>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="excerpt" class="col-sm-2 col-form-label">Excerpt</label>
+            <label for="excerpt" class="col-sm-2 col-form-label">Excerpt/ inleiding</label>
             <div class="col-sm-5">
                 <textarea class="form-control form-control-sm @error('excerpt')is-invalid @enderror" id="excerpt" rows="7"
                     wire:model="excerpt" placeholder="Schrijf hier een inleidende tekst"></textarea>

@@ -44,7 +44,7 @@
                 <tr>
                     <td>
                         @if (count($item->images) > 0)
-                            <img src="{{ $item->images[0]->full_path(config('manta-uploads.thumbnails')[0], true) }}">
+                            {{-- <img src="{{ $item->images[0]->full_path(config('manta-uploads.thumbnails')[0], true) }}"> --}}
                         @endif
                     </td>
                     <td>{{ $item->title }}</td>
@@ -98,7 +98,7 @@
             @endforeach
             @if (count($items) == 0)
                 <tr>
-                    <td colspan="4"> Er zijn geen resultaten</td>
+                    <td colspan="5"> Er zijn geen resultaten</td>
                 </tr>
             @endif
         </tbody>

@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Contact;
 use App\Mail\MailContact;
 use Illuminate\Http\Request;
 use Livewire\Component;
-use App\Models\MantaContact;
+use Manta\LaravelContact\Models\MantaContact;
 use Illuminate\Support\Facades\Mail;
 
 class ContactRead extends Component

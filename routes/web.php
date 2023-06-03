@@ -5,6 +5,7 @@ use App\Http\Livewire\Ccs\CcsCapacity;
 use App\Http\Livewire\Ccs\CcsCertification;
 use App\Http\Livewire\Ccs\CcsCoatingsystems;
 use App\Http\Livewire\Ccs\CcsContact;
+use App\Http\Livewire\Ccs\CcsCookiebot;
 use App\Http\Livewire\Ccs\CcsHomepage;
 use App\Http\Livewire\Ccs\CcsNews;
 use App\Http\Livewire\Ccs\CcsNewsView;
@@ -115,12 +116,13 @@ Route::get('/file/serve/{uploads}', [App\Http\Controllers\MantaUploadController:
 
 
 Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
+    'prefix' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::setLocale(),
     'middleware' => ['localize']
 ], function () {
 
     if (env("THEME") == "CCS") {
         Route::get('/', CcsHomepage::class)->name('ccs.homepage');
+        Route::get('/cookies', CcsCookiebot::class)->name('ccs.cookies');
 
         Route::get(LaravelLocalization::transRoute('routes_ccs.about'), CcsAbout::class)->name('ccs.about');
         Route::get(LaravelLocalization::transRoute('routes_ccs.why'), CcsWhy::class)->name('ccs.why');

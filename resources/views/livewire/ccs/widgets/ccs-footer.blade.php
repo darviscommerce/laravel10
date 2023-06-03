@@ -14,7 +14,7 @@
                             {!! __('ccs.belgie') !!}
                         </div>
                         <div class="social-media">
-                            <a href="{!! __('ccs.linkedin') !!}" target="_blank"
+                            <a href="{!! __('ccs.linkedin') !!}" target="_blank" aria-label="LinkedIn"
                                 class="icon_social-media linkedin w-inline-block">
                                 <div class="icon-footer w-embed"><svg width="100%" height="100%"
                                         viewbox="0 0 512 512">
@@ -27,7 +27,7 @@
                                         </path>
                                     </svg></div>
                             </a>
-                            <a href="{!! __('ccs.facebook') !!}" target="_blank"
+                            <a href="{!! __('ccs.facebook') !!}" target="_blank" aria-label="Facebook"
                                 class="icon_social-media facebook w-inline-block">
                                 <div class="icon-footer w-embed"><svg width="100%" height="100%" viewbox="0 0 9 18"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,20 +55,22 @@
                     <div>{!! __('ccs.home') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.about') }}" class="footer-link w-inline-block">
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.about') }}"
+                    class="footer-link w-inline-block">
                     <div>{!! __('ccs.about-compri-coating') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.why') }}" class="footer-link w-inline-block">
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.why') }}"
+                    class="footer-link w-inline-block">
                     <div>{!! __('ccs.why-compri-coating') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.service') }}"
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.service') }}"
                     class="footer-link w-inline-block">
                     <div>{!! __('ccs.service') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.coating-systems-colours') }}"
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.coating-systems-colours') }}"
                     class="footer-link w-inline-block">
                     <div>{!! __('ccs.coating-systems-to-colour') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
@@ -76,17 +78,17 @@
             </div>
             <div class="footer-column-3">
                 <div class="footer-header hide-mobile-portrait"></div>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.capacity') }}"
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.capacity') }}"
                     class="footer-link w-inline-block">
                     <div>{!! __('ccs.capacity') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.certification-qualicoat') }}"
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.certification-qualicoat') }}"
                     class="footer-link w-inline-block">
                     <div>{!! __('ccs.qualicoat-certification') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.vacancies') }}"
                     class="footer-link w-inline-block">
                     <div>{!! __('ccs.vacancies') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
@@ -95,7 +97,7 @@
                     <div>Compri Aluminium</div>
                     <div class="fontawesome margin-left_xs"></div>
                 </a>
-                <a href="{{ LaravelLocalization::transRoute('routes_ccs.contact') }}"
+                <a href="/{{ app()->getLocale() }}/{{ LaravelLocalization::transRoute('routes_ccs.contact') }}"
                     class="footer-link w-inline-block">
                     <div>{!! __('ccs.contact') !!}</div>
                     <div class="fontawesome margin-left_xs"></div>
@@ -107,9 +109,11 @@
         <div><a href="https://darvis.nl" target="_blank" title="Darvis webdesign" style="color: white;">Darvis</a>
             | © {{ date('Y') }} {!! __('ccs.compri-group') !!}. {!! __('ccs.footer_text_1') !!}</div>
         <div class="footer-bottom_links-wrapper">
-            <a href="##LINK##" class="footer-bottom_link">{!! __('ccs.terms-and-conditions') !!}</a>
+            <x-website.page-link itemid="31" class="footer-bottom_link" />
+            <x-website.page-link itemid="36" class="footer-bottom_link" />
+            {{-- <a href="##LINK##" class="footer-bottom_link">{!! __('ccs.terms-and-conditions') !!}</a>
             <a href="##LINK##" class="footer-bottom_link">{!! __('ccs.privacy-policy') !!}</a>
-            <a href="##LINK##" class="footer-bottom_link">{!! __('ccs.disclaimer') !!}</a>
+            <a href="##LINK##" class="footer-bottom_link">{!! __('ccs.disclaimer') !!}</a> --}}
         </div>
     </div>
 </footer>
