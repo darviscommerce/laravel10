@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Pages;
 
-use App\Traits\WithSorting;
+
 use Livewire\Component;
 use Livewire\WithPagination;
+use Manta\LaravelCms\Traits\WithSorting;
 use Manta\LaravelPages\Models\MantaPage;
 
 class PagesList extends Component

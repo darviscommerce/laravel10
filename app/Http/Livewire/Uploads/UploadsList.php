@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Uploads;
 
 use Manta\LaravelUploads\Models;
-use App\Traits\WithSorting;
+use Manta\LaravelCms\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 

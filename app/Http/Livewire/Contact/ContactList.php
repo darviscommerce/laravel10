@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Contact;
 
 
-use App\Traits\WithSorting;
+use Manta\LaravelCms\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Manta\LaravelContact\Models\MantaContact;

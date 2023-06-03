@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Vacancy;
 
 use App\Models\MantaVacancy;
-use App\Traits\WithSorting;
+use Manta\LaravelCms\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 

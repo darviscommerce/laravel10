@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Users;
 
 use Manta\LaravelCms\Models\MantaUser;
-use App\Traits\WithSorting;
+use Manta\LaravelCms\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 

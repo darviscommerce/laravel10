@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Cms;
 
 
 use Livewire\Component;
-use App\Models\General;
+use Manta\LaravelCms\Models\General;
 
 class CmsGeneral extends Component
 {
@@ -47,7 +47,7 @@ class CmsGeneral extends Component
         $this->validate(
             [
                 'company' => 'required|min:1',
-                'email' => 'required|email|unique:users,email,'.$this->item->id
+                'email' => 'required|email|unique:users,email,' . $this->item->id
             ],
             [
                 'company.required' => 'Achternaam is verplicht',
@@ -73,5 +73,4 @@ class CmsGeneral extends Component
 
         toastr()->addInfo('Gebruiker opgeslagen');
     }
-
 }

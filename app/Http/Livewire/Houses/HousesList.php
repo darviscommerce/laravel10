@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Houses;
 
 use App\Models\MantaHouse;
-use App\Traits\WithSorting;
+use Manta\LaravelCms\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -30,16 +30,16 @@ class HousesList extends Component
     public function render()
     {
         $obj = MantaHouse::where('locale', config('manta-cms.locale'))->orderBy($this->sortBy, $this->sortDirection);
-        if($this->show == 'trashed'){
+        if ($this->show == 'trashed') {
             $obj->onlyTrashed();
         }
-        if($this->search){
+        if ($this->search) {
             $keyword = $this->search;
-            $obj->where(function ($query) use($keyword) {
+            $obj->where(function ($query) use ($keyword) {
                 $query->where('title', 'like', '%' . $keyword . '%')
-                   ->orWhere('content', 'like', '%' . $keyword . '%');
-              });
-        // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
+                    ->orWhere('content', 'like', '%' . $keyword . '%');
+            });
+            // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
         }
         $items = $obj->paginate(20);
         return view('livewire.houses.houses-list', ['items' => $items])->layout('layouts.manta-bootstrap');
@@ -78,5 +78,4 @@ class HousesList extends Component
         $this->trashed = count(MantaHouse::onlyTrashed()->get());
         $this->show = 'active';
     }
-
 }

@@ -172,11 +172,11 @@
         },
         {
             "name": "darvis/manta-laravel-cms",
-            "version": "1.0.251",
+            "version": "1.0.254",
             "dist": {
                 "type": "path",
                 "url": "../manta-laravel-cms",
-                "reference": "6908c653eda1c1b3c25eb7a4e24550182ec34a68"
+                "reference": "28bac6dbbf33eedba82ce637cbc6f7654b548395"
             },
             "require": {
                 "laravel/jetstream": "*",
@@ -224,11 +224,11 @@
         },
         {
             "name": "darvis/manta-laravel-contact",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "dist": {
                 "type": "path",
                 "url": "../manta-laravel-contact",
-                "reference": "11efffbb3edb8e4c91bb665e2db1dd54ae641fa7"
+                "reference": "0a666d7adac2e4df76634472e6aa1419fd22d30b"
             },
             "require": {
                 "darvis/lemmings": ">=1.0.0",
@@ -274,11 +274,11 @@
         },
         {
             "name": "darvis/manta-laravel-pages",
-            "version": "0.1.5",
+            "version": "0.1.7",
             "dist": {
                 "type": "path",
                 "url": "../manta-laravel-pages",
-                "reference": "4361d50e4b94dd328a23804b40d648b14a1825d1"
+                "reference": "542cc455d9987bbff94ac0eede91f88d5433992b"
             },
             "require": {
                 "php-flasher/flasher-laravel": "*",
@@ -322,11 +322,11 @@
         },
         {
             "name": "darvis/manta-laravel-uploads",
-            "version": "1.0.13",
+            "version": "1.0.15",
             "dist": {
                 "type": "path",
                 "url": "../manta-laravel-uploads",
-                "reference": "53ab5c99a13e3a38530a7b7d7d94c461de431404"
+                "reference": "92379f3f1beefb6fdb1fcbdcafc7b9857d2fe88a"
             },
             "require": {
                 "darvis/lemmings": "*",
@@ -1054,16 +1054,16 @@
         },
         {
             "name": "google/cloud-translate",
-            "version": "v1.13.3",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-translate.git",
-                "reference": "26270d0b8c32623a66a7ce10fed44084f8cac3e6"
+                "reference": "f8e07aa5def686458b31ad355f232d25cbba4cd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-translate/zipball/26270d0b8c32623a66a7ce10fed44084f8cac3e6",
-                "reference": "26270d0b8c32623a66a7ce10fed44084f8cac3e6",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-translate/zipball/f8e07aa5def686458b31ad355f232d25cbba4cd1",
+                "reference": "f8e07aa5def686458b31ad355f232d25cbba4cd1",
                 "shasum": ""
             },
             "require": {
@@ -1103,9 +1103,9 @@
             ],
             "description": "Cloud Translation Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-translate/tree/v1.13.3"
+                "source": "https://github.com/googleapis/google-cloud-php-translate/tree/v1.14.0"
             },
-            "time": "2023-05-05T23:01:42+00:00"
+            "time": "2023-06-02T23:56:27+00:00"
         },
         {
             "name": "google/common-protos",
@@ -2143,16 +2143,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.13.0",
+            "version": "v10.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7322723585103082758d74917db62980684845cb"
+                "reference": "c1569099594168870cb4bdabfbaa35e5d172310b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7322723585103082758d74917db62980684845cb",
-                "reference": "7322723585103082758d74917db62980684845cb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c1569099594168870cb4bdabfbaa35e5d172310b",
+                "reference": "c1569099594168870cb4bdabfbaa35e5d172310b",
                 "shasum": ""
             },
             "require": {
@@ -2339,7 +2339,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-05-30T14:46:25+00:00"
+            "time": "2023-06-02T13:13:10+00:00"
         },
         {
             "name": "laravel/jetstream",

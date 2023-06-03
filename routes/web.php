@@ -83,6 +83,7 @@ Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('ma
     Route::get('/uploads/toevoegen', App\Http\Livewire\Uploads\UploadsCreate::class)->name('manta.uploads.create');
     Route::get('/uploads/aanpassen/{input}', App\Http\Livewire\Uploads\UploadsUpdate::class)->name('manta.uploads.update');
     Route::get('/uploads/crop/{input}', App\Http\Livewire\Uploads\UploadsCrop::class)->name('manta.uploads.crop');
+    Route::get('/uploads/developer', App\Http\Livewire\Uploads\UploadsDeveloper::class)->name('manta.uploads.developer');
 });
 
 Route::group(['prefix' => config('manta-cms.prefix'), 'middleware' => config('manta-cms.middleware')], function () {
@@ -141,7 +142,7 @@ Route::group([
 
         Route::get('/{input}', CcsView::class)->name('ccs.view');
     }
-
+    /*
     if (env("THEME") == "OTTERLO") {
         Route::get('/', OtterloHomepage::class)->name('otterlo.homepage');
         Route::get(LaravelLocalization::transRoute('routes_otterlo.book'), OtterloBooking::class)->name('otterlo.booking');
@@ -152,4 +153,5 @@ Route::group([
 
         Route::get('/{input}', App\Http\Livewire\Pages\PagesView::class)->name('otterlo.view');
     }
+    */
 });
