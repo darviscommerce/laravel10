@@ -31,7 +31,7 @@
                     <div id="w-node-ca926f3e-8125-3146-67a0-ab9a0131e0d3-db41ac64">
                         <a data-w-id="7d4716a5-7536-4852-0c67-d79ef76bd422"
                             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                            href="tel:+31(0)227606700" class="contactpage-link-block w-inline-block">
+                            href="tel:+3214480478" class="contactpage-link-block w-inline-block">
                             <div class="icon-wrapper-large margin-right_s"><img src="/theme/ccs/images/1_11.png"
                                     loading="eager" alt="" class="image-cover"></div>
                             <div class="contact-link-content">

@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6a7f4941ac86')
-@section('title', 'Vacatures')
-@section('description', 'Vacatures')
+@section('title', $item->translation()['get']->title)
+@section('description', $item->translation()['get']->excerpt)
 <div>
     @php
         $image_500 = false;

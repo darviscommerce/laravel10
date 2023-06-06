@@ -1,6 +1,6 @@
 @section('data-wf-page', '634bca984241cce340eb75c6')
-@section('title', 'Capaciteit')
-@section('description', 'Capaciteit')
+@section('title', $item->translation()['get']->seo_title)
+@section('description', $item->translation()['get']->seo_description)
 <main>
     <header class="header wf-section">
         <div class="container_1240px">

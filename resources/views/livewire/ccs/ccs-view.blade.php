@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6a163841ac80')
-@section('title', 'Tekstpagina')
-@section('description', 'Tekstpagina')
+@section('title', $item->seo_title)
+@section('description', $item->seo_description)
 <main>
     <header class="header wf-section">
         <div class="container_1240px">

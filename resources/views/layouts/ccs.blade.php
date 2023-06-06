@@ -22,12 +22,12 @@
     @endif
     <meta charset="utf-8">
     <title>@yield('title', __('ccs.seo_title'))</title>
-    <meta content="@yield('description', __('ccs.seo_description'))" name="description">
+    <meta content="@yield('seo_description', __('ccs.seo_description'))" name="description">
     <meta content="@yield('title', __('ccs.seo_title'))" property="og:title">
-    <meta content="@yield('description', __('ccs.seo_description'))" property="og:description">
+    <meta content="@yield('seo_description', __('ccs.seo_description'))" property="og:description">
     <meta content="/theme/ccs/images/ccs/og-image.jpg" property="og:image">
     <meta content="@yield('title', __('ccs.seo_title'))" property="twitter:title">
-    <meta content="@yield('description', __('ccs.seo_description'))" property="twitter:description">
+    <meta content="@yield('seo_description', __('ccs.seo_description'))" property="twitter:description">
     <meta content="/theme/ccs/images/ccs/og-image.jpg" property="twitter:image">
     <meta content="summary_large_image" name="twitter:card">
     <meta property="og:type" content="website">
