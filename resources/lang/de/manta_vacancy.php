@@ -4,7 +4,7 @@
 
 return [
     'seo_title' => 'Schrijf seo omschrijving voor fietsverhuur julianadorp',
-    'seo_description' => 'Bedrijfsnaam: Huur de perfecte fiets voor een onvergetelijke vakantie in de prachtige omgeving van Julianadorp. Ontdek de duinen, stranden en schilderachtige dorpjes op een comfortabele fiets van onze verhuurservice. Kies uit een breed assortiment fietsen, inclusief kinderfietsen en e-bikes. Reserveer nu online en geniet van snelle en gemakkelijke huur bij Bedrijfsnaam.',
+    'seo_description' => 'Compri coating Service: Huur de perfecte fiets voor een onvergetelijke vakantie in de prachtige omgeving van Julianadorp. Ontdek de duinen, stranden en schilderachtige dorpjes op een comfortabele fiets van onze verhuurservice. Kies uit een breed assortiment fietsen, inclusief kinderfietsen en e-bikes. Reserveer nu online en geniet van snelle en gemakkelijke huur bij Compri coating Service.',
     'url_rental' => 'https://shop.tilia.app/11/fietsverhuurjulianadorp',
     'page not found' => 'Hoppla! Seite nicht gefunden.',
     'homepage' => 'Startseite',

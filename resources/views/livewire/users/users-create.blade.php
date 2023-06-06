@@ -133,7 +133,7 @@
         @if (in_array('company', config('manta-user.fields')))
             <h4 class="text-primary">Bedrijfsgegevens</h4>
             <div class="mb-3 row">
-                <label for="company" class="col-sm-2 col-form-label">Bedrijfsnaam</label>
+                <label for="company" class="col-sm-2 col-form-label">Compri coating Service</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control form-control-sm @error('company')is-invalid @enderror"
                         id="company" wire:model.defer="company">
