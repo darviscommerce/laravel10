@@ -17,7 +17,7 @@ return [
     'name' => 'Namn',
     'mail_received' => 'Vi har tagit emot ditt meddelande i god ordning och kommer att kontakta dig så snart som möjligt.',
     'regards' => 'Med vänliga hälsningar',
-    'sender_name' => 'Företagsnamn',
+    'sender_name' => 'Compri Coating Service',
     'dear' => 'Bäst',
     'contact by' => 'Kontakta via',
 ];
