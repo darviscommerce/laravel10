@@ -21,7 +21,7 @@
         <meta name="robots" content="noindex, nofollow">
     @endif
     <meta charset="utf-8">
-    <title>@yield('title', __('ccs.seo_title'))</title>
+    <title>@yield('seo_title', __('ccs.seo_title'))</title>
     <meta content="@yield('seo_description', __('ccs.seo_description'))" name="description">
     <meta content="@yield('seo_title', __('ccs.seo_title'))" property="og:title">
     <meta content="@yield('seo_description', __('ccs.seo_description'))" property="og:description">
