@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6a163841ac80')
-@section('title', 'Cookies')
-@section('description', 'Cookies')
+@section('seo_title', 'Cookies')
+@section('seo_description', 'Cookies')
 <main>
     <header class="header wf-section">
         <div class="container_1240px">

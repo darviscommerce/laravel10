@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6aa7c641ac72')
-@section('title', __('ccs.last news'))
-@section('description', 'Nieuws')
+@section('seo_title', __('ccs.last news'))
+@section('seo_description', 'Nieuws')
 <main>
     <section class="section bg-color_gray wf-section">
         <div class="container_1240px">

@@ -1,6 +1,6 @@
 @section('wf-page', '636652b7a0bbe1796190267e')
-@section('title', 'Homepage')
-@section('description', 'Homepage description')
+@section('seo_title', 'Homepage')
+@section('seo_description', 'Homepage description')
 <div>
 
       <header data-w-id="3339cf5f-7cda-ad45-215e-f8468df53303" class="header wf-section">

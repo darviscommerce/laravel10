@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6a780741ac61')
-@section('title', 'Compri Coating Service')
-@section('description', 'Compri Coating Service')
+@section('seo_title', 'Compri Coating Service')
+@section('seo_description', 'Compri Coating Service')
 <main>
     <header class="hero-header wf-section">
         <div class="container_1240px">

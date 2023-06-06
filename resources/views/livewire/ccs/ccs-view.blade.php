@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6a163841ac80')
-@section('title', $item->seo_title)
-@section('description', $item->seo_description)
+@section('seo_title', $item->translation()['get']->seo_title)
+@section('seo_description', $item->translation()['get']->seo_description ? $item->translation()['get']->seo_description : strip_tags(substr($item->translation()['get']->content, 0,230)))
 <main>
     <header class="header wf-section">
         <div class="container_1240px">

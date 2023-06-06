@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6a22db41ac64')
-@section('title', 'Contact')
-@section('description', 'Contact')
+@section('seo_title', 'Contact')
+@section('seo_description', 'Contact')
 <main>
     <header class="header is--contact wf-section">
         <div class="container_1240px">

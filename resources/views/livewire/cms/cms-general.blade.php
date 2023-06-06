@@ -1,5 +1,5 @@
 @section('module', 'general')
-@section('title', 'Algemene gegevens')
+@section('seo_title', 'Algemene gegevens')
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">

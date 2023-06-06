@@ -1,6 +1,6 @@
 @section('data-wf-page', '63490731a37b6ac92441ac87')
-@section('title', __('ccs.vacancies'))
-@section('description', __('ccs.working at Compri Coating Service'))
+@section('seo_title', __('ccs.vacancies'))
+@section('seo_description', __('ccs.working at Compri Coating Service'))
 <main>
     <section class="section bg-color_gray wf-section">
         <div class="container_1240px">
