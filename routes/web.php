@@ -15,6 +15,15 @@ use App\Http\Livewire\Ccs\CcsVacancy;
 use App\Http\Livewire\Ccs\CcsView;
 use App\Http\Livewire\Ccs\CcsWhy;
 use App\Http\Livewire\Cms\CmsSandbox;
+use App\Http\Livewire\Deculturele\DecultureleAlbum;
+use App\Http\Livewire\Deculturele\DecultureleAlbums;
+use App\Http\Livewire\Deculturele\DecultureleBecomemember;
+use App\Http\Livewire\Deculturele\DecultureleContact;
+use App\Http\Livewire\Deculturele\DecultureleEvent;
+use App\Http\Livewire\Deculturele\DecultureleEvents;
+use App\Http\Livewire\Deculturele\DecultureleHomepage;
+use App\Http\Livewire\Deculturele\DecultureleView;
+use App\Http\Livewire\Deculturele\DecultureleVillageroftheyear;
 use App\Http\Livewire\Otterlo\OtterloArea;
 use App\Http\Livewire\Otterlo\OtterloBooking;
 use App\Http\Livewire\Otterlo\OtterloContact;
@@ -120,6 +129,21 @@ Route::group([
     'prefix' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::setLocale(),
     'middleware' => ['localize']
 ], function () {
+
+
+    if (env("THEME") == "DECULTURELE") {
+        Route::get('/', DecultureleHomepage::class)->name('deculturele.homepage');
+        Route::get('/lid-worden', DecultureleBecomemember::class)->name('deculturele.becomemember');
+        Route::get('/dorper-van-het-jaar', DecultureleVillageroftheyear::class)->name('deculturele.villager');
+        Route::get('/contact', DecultureleContact::class)->name('deculturele.contact');
+
+        Route::get('/evenementen', DecultureleEvents::class)->name('deculturele.events');
+        Route::get('/evenement/{input}', DecultureleEvent::class)->name('deculturele.event');
+        Route::get('/albums', DecultureleAlbums::class)->name('deculturele.albums');
+        Route::get('/album/{input}', DecultureleAlbum::class)->name('deculturele.album');
+
+        Route::get('/{input}', DecultureleView::class)->name('ccs.view');
+    }
 
     if (env("THEME") == "CCS") {
         Route::get('/', CcsHomepage::class)->name('ccs.homepage');
