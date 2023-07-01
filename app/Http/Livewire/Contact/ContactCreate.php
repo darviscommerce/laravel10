@@ -68,13 +68,19 @@ class ContactCreate extends Component
     {
         $this->validate(
             [
-                'title' => 'required|min:1',
+                'firstname' => 'required',
+                'email' => 'required|email|min:1',
+                'comments' => 'required',
+                // 'privacy' => 'required',
             ],
             [
-                'title.required' => 'Titel is verplicht',
+                'firstname.required' => 'Voornaam is verplicht',
+                'email.required' => 'Email is verplicht',
+                'email.email' => 'Email is niet correct',
+                'comments.required' => 'Opmerkingen zijn verplicht',
+                // 'privacy.required' => 'U moet akkoord gaan met de privacy verklaring',
             ]
         );
-
         $item = [
             'created_by' => auth()->user()->name,
             'company_id' => (int)$this->company_id,
