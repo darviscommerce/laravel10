@@ -82,6 +82,7 @@ class DecultureleContact extends Component
             'subject' => $this->subject,
             'comments' => $this->comments,
             'internal_contact' => $this->internal_contact,
+            'ip' => request()->ip(),
         ]);
 
         Mail::to($this->email)->bcc(env('MAIL_TO_ADDRESS'))->send(new MailContact($item));

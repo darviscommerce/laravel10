@@ -32,23 +32,23 @@
     <table class="table table-sm table-hover table-striped">
         <thead>
             <tr>
-                <th></th>
-                <th>Datum</th>
+                <th>Van</th>
+                <th>T/m</th>
                 <th>Naam</th>
-                <th>Email</th>
+                <th>Straat</th>
                 <th width="250">Tools</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($items as $item)
                 <tr>
-                    <td><span class="fi fi-{{ $item->locale == 'en' ? 'gb' : $item->locale }}"></span></td>
-                    <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-m-Y H:i') }}</td>
+                    <td>{{ Carbon\Carbon::parse($item->from)->format('d-m-Y H:i') }}</td>
+                    <td>{{ Carbon\Carbon::parse($item->till)->format('d-m-Y H:i') }}</td>
                     <td>
                         {{ $item->title }}
                     </td>
                     <td>
-                        {{ $item->email }}
+                        {{ $item->straat }}
                     </td>
                     <td>
                         @if ($item->trashed())

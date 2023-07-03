@@ -6,10 +6,17 @@
         </div>
     @else
         <div class="mb-3 row">
-            <label for="name" class="col-sm-2 col-form-label">Naam</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-sm" id="name" wire:model.defer="name">
-                @error('name')
+            <label for="firstname" class="col-sm-2 col-form-label">Voornaam</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm" id="firstname" wire:model.defer="firstname">
+                @error('firstname')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <label for="lastname" class="col-sm-2 col-form-label">Achternaam</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm" id="lastname" wire:model.defer="lastname">
+                @error('lastname')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

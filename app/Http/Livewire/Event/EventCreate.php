@@ -184,6 +184,6 @@ class EventCreate extends Component
 
         toastr()->addInfo('Item opgeslagen');
 
-        return redirect()->to(route('manta.pages.update', ['locale' => $locale, 'input' => $this->item->id]));
+        return redirect()->to(route('manta.event.update', ['locale' => $locale, 'input' => $this->item->id]));
     }
 }

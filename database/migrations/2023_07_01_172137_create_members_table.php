@@ -22,15 +22,23 @@ return new class extends Migration
             $table->string('host')->nullable();
             $table->string('locale')->nullable();
             $table->integer('pid')->nullable();
-            $table->integer('sort')->nullable();
-            $table->string('name')->nullable();
+            $table->string('company')->nullable();
+            $table->string('title')->nullable();
+            $table->string('sex')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('zipcode')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('iban')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->boolean('newsletters')->nullable();
+            $table->string('subject')->nullable();
+            $table->string('comments')->nullable();
+            $table->string('internal_contact')->nullable();
+            $table->string('ip')->nullable();
         });
     }
 

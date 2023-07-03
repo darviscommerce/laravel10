@@ -11,7 +11,7 @@ class MantaMember extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'members';
+    // protected $table = 'members';
 
     // Disable Laravel's mass assignment protection
     // protected $guarded = [];
@@ -25,13 +25,26 @@ class MantaMember extends Model
         'created_by',
         'updated_by',
         'deleted_by',
-        'name',
+        'company_id',
+        'host',
+        'pid',
+        'locale',
+        'company',
+        'title',
+        'sex',
+        'firstname',
+        'lastname',
+        'email',
+        'phone',
         'address',
         'zipcode',
         'city',
         'country',
-        'email',
-        'phone',
-        'iban',
+        'birthdate',
+        'newsletters',
+        'subject',
+        'comments',
+        'internal_contact',
+        'ip',
     ];
 }

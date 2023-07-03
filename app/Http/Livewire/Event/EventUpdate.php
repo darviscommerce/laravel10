@@ -48,11 +48,11 @@ class EventUpdate extends Component
         if ($request->input('locale')) {
             $item = MantaEvent::where('locale', $request->input('locale'))->where('pid', $input)->first();
             if ($item == null) {
-                return redirect()->to(route('manta.pages.create', ['locale' => $request->input('locale'), 'pid' => $input]));
+                return redirect()->to(route('manta.event.create', ['locale' => $request->input('locale'), 'pid' => $input]));
             }
         }
         if ($item == null) {
-            return redirect()->to(route('manta.pages.list'));
+            return redirect()->to(route('manta.event.list'));
         }
         $this->item = $item;
         $this->created_by = $item->created_by;

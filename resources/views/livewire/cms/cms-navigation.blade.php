@@ -23,6 +23,10 @@
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.contact.') ? 'active' : null }}"
                                     href="{{ route('manta.contact.list') }}">Contact</a></li>
                         @endif
+                        @if (Route::has('manta.member.list'))
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.member.') ? 'active' : null }}"
+                                    href="{{ route('manta.member.list') }}">Nieuwe leden</a></li>
+                        @endif
                         {{-- @if (Route::has('manta.houses.list'))
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.houses.') ? 'active' : null }}"
                                     href="{{ route('manta.houses.list') }}">Huisjes</a></li>
@@ -56,6 +60,10 @@
             </ul>
             <div id="intro" class="pull-right">
                 <ul class="mb-2 navbar-nav me-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ route('logout') }}"
+                            target="_blank">Uitloggen</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ env('APP_URL') }}" target="_blank">Website</a>
                     </li>

@@ -9,7 +9,8 @@ use Livewire\Component;
 
 class DecultureleBecomemember extends Component
 {
-    public ?string $name = null;
+    public ?string $firstname = null;
+    public ?string $lastname = null;
     public ?string $address = null;
     public ?string $zipcode = null;
     public ?string $city = null;
@@ -30,7 +31,8 @@ class DecultureleBecomemember extends Component
     {
         $this->validate(
             [
-                'name' => 'required',
+                'firstname' => 'required',
+                'lastname' => 'required',
                 'address' => 'required',
                 'zipcode' => 'required',
                 'city' => 'required',
@@ -39,7 +41,8 @@ class DecultureleBecomemember extends Component
                 'confirm' => 'required',
             ],
             [
-                'name.required' => 'Naam is verplicht',
+                'firstname.required' => 'Voornaam is verplicht',
+                'lastname.required' => 'Achternaam is verplicht',
                 'address.required' => 'Adres is verplicht',
                 'zipcode.required' => 'Postcode is verplicht',
                 'city.required' => 'Woonplaats is verplicht',
@@ -52,7 +55,8 @@ class DecultureleBecomemember extends Component
 
         $item = MantaMember::create([
             'created_by' => 'site',
-            'name' => $this->name,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
             'address' => $this->address,
             'zipcode' => $this->zipcode,
             'city' => $this->city,
@@ -60,6 +64,7 @@ class DecultureleBecomemember extends Component
             'email' => $this->email,
             'phone' => $this->phone,
             'iban' => $this->iban,
+            'ip' => request()->ip()
         ]);
 
         Mail::to($this->email)->bcc(env('MAIL_TO_ADDRESS'))->send(new MailMemberCreate($item));

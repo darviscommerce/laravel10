@@ -1,5 +1,5 @@
 <x-mail::message>
-# Beste {{ $item->name }}
+# Beste {{ $item->firstname.' '.$item->lastname }}
 
 Namens de culturele vereniging van Julianadorp willen we u hartelijk bedanken voor uw recente donatie. Uw vrijgevigheid draagt bij aan het bevorderen van kunst en cultuur in onze gemeenschap.
 
