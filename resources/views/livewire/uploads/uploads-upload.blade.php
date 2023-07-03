@@ -7,7 +7,7 @@
                     <i class="fa-solid fa-spinner fa-spin"></i>
                 </span>
                 @error('documents.*')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>

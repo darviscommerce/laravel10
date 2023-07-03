@@ -126,7 +126,7 @@
                 <input type="text" class="form-control form-control-sm @error('title')is-invalid @enderror"
                     id="title" wire:model.defer="title">
                 @error('title')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="seo_title" class="col-sm-2 col-form-label">SEO Titel</label>
@@ -134,7 +134,7 @@
                 <input type="text" class="form-control form-control-sm @error('seo_title')is-invalid @enderror"
                     id="seo_title" wire:model.defer="seo_title">
                 @error('seo_title')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -144,7 +144,7 @@
                 <textarea class="form-control form-control-sm @error('comments')is-invalid @enderror" id="comments"
                     wire:model.defer="comments"></textarea>
                 @error('comments')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="seo_title" class="col-sm-2 col-form-label"></label>
@@ -156,7 +156,7 @@
             <div class="col-sm-4">
 
                 @error('action')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="seo_title" class="col-sm-2 col-form-label"></label>

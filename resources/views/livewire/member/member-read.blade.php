@@ -36,7 +36,7 @@
                     <input type="email" class="form-control form-control-sm @error('email')is-invalid @enderror"
                         id="email" wire:model="email">
                     @error('email')
-                        <span class="error">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-sm-8">

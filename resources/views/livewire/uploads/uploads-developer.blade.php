@@ -17,7 +17,7 @@
                 @endforeach
             </select>
             @error('url')
-                <span class="error">{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <label for="urlNew" class="col-sm-2 col-form-label">Vervang door</label>
@@ -25,7 +25,7 @@
             <input type="text" class="form-control form-control-sm @error('urlNew')is-invalid @enderror"
                 id="urlNew" wire:model="urlNew">
             @error('urlNew')
-                <span class="error">{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
     </div>

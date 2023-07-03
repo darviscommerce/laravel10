@@ -19,6 +19,12 @@
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.event.') ? 'active' : null }}"
                                     href="{{ route('manta.event.list') }}">Evenementen</a></li>
                         @endif
+                        @if (Route::has('manta.facebook.list'))
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.facebook.') ? 'active' : null }}"
+                                    href="{{ route('manta.facebook.list') }}">Dorper van 't jaar</a></li>
+                        @endif
+
+
                         @if (Route::has('manta.contact.list'))
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.contact.') ? 'active' : null }}"
                                     href="{{ route('manta.contact.list') }}">Contact</a></li>

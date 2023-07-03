@@ -52,6 +52,10 @@ Route::prefix('cms')->middleware(config('manta-cms.middleware'))->group(function
     Route::get('/leden/aanpassen/{input}', App\Http\Livewire\Member\MemberUpdate::class)->name('manta.member.update');
     Route::get('/leden/bekijken/{input}', App\Http\Livewire\Member\MemberRead::class)->name('manta.member.read');
 
+    Route::get('/dorper', App\Http\Livewire\Facebook\FacebookList::class)->name('manta.facebook.list');
+    Route::get('/dorper/toevoegen', App\Http\Livewire\Facebook\FacebookCreate::class)->name('manta.facebook.create');
+    Route::get('/dorper/aanpassen/{input}', App\Http\Livewire\Facebook\FacebookUpdate::class)->name('manta.facebook.update');
+
     Route::get('/woningen', App\Http\Livewire\Houses\HousesList::class)->name('manta.houses.list');
     Route::get('/woningen/toevoegen', App\Http\Livewire\Houses\HousesCreate::class)->name('manta.houses.create');
     Route::get('/woningen/aanpassen/{input}', App\Http\Livewire\Houses\HousesUpdate::class)->name('manta.houses.update');

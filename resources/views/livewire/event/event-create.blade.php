@@ -56,7 +56,7 @@
                 <input type="text" class="form-control form-control-sm @error('title')is-invalid @enderror"
                     id="title" wire:model="title">
                 @error('title')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="initials" class="col-sm-1 col-form-label"></label>
@@ -72,7 +72,7 @@
                 <input type="text" class="form-control form-control-sm @error('subtitle')is-invalid @enderror"
                     id="subtitle" wire:model="subtitle">
                 @error('subtitle')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="initials" class="col-sm-1 col-form-label"></label>
@@ -92,7 +92,7 @@
                 <input type="text" class="form-control form-control-sm @error('slug')is-invalid @enderror"
                     id="slug" wire:model.defer="slug">
                 @error('slug')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-sm-5">
@@ -107,7 +107,7 @@
                 <input type="text" class="form-control form-control-sm @error('seo_title')is-invalid @enderror"
                     id="seo_title" wire:model="seo_title">
                 @error('seo_title')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-sm-5">
@@ -122,7 +122,7 @@
                 <textarea class="form-control form-control-sm @error('seo_description')is-invalid @enderror" rows="4"
                     id="seo_description" wire:model="seo_description"></textarea>
                 @error('seo_description')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-sm-5">
@@ -137,7 +137,7 @@
                 <textarea class="form-control form-control-sm @error('tags')is-invalid @enderror" id="tags" rows="7"
                     wire:model="tags" placeholder="Bijvoorbeeld: test,abc,doemaar"></textarea>
                 @error('tags')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-sm-5">
@@ -152,7 +152,7 @@
                 <textarea class="form-control form-control-sm @error('excerpt')is-invalid @enderror" id="excerpt" rows="7"
                     wire:model="excerpt" placeholder="Schrijf hier een inleidende tekst"></textarea>
                 @error('excerpt')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-sm-5">
@@ -167,7 +167,7 @@
                 <textarea class="form-control form-control-sm @error('content')is-invalid @enderror" id="content" rows="7"
                     wire:model="content" id="content"></textarea>
                 @error('content')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-sm-5">
@@ -185,7 +185,7 @@
                 <input type="datetime-local" class="form-control form-control-sm @error('from')is-invalid @enderror"
                     id="from" wire:model="from">
                 @error('from')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="till" class="col-sm-2 col-form-label">Tot en met:</label>
@@ -193,7 +193,7 @@
                 <input type="datetime-local" class="form-control form-control-sm @error('till')is-invalid @enderror"
                     id="till" wire:model="till">
                 @error('till')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -204,7 +204,7 @@
                     class="form-control form-control-sm @error('fromPublish')is-invalid @enderror" id="fromPublish"
                     wire:model="fromPublish">
                 @error('fromPublish')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="tillPublish" class="col-sm-2 col-form-label">Tonen tot en met:</label>
@@ -213,7 +213,7 @@
                     class="form-control form-control-sm @error('tillPublish')is-invalid @enderror" id="tillPublish"
                     wire:model="tillPublish">
                 @error('tillPublish')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -225,7 +225,7 @@
                 <input type="text" class="form-control form-control-sm @error('address')is-invalid @enderror"
                     id="address" wire:model="address">
                 @error('address')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="initials" class="col-sm-1 col-form-label"></label>
@@ -238,7 +238,7 @@
                 <input type="text" class="form-control form-control-sm @error('zipcode')is-invalid @enderror"
                     id="zipcode" wire:model="zipcode">
                 @error('zipcode')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="city" class="col-sm-2 col-form-label">Woonplaats</label>
@@ -246,7 +246,7 @@
                 <input type="text" class="form-control form-control-sm @error('city')is-invalid @enderror"
                     id="city" wire:model="city">
                 @error('city')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -256,7 +256,7 @@
                 <input type="text" class="form-control form-control-sm @error('country')is-invalid @enderror"
                     id="country" wire:model="country">
                 @error('country')
-                    <span class="error">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="initials" class="col-sm-1 col-form-label"></label>
