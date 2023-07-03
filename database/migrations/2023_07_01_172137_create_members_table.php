@@ -11,13 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('manta_members', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();
+            $table->integer('company_id')->nullable();
+            $table->string('host')->nullable();
+            $table->string('locale')->nullable();
+            $table->integer('pid')->nullable();
+            $table->integer('sort')->nullable();
             $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('zipcode')->nullable();
@@ -34,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('manta_members');
     }
 };

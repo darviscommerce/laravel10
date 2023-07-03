@@ -69,7 +69,8 @@
         </div>
         <div class="mt-3 mb-3 row">
             <div class="col-sm-12">
-                <button class="btn btn-sm btn-primary" wire:click="store">Lid worden</button>
+                <button class="btn btn-sm btn-primary" wire:click="store" wire:target="store"
+                    wire:loading.attr="disabled" wire:loading.class="btn-secondary">Lid worden</button>
             </div>
         </div>
     @endif

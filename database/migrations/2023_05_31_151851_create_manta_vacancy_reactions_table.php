@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('host')->nullable();
             $table->string('locale')->nullable();
             $table->integer('pid')->nullable();
+            $table->integer('sort')->nullable();
             $table->string('manta_vacancy_id')->nullable();
             $table->string('company')->nullable();
             $table->string('title')->nullable();

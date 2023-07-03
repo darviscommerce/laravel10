@@ -15,9 +15,9 @@
                     <a class="nav-link dropdown-toggle {{ $activeModules }}" href="#" data-bs-toggle="dropdown"
                         aria-expanded="false">Modules</a>
                     <ul class="dropdown-menu">
-                        @if (Route::has('manta.users.list'))
-                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.users.') ? 'active' : null }}"
-                                    href="{{ route('manta.users.list') }}">Gebruikers</a></li>
+                        @if (Route::has('manta.event.list'))
+                            <li><a class="dropdown-item {{ str_contains($currentRouteName, '.event.') ? 'active' : null }}"
+                                    href="{{ route('manta.event.list') }}">Evenementen</a></li>
                         @endif
                         @if (Route::has('manta.contact.list'))
                             <li><a class="dropdown-item {{ str_contains($currentRouteName, '.contact.') ? 'active' : null }}"

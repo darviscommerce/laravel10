@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Uploads;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Manta\LaravelUploads\Models;
+use Manta\LaravelUploads\Models\MantaUpload;
 
 class UploadsUpload extends Component
 {

@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Deculturele;
 
 use App\Mail\MailMemberCreate;
-use App\Models\Member;
+use App\Models\MantaMember;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
@@ -50,7 +50,7 @@ class DecultureleBecomemember extends Component
             ]
         );
 
-        $item = Member::create([
+        $item = MantaMember::create([
             'created_by' => 'site',
             'name' => $this->name,
             'address' => $this->address,

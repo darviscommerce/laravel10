@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('host')->nullable();
             $table->string('locale')->nullable();
             $table->integer('pid')->nullable();
+            $table->integer('sort')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->string('seo_title')->nullable();
