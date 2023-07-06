@@ -79,4 +79,10 @@ class PagesList extends Component
         $this->trashed = count(MantaPage::onlyTrashed()->get());
         $this->show = 'active';
     }
+
+    public function homepage($id)
+    {
+        MantaPage::where('id', '!=', $id)->update(['homepage' => 0]);
+        MantaPage::where('id', $id)->update(['homepage' => 1]);
+    }
 }

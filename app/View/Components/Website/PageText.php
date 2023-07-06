@@ -24,6 +24,7 @@ class PageText extends Component
     {
         $item = MantaPage::find($this->itemid);
         $content = $item->content;
-        return view('components.website.page-text', compact('content'));
+        $tags = $item->tags;
+        return view('components.website.page-text', compact('content', 'tags'));
     }
 }

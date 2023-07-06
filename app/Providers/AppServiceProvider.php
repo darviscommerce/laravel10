@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Schema::defaultStringLength(191);
         //
+        if ($this->app->environment('local')) {
+            Mail::alwaysTo('arvid@darvis.nl');
+        }
+        if ($this->app->environment('development')) {
+            Mail::alwaysTo('arvid@darvis.nl');
+        }
     }
 }

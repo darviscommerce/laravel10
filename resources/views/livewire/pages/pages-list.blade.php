@@ -41,6 +41,14 @@
                 <tr>
                     <td>{{ $item->title }}</td>
                     <td>
+                        @if ($item->homepage)
+                            <i class="fa-solid fa-circle-check text-success"></i>
+                        @else
+                            <a href="javascript:;" wire:click="homepage('{{ $item->id }}')"><i
+                                    class="fa-solid fa-circle-xmark text-danger"></i></a>
+                        @endif
+                    </td>
+                    <td>
                         @if ($item->trashed())
                             <button wire:click="restore('{{ $item->id }}')" class="btn btn-sm btn-warning"><i
                                     class="fa-solid fa-rotate-left"></i></button>

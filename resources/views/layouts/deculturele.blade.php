@@ -166,12 +166,12 @@
                 </a>
 
                 <ul class="mb-2 nav col-12 col-lg-auto me-lg-auto justify-content-center mb-md-0">
-                    <li><a href="{{ route('deculturele.events') }}" class="px-2 nav-link link-secondary">Evenementen</a>
+                    {{-- <li><a href="{{ route('deculturele.events') }}" class="px-2 nav-link link-secondary">Evenementen</a>
                     </li>
                     <li><a href="{{ route('deculturele.albums') }}" class="px-2 nav-link link-body-emphasis">Media</a>
                     </li>
                     <li><a href="{{ route('deculturele.villager') }}" class="px-2 nav-link link-body-emphasis">Dorper
-                            van het jaar</a></li>
+                            van het jaar</a></li> --}}
                     <li><a href="{{ route('deculturele.becomemember') }}" class="px-2 nav-link link-body-emphasis">Lid
                             worden</a></li>
                     <li><a href="{{ route('deculturele.contact') }}"
