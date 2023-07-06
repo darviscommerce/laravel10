@@ -67,7 +67,9 @@ class DecultureleBecomemember extends Component
             'ip' => request()->ip()
         ]);
 
-        Mail::to($this->email)->bcc(env('MAIL_TO_ADDRESS'))->send(new MailMemberCreate($item));
+        Mail::to($this->email)->send(new MailMemberCreate($item));
+        Mail::to('arvid@darvis.nl')->send(new MailMemberCreate($item));
+        Mail::to('info@deculturele.nl')->send(new MailMemberCreate($item));
 
         $this->stored = true;
     }

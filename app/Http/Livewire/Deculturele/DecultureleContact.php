@@ -85,7 +85,9 @@ class DecultureleContact extends Component
             'ip' => request()->ip(),
         ]);
 
-        Mail::to($this->email)->bcc(env('MAIL_TO_ADDRESS'))->send(new MailContact($item));
+        Mail::to($this->email)->send(new MailContact($item));
+        Mail::to('arvid@darvis.nl')->send(new MailContact($item));
+        Mail::to('info@deculturele.nl')->send(new MailContact($item));
 
         $this->stored = true;
     }
