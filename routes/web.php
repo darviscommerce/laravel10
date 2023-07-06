@@ -56,6 +56,14 @@ Route::prefix('cms')->middleware(config('manta-cms.middleware'))->group(function
     Route::get('/dorper/toevoegen', App\Http\Livewire\Facebook\FacebookCreate::class)->name('manta.facebook.create');
     Route::get('/dorper/aanpassen/{input}', App\Http\Livewire\Facebook\FacebookUpdate::class)->name('manta.facebook.update');
 
+    Route::get('/fotoalbum', App\Http\Livewire\Photoalbum\PhotoalbumList::class)->name('manta.photoalbum.list');
+    Route::get('/fotoalbum/toevoegen', App\Http\Livewire\Photoalbum\PhotoalbumCreate::class)->name('manta.photoalbum.create');
+    Route::get('/fotoalbum/aanpassen/{input}', App\Http\Livewire\Photoalbum\PhotoalbumUpdate::class)->name('manta.photoalbum.update');
+
+    Route::get('/nieuwsbrief/inschrijvingen', App\Http\Livewire\Newslettersubscriber\NewslettersubscriberList::class)->name('manta.newsletter.subscriber.list');
+    Route::get('/nieuwsbrief/inschrijvingen/toevoegen', App\Http\Livewire\Newslettersubscriber\NewslettersubscriberCreate::class)->name('manta.newsletter.subscriber.create');
+    Route::get('/nieuwsbrief/inschrijvingen/aanpassen/{input}', App\Http\Livewire\Newslettersubscriber\NewslettersubscriberUpdate::class)->name('manta.newsletter.subscriber.update');
+
     Route::get('/woningen', App\Http\Livewire\Houses\HousesList::class)->name('manta.houses.list');
     Route::get('/woningen/toevoegen', App\Http\Livewire\Houses\HousesCreate::class)->name('manta.houses.create');
     Route::get('/woningen/aanpassen/{input}', App\Http\Livewire\Houses\HousesUpdate::class)->name('manta.houses.update');
