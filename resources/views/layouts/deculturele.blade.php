@@ -178,9 +178,9 @@
                             class="px-2 nav-link link-body-emphasis">Contact</a></li>
                 </ul>
 
-                <form class="mb-3 col-12 col-lg-auto mb-lg-0 me-lg-3" role="search">
+                {{-- <form class="mb-3 col-12 col-lg-auto mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control" placeholder="Zoeken..." aria-label="Search">
-                </form>
+                </form> --}}
 
                 {{-- <div class="dropdown text-end">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
