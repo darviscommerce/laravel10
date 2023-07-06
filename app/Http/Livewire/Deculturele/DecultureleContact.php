@@ -60,7 +60,7 @@ class DecultureleContact extends Component
         );
 
         $item = MantaContact::create([
-            'created_by' => auth()->user()->name,
+            'created_by' => auth()->user() ? auth()->user()->name : 'website',
             'company_id' => (int)$this->company_id,
             'host' => $this->host,
             'pid' => $this->pid,

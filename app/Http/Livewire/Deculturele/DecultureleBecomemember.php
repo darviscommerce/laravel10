@@ -54,7 +54,7 @@ class DecultureleBecomemember extends Component
         );
 
         $item = MantaMember::create([
-            'created_by' => 'site',
+            'created_by' => auth()->user() ? auth()->user()->name : 'website',
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
             'address' => $this->address,
