@@ -201,11 +201,11 @@
             </div>
         </div>
     </header>
-    <main>
+    <main style="margin-bottom: 150px;">
         {{ $slot }}
     </main>
-    <div class="container fixed-bottom">
-        <footer class="flex-wrap py-3 my-4 d-flex justify-content-between align-items-center border-top">
+    <div class="container bg-white fixed-bottom">
+        <footer class="flex-wrap py-3 my-4 d-flex justify-content-between align-items-center border-top ">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                     <svg class="bi" width="30" height="24">
