@@ -4,9 +4,9 @@
     "display": "browser",
     "scope": "/",
     "start_url": "/",
-    "name": "Compri Coating Service",
+    "name": "Culturele Vereniging Julianadorp",
     "short_name": "ccs",
-    "description": "Compri Coating Service",
+    "description": "Culturele Vereniging Julianadorp",
     "icons": [
         {
             "src": "/manifest/icon-192x192.png",

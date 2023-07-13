@@ -55,7 +55,7 @@
         <div class="navbar-wrapper">
             <div class="nav-content">
                 <a href="/{{ app()->getLocale() }}/" aria-current="page" class="logo w-nav-brand w--current"><img
-                        src="/theme/ccs/images/logo_acs.png" alt="Logo Compri Coating Service"
+                        src="/theme/ccs/images/logo_acs.png" alt="Logo Culturele Vereniging Julianadorp"
                         sizes="(max-width: 991px) 196.640625px, 252.3671875px"
                         srcset="/theme/ccs/images/logo_acs-p-500.png 500w, /theme/ccs/images/logo_acs.png 651w"
                         class="logo-img"></a>

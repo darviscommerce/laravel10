@@ -1,12 +1,12 @@
 @section('data-wf-page', '63490731a37b6ac92441ac87')
 @section('seo_title', __('ccs.vacancies'))
-@section('seo_description', __('ccs.working at Compri Coating Service'))
+@section('seo_description', __('ccs.working at Culturele Vereniging Julianadorp'))
 <main>
     <section class="section bg-color_gray wf-section">
         <div class="container_1240px">
             <div class="margin-bottom_s"><span data-w-id="b35543eb-b2b3-d606-eef8-9dac81f814e4"
                     style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                    class="lowercase">{!! __('ccs.working at Compri Coating Service') !!}</span></div>
+                    class="lowercase">{!! __('ccs.working at Culturele Vereniging Julianadorp') !!}</span></div>
             <h1 data-w-id="2a631418-a1d0-cad6-8694-7ab0e706b365"
                 style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                 class="heading-large">{!! __('ccs.vacancies') !!}</h1>

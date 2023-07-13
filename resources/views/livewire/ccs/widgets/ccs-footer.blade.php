@@ -49,7 +49,7 @@
             </div>
             <div class="footer-column-2">
                 <div class="footer-header">
-                    <div>Compri Coating Service</div>
+                    <div>Culturele Vereniging Julianadorp</div>
                 </div>
                 <a href="/{{ app()->getLocale() }}/" aria-current="page" class="footer-link w-inline-block w--current">
                     <div>{!! __('ccs.home') !!}</div>

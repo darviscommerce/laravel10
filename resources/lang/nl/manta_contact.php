@@ -17,7 +17,7 @@ return [
     'name' => 'Naam',
     'mail_received' => 'Uw bericht hebben wij in goede order ontvangen en nemen zo snel mogelijk contact met u op.',
     'regards' => 'Met vriendelijke groet',
-    'sender_name' => 'Compri Coating Service',
+    'sender_name' => 'Culturele Vereniging Julianadorp',
     'dear' => 'Beste',
     'contact by' => 'Contact via',
 ];

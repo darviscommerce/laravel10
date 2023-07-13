@@ -14,7 +14,7 @@
                     <div>
                         <div data-w-id="7d4716a5-7536-4852-0c67-d79ef76bd415"
                             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                            class="margin-bottom_xs">Compri Coating Service</div>
+                            class="margin-bottom_xs">Culturele Vereniging Julianadorp</div>
                         <h1 data-w-id="7d4716a5-7536-4852-0c67-d79ef76bd417"
                             style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
                             {!! __('ccs.contact-us') !!}</h1>
@@ -77,7 +77,7 @@
                 class="location-card">
                 <div class="icon-wrapper-large margin-bottom_s"><img src="/images/ccs/maps_marker.png" loading="eager"
                         alt="" class="image-cover"></div>
-                <h2 class="title h4-size card-location">Compri Coating Service</h2>
+                <h2 class="title h4-size card-location">Culturele Vereniging Julianadorp</h2>
                 <p>Everdongenlaan 5<br>2300 Turnhout<br>{!! __('ccs.belgie') !!}</p>
                 <div class="contactpage-link">
                     <div class="icon-wrapper-medium margin-right_s"><img
