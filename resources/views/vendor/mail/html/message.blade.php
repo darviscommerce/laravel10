@@ -3,8 +3,7 @@
     <x-slot:header>
 
         <x-mail::header :url="config('app.url')">
-            <img src="{{ env('APP_URL') }}/images/deculturele/logo_bvj.jpg" height="100"
-                alt="Laravel Logo">
+            <img src="{{ env('APP_URL') }}/images/deculturele/logo_bvj.jpg" height="100" alt="Logo">
         </x-mail::header>
     </x-slot:header>
 
