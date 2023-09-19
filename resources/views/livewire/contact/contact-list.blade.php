@@ -31,7 +31,7 @@
     <table class="table table-sm table-hover table-striped">
         <thead>
             <tr>
-                <th></th>
+                {{-- <th></th> --}}
                 <th>Datum</th>
                 <th>Naam</th>
                 <th>Email</th>
@@ -41,7 +41,7 @@
         <tbody>
             @foreach ($items as $item)
                 <tr>
-                    <td><span class="fi fi-{{ $item->locale == 'en' ? 'gb' : $item->locale }}"></span></td>
+                    {{-- <td><span class="fi fi-{{ $item->locale == 'en' ? 'gb' : $item->locale }}"></span></td> --}}
                     <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-m-Y H:i') }}</td>
                     <td>
                         {{ $item->sex }}

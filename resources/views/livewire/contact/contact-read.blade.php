@@ -52,7 +52,7 @@
     </p>
     <h4 class="text-primary">{{ $item->firstname }}
         {{ $item->lastname }} bekijken </h4>
-    <div class="mb-3 row">
+    {{-- <div class="mb-3 row">
         <label for="locale" class="col-sm-2 col-form-label">Taal</label>
         <div class="col-sm-4">
             {{ $item->locale }}
@@ -79,16 +79,16 @@
         <div class="col-sm-4">
             {{ $item->sex }}
         </div>
-    </div>
+    </div> --}}
     <div class="mb-3 row">
         <label for="firstname" class="col-sm-2 col-form-label">Voornaam</label>
         <div class="col-sm-4">
             {{ $item->firstname }}
         </div>
-        <label for="lastname" class="col-sm-2 col-form-label">Achternaam</label>
+        {{-- <label for="lastname" class="col-sm-2 col-form-label">Achternaam</label>
         <div class="col-sm-4">
             {{ $item->lastname }}
-        </div>
+        </div> --}}
     </div>
     <div class="mb-3 row">
         <label for="email" class="col-sm-2 col-form-label">Email</label>
@@ -100,7 +100,7 @@
             {{ $item->phone }}
         </div>
     </div>
-    <div class="mb-3 row">
+    {{-- <div class="mb-3 row">
         <label for="birthdate" class="col-sm-2 col-form-label">Geboortedatum</label>
         <div class="col-sm-4">
             {{ $item->birthdate }}
@@ -163,7 +163,7 @@
         <label for="initials" class="col-sm-1 col-form-label"></label>
         <div class="col-sm-5">
         </div>
-    </div>
+    </div> --}}
     <div class="mb-3 row">
         <label for="comments" class="col-sm-2 col-form-label">Opmerkingen</label>
         <div class="col-sm-4">
