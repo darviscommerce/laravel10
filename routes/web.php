@@ -37,9 +37,9 @@ Route::get('/register', function () {
 });
 
 Route::prefix('cms')->middleware(config('manta-cms.middleware'))->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
     Route::get('/sandbox', CmsSandbox::class)->name('manta.sandbox');
 
     Route::get('/evenementen', App\Http\Livewire\Event\EventList::class)->name('manta.event.list');

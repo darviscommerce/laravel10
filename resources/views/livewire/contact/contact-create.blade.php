@@ -1,7 +1,7 @@
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('manta.event.list') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('manta.contact.list') }}">Contact</a></li>
             <li class="breadcrumb-item active" aria-current="page">Reactie toevoegen</li>
         </ol>

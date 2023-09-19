@@ -19,7 +19,7 @@ return [
     'name' => 'Name',
     'mail_received' => 'We have received your message in good order and will contact you as soon as possible.',
     'regards' => 'Regards',
-    'sender_name' => 'Compri coating Service',
+    'sender_name' => 'De Culturele',
     'dear' => 'Dear',
     'contact by' => 'Contact by',
     'send' => 'Send',

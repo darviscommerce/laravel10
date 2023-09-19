@@ -1,7 +1,7 @@
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('manta.event.list') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('manta.houses.list') }}">Huizen</a></li>
             <li class="breadcrumb-item active" aria-current="page"><em>{!! $item->translation()['get']->title !!}</em> aanpassen</li>
         </ol>
@@ -33,9 +33,9 @@
                 @if (count($original->tags) > 0)
                     <h3>Tags in het Nederlands</h3>
                     @if (count($tags) == 0)
-                    <p>
-                        <button class="btn btn-sm btn-success" wire:click="translate">Vertaal met Google</button>
-                    </p>
+                        <p>
+                            <button class="btn btn-sm btn-success" wire:click="translate">Vertaal met Google</button>
+                        </p>
                     @endif
                 @endif
                 @foreach ($original->tags as $key => $value)

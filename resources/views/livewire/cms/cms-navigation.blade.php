@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg" aria-label="Ninth navbar example" style="background-color: #e3f2fd;">
     <div class="container-xl">
-        <a class="navbar-brand" href="{{ route('dashboard') }}">
+        <a class="navbar-brand" href="{{ route('manta.event.list') }}">
             <img src="/images/manta/manta-logo.svg" alt="Manta" height="24">
         </a>
         <div class="collapse navbar-collapse" id="navbarsExample07XL">
@@ -8,7 +8,7 @@
                 @if (Route::has('dashboard'))
                     <li class="nav-item">
                         <a class="nav-link {{ $activeHome }}" aria-current="page"
-                            href="{{ route('dashboard') }}">Home</a>
+                            href="{{ route('manta.event.list') }}">Home</a>
                     </li>
                 @endif
                 <li class="nav-item dropdown">

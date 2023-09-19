@@ -3,7 +3,7 @@
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('manta.event.list') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('manta.users.list') }}">Gebruikers</a></li>
             <li class="breadcrumb-item active" aria-current="page">Aanpassen</li>
         </ol>
@@ -86,7 +86,7 @@
         </div>
         <h4 class="text-primary">Bedrijfsgegevens</h4>
         <div class="mb-3 row">
-            <label for="company" class="col-sm-2 col-form-label">Compri coating Service</label>
+            <label for="company" class="col-sm-2 col-form-label">De Culturele</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('company')is-invalid @enderror"
                     id="company" wire:model.defer="company">

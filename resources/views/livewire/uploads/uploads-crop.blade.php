@@ -1,7 +1,7 @@
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('manta.event.list') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('manta.uploads.list') }}">Uploads</a></li>
             <li class="breadcrumb-item active" aria-current="page"><em>{!! $item->translation()['get']->title !!}</em> </li>
         </ol>
@@ -29,31 +29,33 @@
             <div class="col">
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" wire:model.defer="replace" name="replace" id="replace" value="1" required>
+                    <input class="form-check-input" type="radio" wire:model.defer="replace" name="replace"
+                        id="replace" value="1" required>
                     <label class="form-check-label" for="replace">
-                      Vervang huidige plaatje
+                        Vervang huidige plaatje
                     </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" wire:model.defer="replace" name="replace" value="0" id="replace2">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" wire:model.defer="replace" name="replace"
+                        value="0" id="replace2">
                     <label class="form-check-label" for="replace2">
-                      Maak aan als nieuw plaatje
+                        Maak aan als nieuw plaatje
                     </label>
-                  </div>
+                </div>
             </div>
         </div>
-    <div class="row mt-4">
-        <div class="col">
+        <div class="row mt-4">
+            <div class="col">
                 <button type="submit" class="btn btn-sm btn-primary" wire:loading.class="btn-secondary"
-                wire:loading.attr="disabled"><i class="fa-solid fa-floppy-disk"></i>
+                    wire:loading.attr="disabled"><i class="fa-solid fa-floppy-disk"></i>
                     Opslaan</button>
                 <a href="javascript:;" id="download" download="plaaje.jpg" class="btn btn-sm btn-primary"><i
                         class="fa-solid fa-download"></i> Download</a>
                 <textarea name="newimage" id="newimage" class="d-none"></textarea>
 
+            </div>
         </div>
-    </div>
-</form>
+    </form>
     @push('scripts')
         <script>
             const image = document.getElementById('image');

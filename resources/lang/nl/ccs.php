@@ -30,7 +30,7 @@ return [
     'privacy-policy' => 'Privacy Policy',
     'disclaimer' => 'Disclaimer',
     'compri-group' => 'Compri Groep',
-    'company' => 'Compri coating Service',
+    'company' => 'De Culturele',
     'name' => 'Naam',
     'email' => 'Emailadres',
     'phone' => 'Telefoon',

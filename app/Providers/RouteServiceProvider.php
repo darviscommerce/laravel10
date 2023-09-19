@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/manta/dashboard';
+    public const HOME = '/cms/evenementen';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
