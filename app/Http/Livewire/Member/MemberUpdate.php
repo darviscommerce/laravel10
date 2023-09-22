@@ -32,8 +32,9 @@ class MemberUpdate extends Component
     public ?string $subject = null;
     public ?string $comments = null;
     public ?string $internal_contact = null;
+    public ?string $iban = null;
 
-    public function mount(Request $request, $input)
+    public function mount($input)
     {
         $item = MantaMember::find($input);
         if ($item == null) {
@@ -56,6 +57,7 @@ class MemberUpdate extends Component
         $this->birthdate = $item->birthdate;
         $this->newsletters = $item->newsletters;
         $this->comments = $item->comments;
+        $this->iban = $item->iban;
     }
 
     public function render()
@@ -104,6 +106,7 @@ class MemberUpdate extends Component
             'subject' => $this->subject,
             'comments' => $this->comments,
             'internal_contact' => $this->internal_contact,
+            'iban' => $this->iban,
         ];
         MantaMember::where('id', $this->item->id)->update($arr);
         $this->item = MantaMember::find($this->item->id);

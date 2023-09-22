@@ -16,7 +16,7 @@
             <label for="locale" class="col-sm-2 col-form-label">Taal</label>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm @error('locale')is-invalid @enderror" id="locale"
-                    wire:model="locale">
+                    wire:model.defer="locale">
                     <option value="nl">nl</option>
                     <option value="en">en</option>
                     <option value="de">de</option>
@@ -35,7 +35,7 @@
             <label for="company" class="col-sm-2 col-form-label">Bedrijf</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('company')is-invalid @enderror"
-                    id="company" wire:model="company">
+                    id="company" wire:model.defer="company">
                 @error('company')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -48,7 +48,7 @@
             <label for="title" class="col-sm-2 col-form-label">Aanspreektitel</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('title')is-invalid @enderror"
-                    id="title" wire:model="title">
+                    id="title" wire:model.defer="title">
                 @error('title')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -56,7 +56,7 @@
             <label for="sex" class="col-sm-2 col-form-label">Geslacht</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('sex')is-invalid @enderror"
-                    id="title" wire:model="sex">
+                    id="title" wire:model.defer="sex">
                 @error('sex')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -66,7 +66,7 @@
             <label for="firstname" class="col-sm-2 col-form-label">Voornaam</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('firstname')is-invalid @enderror"
-                    id="firstname" wire:model="firstname">
+                    id="firstname" wire:model.defer="firstname">
                 @error('firstname')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -74,7 +74,7 @@
             <label for="lastname" class="col-sm-2 col-form-label">Achternaam</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('lastname')is-invalid @enderror"
-                    id="lastname" wire:model="lastname">
+                    id="lastname" wire:model.defer="lastname">
                 @error('lastname')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -84,7 +84,7 @@
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-4">
                 <input type="email" class="form-control form-control-sm @error('email')is-invalid @enderror"
-                    id="email" wire:model="email">
+                    id="email" wire:model.defer="email">
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -92,7 +92,7 @@
             <label for="phone" class="col-sm-2 col-form-label">Telefoon</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('phone')is-invalid @enderror"
-                    id="phone" wire:model="phone">
+                    id="phone" wire:model.defer="phone">
                 @error('phone')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -102,7 +102,7 @@
             <label for="birthdate" class="col-sm-2 col-form-label">Geboortedatum</label>
             <div class="col-sm-4">
                 <input type="date" class="form-control form-control-sm @error('birthdate')is-invalid @enderror"
-                    id="birthdate" wire:model="birthdate">
+                    id="birthdate" wire:model.defer="birthdate">
                 @error('birthdate')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -115,7 +115,7 @@
             <label for="address" class="col-sm-2 col-form-label">Adres</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('address')is-invalid @enderror"
-                    id="address" wire:model="address">
+                    id="address" wire:model.defer="address">
                 @error('address')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -128,7 +128,7 @@
             <label for="zipcode" class="col-sm-2 col-form-label">Postcode</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('zipcode')is-invalid @enderror"
-                    id="zipcode" wire:model="zipcode">
+                    id="zipcode" wire:model.defer="zipcode">
                 @error('zipcode')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -136,7 +136,7 @@
             <label for="city" class="col-sm-2 col-form-label">Woonplaats</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('city')is-invalid @enderror"
-                    id="city" wire:model="city">
+                    id="city" wire:model.defer="city">
                 @error('city')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -146,7 +146,7 @@
             <label for="country" class="col-sm-2 col-form-label">Land</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('country')is-invalid @enderror"
-                    id="country" wire:model="country">
+                    id="country" wire:model.defer="country">
                 @error('country')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -155,25 +155,24 @@
             <div class="col-sm-5">
             </div>
         </div> --}}
-        {{-- <div class="mb-3 row">
-            <label for="internal_contact" class="col-sm-2 col-form-label">Intern contactpersoon</label>
+        <div class="mb-3 row">
+            <label for="iban" class="col-sm-2 col-form-label">IBAN</label>
             <div class="col-sm-4">
-                <input type="text"
-                    class="form-control form-control-sm @error('internal_contact')is-invalid @enderror"
-                    id="internal_contact" wire:model="internal_contact">
-                @error('internal_contact')
+                <input type="text" class="form-control form-control-sm @error('iban')is-invalid @enderror"
+                    id="iban" wire:model.defer="iban">
+                @error('iban')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <label for="initials" class="col-sm-1 col-form-label"></label>
             <div class="col-sm-5">
             </div>
-        </div> --}}
+        </div>
         <div class="mb-3 row">
             <label for="newsletters" class="col-sm-2 col-form-label">Nieuwsbrief ontvangen?</label>
             <div class="col-sm-4">
-                <select class="form-control form-control-sm @error('newsletters')is-invalid @enderror" id="newsletters"
-                    wire:model="newsletters">
+                <select class="form-control form-control-sm @error('newsletters')is-invalid @enderror"
+                    id="newsletters" wire:model.defer="newsletters">
                     <option value="1">Ja</option>
                     <option value="0">Nee</option>
                 </select>
@@ -189,7 +188,7 @@
             <label for="subject" class="col-sm-2 col-form-label">Onderwerp</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control form-control-sm @error('subject')is-invalid @enderror"
-                    id="subject" wire:model="subject">
+                    id="subject" wire:model.defer="subject">
                 @error('subject')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -202,7 +201,7 @@
             <label for="comments" class="col-sm-2 col-form-label">Opmerkingen</label>
             <div class="col-sm-4">
                 <textarea class="form-control form-control-sm @error('comments')is-invalid @enderror" rows="4" id="comments"
-                    wire:model="comments"></textarea>
+                    wire:model.defer="comments"></textarea>
                 @error('comments')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
