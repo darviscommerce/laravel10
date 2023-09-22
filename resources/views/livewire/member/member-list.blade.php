@@ -36,6 +36,7 @@
                 <th>Datum</th>
                 <th>Naam</th>
                 <th>Email</th>
+                <th>IBAN</th>
                 <th width="250">Tools</th>
             </tr>
         </thead>
@@ -51,6 +52,9 @@
                     </td>
                     <td>
                         {{ $item->email }}
+                    </td>
+                    <td>
+                        {{ $item->iban ?? '--' }}
                     </td>
                     <td>
                         @if ($item->trashed())

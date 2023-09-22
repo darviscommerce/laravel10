@@ -137,15 +137,15 @@
         <div class="col-sm-5">
         </div>
     </div> --}}
-    {{-- <div class="mb-3 row">
-        <label for="internal_contact" class="col-sm-2 col-form-label">Intern contactpersoon</label>
+    <div class="mb-3 row">
+        <label for="iban" class="col-sm-2 col-form-label">IBAN</label>
         <div class="col-sm-4">
-            {{ $item->internal_contact }}
+            {{ $item->iban }}
         </div>
         <label for="initials" class="col-sm-1 col-form-label"></label>
         <div class="col-sm-5">
         </div>
-    </div> --}}
+    </div>
     <div class="mb-3 row">
         <label for="newsletters" class="col-sm-2 col-form-label">Nieuwsbrief ontvangen?</label>
         <div class="col-sm-4">

@@ -46,5 +46,6 @@ class MantaMember extends Model
         'comments',
         'internal_contact',
         'ip',
+        'iban',
     ];
 }
